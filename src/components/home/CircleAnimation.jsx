@@ -69,7 +69,7 @@ const CircleAnimation = () => {
     <div className="circle-animation-div relative w-[320px] sm:w-[530px] h-[265px] sm:h-[530px] mx-auto">
       {/* Top Circle */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(0, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(0, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           1
         </div>
       </div>
@@ -82,7 +82,7 @@ const CircleAnimation = () => {
       </div>
       {/* Right Circle */}
       <div className="absolute top-1/2 right-[30px] sm:right-0 transform -translate-y-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(1, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(1, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           2
         </div>
       </div>
@@ -96,7 +96,7 @@ const CircleAnimation = () => {
 
       {/* Bottom Circle */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(2, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(2, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           3
         </div>
       </div>
@@ -110,7 +110,7 @@ const CircleAnimation = () => {
 
       {/* Left Circle */}
       <div className="absolute top-1/2 left-[30px] sm:left-0 transform -translate-y-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(3, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(3, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           4
         </div>
       </div>
@@ -127,7 +127,7 @@ const CircleAnimation = () => {
         {[...Array(9)].map((_, index) => (
           <div
             key={index}
-            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(levelDonationCount, index + 1, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-xs font-medium transition-all duration-300`}
+            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(levelDonationCount, index + 1, selectedLevelNo)} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
           >
             {index + 1}
           </div>

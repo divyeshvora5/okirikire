@@ -78,14 +78,14 @@ const HomeCircleAnimation = () => {
             {/* Top Circle */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
                 <div
-                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level >= 0 && level <= 3 ? LEVEL[0] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-all duration-500`}
+                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level >= 0 && level <= 3 ? LEVEL[0] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}
                 >
                     1
                 </div>
             </div>
             <div
                 className="absolute top-[12%] right-[20%] sm:right-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden"
-                style={{ opacity: arrowOpacity[0], transition: "opacity 0.5s", transform: "rotate(90deg)" }}
+                style={{ opacity: arrowOpacity[0], transition: "opacity 2s ease-in-out", transform: "rotate(90deg)" }}
             >
                 <img
                     src="/images/edge-arrow.svg"
@@ -97,13 +97,13 @@ const HomeCircleAnimation = () => {
             {/* Right Circle */}
             <div className="absolute top-1/2 right-[30px] sm:right-0 transform -translate-y-1/2">
                 <div
-                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level > 0 && level <= 3 ? LEVEL[1] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-all duration-500`}
+                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level > 0 && level <= 3 ? LEVEL[1] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}
                 >
                     2
                 </div>
             </div>
             <div className="absolute bottom-[12%] right-[20%] sm:right-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[180deg]"
-                style={{ opacity: arrowOpacity[1], transition: "opacity 0.5s" }}>
+                style={{ opacity: arrowOpacity[1], transition: "opacity 2s ease-in-out" }}>
                 <img
                     src="/images/edge-arrow.svg"
                     alt="Okirikiri Logo"
@@ -114,13 +114,13 @@ const HomeCircleAnimation = () => {
             {/* Bottom Circle */}
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
                 <div
-                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level > 1 && level <= 3 ? LEVEL[2] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-all duration-500`}
+                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level > 1 && level <= 3 ? LEVEL[2] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}
                 >
                     3
                 </div>
             </div>
             <div className="absolute bottom-[12%] left-[20%] sm:left-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[270deg]"
-                style={{ opacity: arrowOpacity[2], transition: "opacity 0.5s" }}>
+                style={{ opacity: arrowOpacity[2], transition: "opacity 2s ease-in-out" }}>
                 <img
                     src="/images/edge-arrow.svg"
                     alt="Okirikiri Logo"
@@ -131,13 +131,13 @@ const HomeCircleAnimation = () => {
             {/* Left Circle */}
             <div className="absolute top-1/2 left-[30px] sm:left-0 transform -translate-y-1/2">
                 <div
-                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level > 2 && level === 3 ? LEVEL[3] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-all duration-500`}
+                    className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${level > 2 && level === 3 ? LEVEL[3] : "bg-black"} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}
                 >
                     4
                 </div>
             </div>
             <div className="absolute top-[12%] left-[20%] sm:left-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[360deg]"
-                style={{ opacity: arrowOpacity[3], transition: "opacity 0.5s" }}>
+                style={{ opacity: arrowOpacity[3], transition: "opacity 2s ease-in-out" }}>
                 <img
                     src="/images/edge-arrow.svg"
                     alt="Okirikiri Logo"
@@ -153,7 +153,7 @@ const HomeCircleAnimation = () => {
                         className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isFilled(index + 1) && level === 0 ? LEVEL[0] :
                             (isFilled(index + 1) && level === 1 ? LEVEL[1] :
                                 (isFilled(index + 1) && level === 2 ? LEVEL[2] :
-                                    (isFilled(index + 1) && level === 3 ? LEVEL[3] : "bg-black")))} text-white flex items-center justify-center rounded-full text-xs font-medium transition-all duration-300`}
+                                    (isFilled(index + 1) && level === 3 ? LEVEL[3] : "bg-black")))} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
                     >
                         {index + 1}
                     </div>

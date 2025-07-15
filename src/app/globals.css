@@ -911,3 +911,19 @@ body {
     opacity: 1;
   }
 }
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.glow-animate {
+  animation: glowPulse 2s ease-in-out infinite;
+}
