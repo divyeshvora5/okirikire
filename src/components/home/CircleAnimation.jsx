@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 
 
 const LEVEL = {
-    0: "bg-[#1D9A8E]", // Red for level 0
-    1: "bg-[#007CBA]", // Green for level 1
-    2: "bg-[#F2545B]", // Blue for level 2
-    3: "bg-[#F5A623]", // Yellow for level 3
+  0: "bg-[#1D9A8E]", // Red for level 0
+  1: "bg-[#007CBA]", // Green for level 1
+  2: "bg-[#F2545B]", // Blue for level 2
+  3: "bg-[#F5A623]", // Yellow for level 3
 };
 
 const isLevelActive = (level, selectedLevel) => {
@@ -23,7 +23,7 @@ const isLevelActive = (level, selectedLevel) => {
 
 const isInnerCircleFilled = (donationCount, index, selectedLevel) => {
 
-  if (donationCount === null || selectedLevel === null) {
+  if (donationCount === null || selectedLevel === null || selectedLevel === "") {
     return "bg-black";
   }
 
