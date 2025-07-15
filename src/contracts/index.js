@@ -87,7 +87,7 @@ export const approveToken = async ({ wallet, chain, amount }) => {
             method: resolveMethod("allowance"),
             params: [wallet.address, CONTRACT_ADDRESS.okirikiriv2],
         });
-
+        console.log('fromWei(Number(result), USDT_TOKEN_DECIMALS)', fromWei(Number(result), USDT_TOKEN_DECIMALS))
         const allowedAmount = Number(
             fromWei(Number(result), USDT_TOKEN_DECIMALS),
         );
@@ -98,14 +98,16 @@ export const approveToken = async ({ wallet, chain, amount }) => {
         }
 
         const parsedAmount = toWei(
-            amountToApprove.toString(),
+            amount.toString(),
             USDT_TOKEN_DECIMALS,
         );
+
+        console.log('parsedAmount', parsedAmount)
 
         const approveTx = prepareContractCall({
             contract: tokenContract,
             method: "approve",
-            params: [CONTRACT_ADDRESS.okirikiriv2, parsedAmount],
+            params: [CONTRACT_ADDRESS.okirikiriv2, parsedAmount.toString()],
         });
         const approval = await sendAndConfirmTransaction({
             transaction: approveTx,
