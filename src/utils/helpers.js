@@ -29,14 +29,14 @@ export const CountParser = (value, fixTo = 2, length = 1) => {
     }
 };
 
-export const getWithdrawableBalance = (amount = 0, completedLevel = 0) => {
+export const getWithdrawableBalance = (amount = 0, completedLevel = 0, fee = PLATFORM_FEE) => {
     const weiAmount = new BigNumber(toWei(amount));
 
     if (weiAmount.isNaN() || weiAmount.lte(0)) {
         return new BigNumber(0).toFixed(0);
     }
 
-    const feesFactor = 1 - PLATFORM_FEE / 100;
+    const feesFactor = 1 - fee / 100;
 
     const result =
         completedLevel < 4 ? weiAmount.multipliedBy(feesFactor) : weiAmount;
@@ -44,13 +44,14 @@ export const getWithdrawableBalance = (amount = 0, completedLevel = 0) => {
     return result.toFixed(0);
 };
 
-export const getSlippageAmount = (amount = 0) => {
-    const slippage = 1 - SLIPPAGE_CONSTANT / 100;
+export const getSlippageAmount = (amount = 0, slippage = SLIPPAGE_CONSTANT) => {
+    const calculatedslippage = 1 - (slippage / 100);
+
 
     if (amount === 0 || amount === "0") {
         return new BigNumber(0).toFixed(0);
     }
-    return new BigNumber(amount).multipliedBy(slippage).toFixed(0);
+    return new BigNumber(amount).multipliedBy(calculatedslippage).toFixed(0);
 };
 
 export const fixDecimal = (value, fixTo = 5) => {
@@ -220,3 +221,52 @@ export const removeAll = () => {
         console.log("error", error);
     }
 };
+
+
+
+export const getAmountWithFeeDedected = (amount = 0, fee = PLATFORM_FEE) => {
+    const weiAmount = new BigNumber(toWei(amount));
+
+    if (weiAmount.isNaN() || weiAmount.lte(0)) {
+        return new BigNumber(0).toFixed(0);
+    }
+
+    const feesFactor = 1 - fee / 100;
+
+    const result = weiAmount.multipliedBy(feesFactor)
+
+    return result.toFixed(0);
+};
+
+
+
+export const getLevelData = ({ level, path, data, account }) => {
+    if (!data?.eventData?.length) return {
+        donationRecived: 0,
+        donetionCount: 0, //inner cercle
+        totalDoner: 0,
+        yourDonnerNo: 0
+    };
+    const d = data.eventData.filter(ele => (ele?.level === level && ele?.path === path))
+
+    if (d.length > 1) {
+        const sortedData = d.sort((a, b) => b.blockNumber - a.blockNumber);
+
+        return {
+            yourDonnerNo: (sortedData[0]?.donationIndex === 0 && sortedData[0].masterReciver === account?.toLowerCase())
+                ? sortedData[0]?.donationIndex + 1
+                : 0,
+            ...data?.completeData[level]
+        }
+
+    }
+
+    return {
+        yourDonnerNo: (d[0]?.donationIndex === 0 && d[0].masterReciver === account?.toLowerCase())
+            ? d[0]?.donationIndex + 1
+            : 0,
+        ...data?.completeData[level]
+    }
+
+
+}

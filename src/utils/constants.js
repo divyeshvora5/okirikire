@@ -12,10 +12,12 @@ export const CONTRACT_ADDRESS = {
     Marco: "0xDc923f000F8D20f4D9DF2700cFfd656c98D7E274",
     USDT: "0x59bC155805eA06fd96425A25ffDBE601D6622034",
     SwapRouter: "0xc1e6e5FF6548B8efbf8535182Eb2464212f677ff",
-    okirikiriv2: "0x00EF6D68d1d461C5CA60F2FF2950C8718e2Ab4dC",
+    okirikiriv2: "0x95bfFf7e964566DB26C67eCE41129e0b4e57e0bb",
     Weth: "0x15A23DdC4D5360c97ab52F6047283ac14bce2290",
     SwapFactory: "0x979B98C6a303050BA238556Cb65C3C4d7C7FeD57",
 };
+
+export const OKIRIKIRE_DEPOLOY_BLOCKNUMBER = 57636806;
 
 export const NetworkParams = {
     //** Testnet */
@@ -83,3 +85,10 @@ export const PATH_WITH_LEVEL = {
 export const PLATFORM_FEE = 10; // 10% fee for withdrawals without completing all levels
 
 export const SLIPPAGE_CONSTANT = 1; // 1% slippage for swaps
+
+
+
+export const API_ROUTE = {
+    GOOGLE_SHEET: "/api/sheet",
+    NEWSLETTER: "/api/newsletter"
+}

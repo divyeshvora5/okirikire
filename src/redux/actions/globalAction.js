@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast as Toast } from "react-toastify";
 import {
     delay,
+    fromWei,
     getWithdrawableBalance,
     validateNetwork,
 } from "@/utils/helpers";
@@ -15,8 +16,12 @@ import {
     advanceToNextLevel,
     approveToken,
     getCompletedLevels,
+    getfeeBasisPoints,
 } from "@/contracts";
-import { PATH_WITH_LEVEL } from "@/utils/constants";
+import { CONTRACT_ADDRESS, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, PATH_WITH_LEVEL, PLATFORM_FEE } from "@/utils/constants";
+import { Contract } from "ethers";
+import OkirikiriV2 from "@/abi/OkirikiriV2.json";
+import { ZERO_ADDRESS } from "thirdweb";
 
 //** Error Handlers */
 const handleContractResponse = (toastId, result, successMsg, errorMsg) => {
@@ -80,6 +85,7 @@ export const donateAction = createAsyncThunk(
                 chain,
                 amount: donationPrice,
             });
+            console.log('tokenApproval', tokenApproval)
             await delay(2000); // To show approval toast
             Toast.dismiss(approval_toast_id);
             if (!tokenApproval.success) {
@@ -125,7 +131,7 @@ export const donateAction = createAsyncThunk(
 export const withdrawAction = createAsyncThunk(
     "global/withdrawAction",
     async (
-        { path, inMarco = false, wallet, chain, signMessage },
+        { path, inMarco = false, wallet, chain, signMessage, withdrawamount },
         { getState, rejectWithValue, dispatch },
     ) => {
         let sign_toast_id, toast_id;
@@ -134,8 +140,10 @@ export const withdrawAction = createAsyncThunk(
             const { userBalances, completedLevel, walletDetails } = global;
             const { account, chainId } = walletDetails || {};
 
-            const userBalance = userBalances?.[path] || "0";
+            const userBalance = Math.min(withdrawamount, userBalances?.[path] || 0);
             const userCompletedLevel = completedLevel?.[path] || 0;
+
+            console.log('userBalance', userBalance)
 
             const validate = validateNetwork(account, chain?.id);
             if (!validate.status) {
@@ -156,8 +164,10 @@ export const withdrawAction = createAsyncThunk(
             Toast.dismiss(sign_toast_id);
             toast_id = Toast.loading("Processing withdrawal...");
 
+            const feeData = await getfeeBasisPoints({ wallet, chain });
+
             const withdrawAmount = inMarco
-                ? getWithdrawableBalance(userBalance, userCompletedLevel)
+                ? getWithdrawableBalance(userBalance, userCompletedLevel, feeData.data?.fee || PLATFORM_FEE)
                 : 0;
 
             const result = await withdrawFromPath({
@@ -317,11 +327,11 @@ export const advanceToNextLevelAction = createAsyncThunk(
                 if (!approvalResult.success) {
                     Toast.error(
                         approvalResult.message ||
-                            "Token approval for next level failed",
+                        "Token approval for next level failed",
                     );
                     return rejectWithValue(
                         approvalResult.message ||
-                            "Token approval for next level failed",
+                        "Token approval for next level failed",
                     );
                 }
             }
@@ -372,6 +382,7 @@ export const getUserBalanceAction = createAsyncThunk(
     "global/getUserBalanceAction",
     async ({ wallet, path, chain }, { rejectWithValue }) => {
         const result = await getUserBalance({ wallet, path, chain });
+        console.log('result', result)
         if (result.success) return result.data;
         else
             return rejectWithValue(
@@ -405,3 +416,120 @@ export const getCompletedLevelsAction = createAsyncThunk(
             );
     },
 );
+
+
+//** Get Completed Levels Action */
+export const getFeeAction = createAsyncThunk(
+    "global/getFeeAction",
+    async ({ wallet, chain }, { rejectWithValue }) => {
+        try {
+            const result = await getfeeBasisPoints({ wallet, chain });
+
+            if (result.success) return result.data?.fee;
+            else
+                return rejectWithValue(
+                    result.message || "Failed to fetch fee",
+                );
+        } catch (err) {
+            console.log('err', err)
+            return rejectWithValue(err?.message)
+        }
+    },
+);
+
+export const getLevelDataAction = createAsyncThunk(
+    "global/getLevelDataAction",
+    async ({ library, account, chain, wallet }, { rejectWithValue, getState }) => {
+        const completeData = {}
+        try {
+
+            if (!library || !account || !chain || !wallet) {
+                return rejectWithValue("Invalid params details")
+            };
+
+            const contract = new Contract(CONTRACT_ADDRESS.okirikiriv2, OkirikiriV2, library)
+            if (!contract) {
+                return rejectWithValue("Contract initialization faield!")
+            }
+
+            const state = getState();
+            const { globalPath } =
+                state.global;
+
+            const eventFilter = contract.filters.Donation(account); // Filtering by connected wallet address
+
+            const [events, leveldata1, leveldata2, leveldata3, leveldata4, currentLevel] = await Promise.all([
+                contract.queryFilter(eventFilter, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest"),
+                getPathDetails({ path: globalPath, chain, level: "0" }),
+                getPathDetails({ path: globalPath, chain, level: "1" }),
+                getPathDetails({ path: globalPath, chain, level: "2" }),
+                getPathDetails({ path: globalPath, chain, level: "3" }),
+                getCurrentUserLevel({ wallet, path: globalPath, chain })
+            ])
+
+            if (leveldata1?.success) {
+                completeData["0"] = {
+                    donationRecived: leveldata1?.data?.resultArr[4],
+                    totalDoner: (leveldata1?.data?.resultArr[3] === 0 && leveldata1?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
+                        ? 0
+                        : leveldata1?.data?.resultArr[3] + 1,
+                    donetionCount: leveldata1?.data?.resultArr[1]
+                }
+            }
+
+            if (leveldata2?.success) {
+                completeData["1"] = {
+                    donationRecived: leveldata2?.data?.resultArr[4],
+                    totalDoner: (leveldata2?.data?.resultArr[3] === 0 && leveldata2?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
+                        ? 0
+                        : leveldata2?.data?.resultArr[3] + 1,
+                    donetionCount: leveldata2?.data?.resultArr[1]
+                }
+            }
+
+            if (leveldata3?.success) {
+                completeData["2"] = {
+                    donationRecived: leveldata3?.data?.resultArr[4],
+                    totalDoner: (leveldata3?.data?.resultArr[3] === 0 && leveldata3?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
+                        ? 0
+                        : leveldata3?.data?.resultArr[3] + 1,
+                    donetionCount: leveldata3?.data?.resultArr[1]
+                }
+            }
+
+            if (leveldata4?.success) {
+                completeData["3"] = {
+                    donationRecived: leveldata4?.data?.resultArr[4],
+                    totalDoner: (leveldata4?.data?.resultArr[3] === 0 && leveldata4?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
+                        ? 0
+                        : leveldata4?.data?.resultArr[3] + 1,
+                    donetionCount: leveldata4?.data?.resultArr[1]
+                }
+            }
+
+            const data = events.map((event) => {
+                const args = event.args
+                const blockNumber = event.blockNumber
+                return {
+                    doner: args[0]?.toLowerCase(),
+                    path: Number(args[1]),
+                    level: Number(args[2]),
+                    donationIndex: Number(args[3]),
+                    amount: +fromWei(Number(args[4])),
+                    masterReciver: args[5]?.toLowerCase(),
+                    blockNumber
+                }
+            })
+
+
+            return {
+                currentUserLevel: currentLevel?.success ? currentLevel?.data : {},
+                eventData: data,
+                completeData
+            }
+        } catch (err) {
+            console.log('err', err)
+            return rejectWithValue(err.message);
+        }
+    },
+)

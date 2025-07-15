@@ -8,9 +8,10 @@ import {
     sendAndConfirmTransaction,
     readContract,
     resolveMethod,
+    ZERO_ADDRESS,
 } from "thirdweb";
-import { CONTRACT_ADDRESS, USDT_TOKEN_DECIMALS } from "@/utils/constants";
-import { delay, fromWei, getSlippageAmount } from "@/utils/helpers";
+import { CONTRACT_ADDRESS, PATH_WITH_LEVEL, SLIPPAGE_CONSTANT, USDT_TOKEN_DECIMALS } from "@/utils/constants";
+import { delay, fromWei, getAmountWithFeeDedected, getSlippageAmount } from "@/utils/helpers";
 import { client } from "@/utils/walletPrefrences";
 
 const returnObject = (success = false, message = "", data = null) => ({
@@ -119,8 +120,8 @@ export const approveToken = async ({ wallet, chain, amount }) => {
         const message = error.message?.includes("insufficient funds")
             ? "Insufficient funds!"
             : error.message?.includes("User denied transaction")
-              ? "Token approval Denied"
-              : "Something went wrong while approving token";
+                ? "Token approval Denied"
+                : "Something went wrong while approving token";
         return returnObject(false, message);
     }
 };
@@ -154,11 +155,11 @@ export const donateToPath = async ({ path, wallet, chain }) => {
         return returnObject(false, "Donation transaction failed");
     } catch (error) {
         console.log("donateToPath error:", error);
-        const message = error.message?.includes("insufficient funds")
+        const message = (error.message?.includes("insufficient funds") || error.message?.includes("0xe450d38c"))
             ? "Insufficient funds!"
             : error.message?.includes("User has already entered this path")
-              ? "You have already entered this path"
-              : "Something went wrong while donating";
+                ? "You have already entered this path"
+                : "Something went wrong while donating";
         return returnObject(false, message);
     }
 };
@@ -304,32 +305,51 @@ export const advanceToNextLevel = async ({
         )
             ? "Complete the current level before Moving to next level"
             : error.message?.includes("Insufficient balance")
-              ? "Insufficient balance"
-              : "Something went wrong while Moving to next level";
+                ? "Insufficient balance"
+                : "Something went wrong while Moving to next level";
         return returnObject(false, message);
     }
 };
 
 //** Path Details Contract Call */
-export const getPathDetails = async ({ path, chain }) => {
+export const getPathDetails = async ({ path, chain, level = "0" }) => {
     try {
         const contract = getOkirikiriV2Contract(chain);
 
         if (!contract) return returnObject(false, "Contract not found");
 
+        console.log('path', path)
+
         const result = await readContract({
             contract: contract,
             method: resolveMethod("levels"),
-            params: [path, "0"],
+            params: [path, level], // chage levele according to need o to 3
         });
+
+        console.log('getPathDetails', result)
+
+        // event Donation(
+        //     address indexed donor,
+        //     Path path,
+        //     uint256 level,
+        //     uint256 donationIndex,
+        //     uint256 amount,
+        //     address indexed masterReceiver
+        // );
+
+        // donationIndex + 1 = you are doner total 8 event geted after filter based on path and level
+        // level also level + 1 (start from 0)
         if (result?.length) {
             return returnObject(true, "Path details fetched.", {
                 path,
                 resultArr: [
-                    result[0],
-                    Number(result[1]),
-                    Number(result[2]),
-                    Number(result[3]),
+                    result[0],         // current master address
+                    Number(result[1]), // donation count 1 to 9
+                    Number(result[2]), // head
+                    Number(result[3]), // tail + 1 * (path / level donation amount)  // total okiriki doner ma tail + 1
+                    (Number(result[3]) === 0 && result[0]?.toLowerCase() === ZERO_ADDRESS)
+                        ? 0 :
+                        (Number(result[3]) + 1) * PATH_WITH_LEVEL[path]?.level[level]?.entryAmount,
                 ],
             });
         }
@@ -415,5 +435,117 @@ export const getCompletedLevels = async ({ wallet, path, chain }) => {
     } catch (error) {
         console.log("getCompletedLevels error:", error);
         return returnObject(false, "Error fetching completed levels");
+    }
+};
+
+
+
+export const getfeeBasisPoints = async ({ wallet, chain }) => {
+    try {
+        if (!wallet?.address) return returnObject(false, "No wallet connected");
+
+        const contract = getOkirikiriV2Contract(chain);
+
+        if (!contract) return returnObject(false, "Contract not found");
+
+        const result = await readContract({
+            contract: contract,
+            method: resolveMethod("feeBasisPoints"),
+            params: [],
+        });
+
+        return returnObject(true, "fee fetched", {
+            fee: Number(result),
+        });
+    } catch (error) {
+        console.log("getfeeBasisPoints error:", error);
+        return returnObject(false, "Error fetching fee");
+    }
+}
+
+export const getMarcoPrice = async ({
+    chain,
+}) => {
+
+
+    const routerContract = getContract({
+        client,
+        chain,
+        address: CONTRACT_ADDRESS.SwapRouter,
+        abi: DEXRouter,
+    });
+
+    if (!routerContract) {
+        throw new Error("Router contract not found");
+    }
+
+    const result = await readContract({
+        contract: routerContract,
+        method: resolveMethod("getAmountsOut"),
+        params: [
+            1,
+            [CONTRACT_ADDRESS.USDT, CONTRACT_ADDRESS.Marco],
+        ],
+    });
+
+    if (!result || !result.length) {
+        throw new Error("Failed to get marco amounts out");
+    }
+
+
+    const marcoAmount = result[result.length - 1];
+
+
+    return 1 / Number(marcoAmount)
+
+};
+
+
+export const getMacroAmountOutWithSlipage = async ({
+    withdrawAmount,
+    chain,
+    fee,
+    slippage = SLIPPAGE_CONSTANT
+}) => {
+
+    const formattedWithdrawAmount = withdrawAmount * 1000;
+
+
+    const routerContract = getContract({
+        client,
+        chain,
+        address: CONTRACT_ADDRESS.SwapRouter,
+        abi: DEXRouter,
+    });
+
+    if (!routerContract) {
+        throw new Error("Router contract not found");
+    }
+
+    const result = await readContract({
+        contract: routerContract,
+        method: resolveMethod("getAmountsOut"),
+        params: [
+            formattedWithdrawAmount,
+            [CONTRACT_ADDRESS.USDT, CONTRACT_ADDRESS.Marco],
+        ],
+    });
+
+    if (!result || !result.length) {
+        throw new Error("Failed to get marco amounts out");
+    }
+
+    console.log('result', result)
+
+    // const marcoAmount = fromWei(result[result.length - 1].toString());
+    const marcoAmount = result[result.length - 1] / 1000n;
+
+    const slippageAmount = getSlippageAmount(marcoAmount, slippage);
+    const finalAmount = fromWei(getAmountWithFeeDedected(marcoAmount, fee))
+
+    return {
+        finalAmount: finalAmount,
+        slippageAmount,
+        // dedectedFee:( Number(slippageAmount) - Number(finalAmount)).toFixed(3)
     }
 };

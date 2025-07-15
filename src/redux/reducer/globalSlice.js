@@ -5,11 +5,21 @@ import {
     exitAction,
     getCompletedLevelsAction,
     getCurrentUserLevelAction,
+    getFeeAction,
+    getLevelDataAction,
     getPathDetailsAction,
     getUserBalanceAction,
     withdrawAction,
 } from "../actions/globalAction";
 import { DEFAULT_PATH, MINI_PATH, STANDARD_PATH } from "@/utils/constants";
+
+
+export const LEVELDATA_LOADING_STATE = {
+    INITIAL: "INITIAL",
+    PENDING: "PENDING",
+    COMPLETED: "COMPLETED",
+    REJECTED: "REJECTED"
+}
 
 const createLevelData = () => ({
     currentMasterReceiver: null,
@@ -66,6 +76,20 @@ const initialState = {
     //Completed Levels
     isCompletedLevelsLoading: false,
     completedLevel: createCompletedLevelsState(),
+
+    //getleveldata
+    levelData: {},
+    levelDataFetchState: LEVELDATA_LOADING_STATE.INITIAL,
+
+    fee: null,
+
+
+    withdrawTokenSelect: "USDT",
+
+
+    selectedLevelNo: null,
+    levelDonationCount: null
+
 };
 
 const globalSlice = createSlice({
@@ -93,6 +117,15 @@ const globalSlice = createSlice({
             state.userBalances = createUserState();
             state.completedLevel = createCompletedLevelsState();
         },
+        setWithDrawTokenSelectAction: (state, { payload }) => {
+            state.withdrawTokenSelect = payload
+        },
+        setSelectedLevel: (state, { payload }) => {
+            state.selectedLevelNo = payload;
+        },
+        setLevelDonationCount: (state, { payload }) => {
+            state.levelDonationCount = payload
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -216,7 +249,51 @@ const globalSlice = createSlice({
                 (state, { payload }) => {
                     state.isCompletedLevelsLoading = false;
                 },
-            );
+            )
+
+            //getLeveldataAction
+            .addCase(
+                getLevelDataAction.pending,
+                (state) => {
+                    state.levelDataFetchState = LEVELDATA_LOADING_STATE.PENDING;
+                }
+            )
+            .addCase(
+                getLevelDataAction.fulfilled,
+                (state, { payload }) => {
+                    state.levelData = payload;
+                    state.levelDataFetchState = LEVELDATA_LOADING_STATE.COMPLETED;
+                },
+            )
+            .addCase(
+                getLevelDataAction.rejected,
+                (state, { payload }) => {
+                    state.isCompletedLevelsLoading = LEVELDATA_LOADING_STATE.REJECTED;
+                },
+            )
+
+            //getfee
+
+            .addCase(
+                getFeeAction.pending,
+                (state) => {
+                    state.contractLoading = true;
+                }
+            )
+            .addCase(
+                getFeeAction.fulfilled,
+                (state, { payload }) => {
+                    state.contractLoading = false;
+                    state.fee = payload / 100;
+                },
+            )
+            .addCase(
+                getFeeAction.rejected,
+                (state, { payload }) => {
+                    state.contractLoading = false;
+                },
+            )
+
     },
 });
 
@@ -227,6 +304,9 @@ export const {
     setChainId,
     setGlobalPath,
     resetGlobalStates,
+    setWithDrawTokenSelectAction,
+    setSelectedLevel,
+    setLevelDonationCount
 } = globalSlice.actions;
 
 export const globalReducer = globalSlice.reducer;

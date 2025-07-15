@@ -14,6 +14,7 @@ import { removeStorageData, saveStorageData } from "@/utils/helpers";
 import {
     getCompletedLevelsAction,
     getCurrentUserLevelAction,
+    getFeeAction,
     getPathDetailsAction,
     getUserBalanceAction,
 } from "@/redux/actions/globalAction";
@@ -21,8 +22,12 @@ import {
 const WalletSync = () => {
     const { account, chainId, status, wallet, chain, deactivate } =
         useActiveWeb3React();
-    const { globalPath } = useSelector(globalState);
+    const { globalPath, fee } = useSelector(globalState);
     const dispatch = useDispatch();
+
+    console.log('fee', fee)
+
+    console.log('globalPath', globalPath)
 
     useEffect(() => {
         if (!chain) {
@@ -39,6 +44,7 @@ const WalletSync = () => {
             getCurrentUserLevelAction({ wallet, path: globalPath, chain }),
         );
         dispatch(getCompletedLevelsAction({ wallet, path: globalPath, chain }));
+        dispatch(getFeeAction({ wallet, chain }))
     }, [wallet?.address, chain, globalPath]);
 
     useEffect(() => {
