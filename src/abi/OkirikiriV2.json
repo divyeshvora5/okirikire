@@ -1,0 +1,592 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_admin",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_usdt",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_marco",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_router",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "oldAdmin",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newAdmin",
+                "type": "address"
+            }
+        ],
+        "name": "AdminUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "donor",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "level",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "masterReceiver",
+                "type": "address"
+            }
+        ],
+        "name": "Donation",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "oldFee",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "newFee",
+                "type": "uint256"
+            }
+        ],
+        "name": "FeeUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "fromLevel",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "toLevel",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "donationAmount",
+                "type": "uint256"
+            }
+        ],
+        "name": "LevelAdvanced",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "oldRouter",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newRouter",
+                "type": "address"
+            }
+        ],
+        "name": "RouterUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "withdrawnAmount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "inMarco",
+                "type": "bool"
+            }
+        ],
+        "name": "UserExit",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "fee",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "inMarco",
+                "type": "bool"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "netAmount",
+                "type": "uint256"
+            }
+        ],
+        "name": "Withdrawal",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "admin",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            }
+        ],
+        "name": "advanceToNextLevel",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "name": "balances",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "name": "completedLevels",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "name": "currentLevel",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            }
+        ],
+        "name": "donate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bool",
+                "name": "inMarco",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amountOutMin",
+                "type": "uint256"
+            }
+        ],
+        "name": "exit",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "feeBasisPoints",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint256",
+                "name": "level",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "queueIndex",
+                "type": "uint256"
+            }
+        ],
+        "name": "getUseratLevelIndex",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "",
+                "type": "uint8"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "levels",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "currentMasterReceiver",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "donationCount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "head",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tail",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "marco",
+        "outputs": [
+            {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "miniDonations",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "standardDonations",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "swapRouter",
+        "outputs": [
+            {
+                "internalType": "contract ISwapRouter",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_admin",
+                "type": "address"
+            }
+        ],
+        "name": "updateAdmin",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_feeBasisPoints",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateFeeBasisPoints",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_router",
+                "type": "address"
+            }
+        ],
+        "name": "updateRouter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "usdt",
+        "outputs": [
+            {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "enum OkirikiriV2.Path",
+                "name": "path",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bool",
+                "name": "inMarco",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amountOutMin",
+                "type": "uint256"
+            }
+        ],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
