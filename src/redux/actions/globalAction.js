@@ -58,6 +58,8 @@ export const donateAction = createAsyncThunk(
             const donationPrice =
                 PATH_WITH_LEVEL?.[path]?.level?.[0]?.entryAmount || 0;
 
+            console.log('donationPrice', donationPrice)
+
             const validate = validateNetwork(account, chain?.id);
             if (!validate.status) {
                 Toast.error(validate.message);
@@ -520,7 +522,6 @@ export const getLevelDataAction = createAsyncThunk(
                     blockNumber
                 }
             })
-
 
             return {
                 currentUserLevel: currentLevel?.success ? currentLevel?.data : {},

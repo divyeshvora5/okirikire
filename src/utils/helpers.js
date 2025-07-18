@@ -248,12 +248,13 @@ export const getLevelData = ({ level, path, data, account }) => {
         yourDonnerNo: 0
     };
     const d = data.eventData.filter(ele => (ele?.level === level && ele?.path === path))
-
     if (d.length > 1) {
         const sortedData = d.sort((a, b) => b.blockNumber - a.blockNumber);
 
+
         return {
-            yourDonnerNo: (sortedData[0]?.donationIndex === 0 && sortedData[0].masterReciver === account?.toLowerCase())
+            // yourDonnerNo: (sortedData[0]?.donationIndex === 0 && sortedData[0].masterReciver === account?.toLowerCase()) || (sortedData[0]?.donationIndex > 0)
+            yourDonnerNo: sortedData?.length
                 ? sortedData[0]?.donationIndex + 1
                 : 0,
             ...data?.completeData[level]
@@ -262,7 +263,8 @@ export const getLevelData = ({ level, path, data, account }) => {
     }
 
     return {
-        yourDonnerNo: (d[0]?.donationIndex === 0 && d[0].masterReciver === account?.toLowerCase())
+        // yourDonnerNo: (d[0]?.donationIndex === 0 && d[0].masterReciver === account?.toLowerCase()) || (d[0]?.donationIndex > 0)
+        yourDonnerNo: d?.length
             ? d[0]?.donationIndex + 1
             : 0,
         ...data?.completeData[level]

@@ -41,7 +41,6 @@ export default function Profile() {
 
     const handlePathChange = useCallback((newPath) => {
         if (contractLoading || globalPath === newPath) return;
-        console.log('newPath', newPath)
         dispatch(setGlobalPath(newPath));
     }, [contractLoading, globalPath, dispatch]);
 

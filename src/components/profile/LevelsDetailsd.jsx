@@ -47,7 +47,7 @@ const LevelInfo = ({
 
     }, [selectedLevelNo, levelData, account])
 
-
+    console.log('levelData', levelData)
 
     return (
         <>

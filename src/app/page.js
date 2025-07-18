@@ -33,6 +33,7 @@ import CircleAnimation from "@/components/home/CircleAnimation";
 import ContectUsForm from "@/components/home/ContectUsForm";
 import NewsLatter from "@/components/home/NewsLatter";
 import HomeCircleAnimation from "@/components/home/HomeCircleAnimation";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
 
@@ -41,6 +42,9 @@ export default function Home() {
     const dispatch = useDispatch();
     const { wallet, chain, signMessage } = useActiveWeb3React();
     const { contractLoading, globalPath } = useSelector(globalState);
+
+
+    const [active, setActive] = useState("IM")
 
 
     const handleDonate = useCallback(
@@ -151,8 +155,8 @@ export default function Home() {
                                     <AccordionTrigger className="accordion-title-div">2.Share</AccordionTrigger>
                                     <AccordionContent className="flex flex-col gap-4 text-balance">
                                         <p className="font-normal text-base md:text-lg lg:text-xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-black">
-                                            Make <span className="font-semibold">just one donation</span> (starting from <span className="font-semibold">25 USDT</span> or <span className="font-semibold">250 USDT) </span>
-                                            to <span className="font-semibold">reserve your spot</span> and become <span className="font-semibold">Master Receiver 1.</span>
+                                            Tell your friends and network.
+                                            The protocol will automatically assign you <span className="font-semibold"> 90% of the next 9 donations</span> made globally after yours – in strict chronological order.
                                         </p>
                                     </AccordionContent>
                                 </AccordionItem>
@@ -160,8 +164,9 @@ export default function Home() {
                                     <AccordionTrigger className="accordion-title-div">3.Store Up</AccordionTrigger>
                                     <AccordionContent className="flex flex-col gap-4 text-balance">
                                         <p className="font-normal text-base md:text-lg lg:text-xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-black">
-                                            Make <span className="font-semibold">just one donation</span> (starting from <span className="font-semibold">25 USDT</span> or <span className="font-semibold">250 USDT) </span>
-                                            to <span className="font-semibold">reserve your spot</span> and become <span className="font-semibold">Master Receiver 1.</span>
+                                            Watch your donations grow.
+                                            Once your 9 spots are filled, you can  <span className="font-semibold">withdraw your earnings</span> or reinvest to move to the next level.
+                                            <span className="font-semibold">No obligation. You're always in control.</span>
                                         </p>
                                     </AccordionContent>
                                 </AccordionItem>
@@ -171,10 +176,10 @@ export default function Home() {
                     <div className="flex-1 ml-auto lg:ml-[30px] flex lg:block mr-auto lg:mr-0">
                         <div className="pt-[50px]">
                             <div className="relative w-full sm:w-[520px] h-[480px] mx-auto">
-                                {/* <!-- Outer Ring --> */}
+                                {/* Outer Ring */}
                                 <div className="absolute top-[30px] left-[50%] translate-x-[-50%] w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full border-[30px] border-[#F8F8F8]"></div>
 
-                                {/* <!-- Center Logo --> */}
+                                {/* Center Logo */}
                                 <div className="absolute top-[10%] sm:top-1/2 left-1/2 transform -translate-x-[40%] sm:-translate-x-1/2 -translate-y-[-240%] sm:-translate-y-1/2 w-[50px] sm:w-[unset]">
                                     <img
                                         src="/images/multiple-dots-image.svg"
@@ -183,32 +188,65 @@ export default function Home() {
                                     />
                                 </div>
 
-                                {/* <!-- Step 01 - Top --> */}
+                                {/* Step 01 - Top */}
                                 <div className="absolute top-[-8%] left-1/2 transform -translate-x-1/2">
-                                    <div className="group flex flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                    {/* Desktop hover */}
+                                    <div className="hidden sm:flex group flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px]
+                                        rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                        transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
                                         <div className="bg-[#F8F8F8] w-[70px] sm:w-[130px] h-[70px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
                                             <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">01</div>
                                             <div className="text-base sm:text-xl font-semibold text-black group-hover:text-blue-600">Start</div>
                                         </div>
                                     </div>
+                                    {/* Mobile auto animate */}
+                                    <div className="flex sm:hidden mobile-step1 flex-col items-center justify-center w-[120px] h-[120px]
+                                        rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                        <div className="bg-[#e0e0e0] w-[70px] h-[70px] rounded-full flex flex-col justify-center text-center">
+                                            <div className="text-xl font-semibold text-blue-600">01</div>
+                                            <div className="text-sm font-semibold text-blue-600">Start</div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                {/* <!-- Step 02 - Right --> */}
-                                <div className="absolute right-[100px] sm:right-[15%] bottom-[70px] sm:bottom:[unset] top-[unset] sm:top-[70%] transform translate-x-1/2 -translate-y-1/2">
-                                    <div className="group flex flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                {/* Step 02 - Bottom Right */}
+                                <div className="absolute right-[100px] sm:right-[15%] bottom-[70px] sm:bottom-[unset] sm:top-[70%] transform translate-x-1/2 -translate-y-1/2">
+                                    {/* Desktop hover */}
+                                    <div className="hidden sm:flex group flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px]
+                                        rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                        transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
                                         <div className="bg-[#F8F8F8] w-[70px] sm:w-[130px] h-[70px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
                                             <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">02</div>
                                             <div className="text-base sm:text-xl font-semibold text-black group-hover:text-blue-600">Share</div>
                                         </div>
                                     </div>
+                                    {/* Mobile auto animate */}
+                                    <div className="flex sm:hidden mobile-step2 flex-col items-center justify-center w-[120px] h-[120px]
+                                        rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                        <div className="bg-[#e0e0e0] w-[70px] h-[70px] rounded-full flex flex-col justify-center text-center">
+                                            <div className="text-xl font-semibold text-blue-600">03</div>
+                                            <div className="text-sm font-semibold text-blue-600">Store Up</div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                {/* <!-- Step 03 - Left --> */}
-                                <div className="absolute left-[100px] sm:left-[15%] bottom-[70px] sm:bottom:[unset] top-[unset] sm:top-[70%] transform -translate-x-1/2 -translate-y-1/2">
-                                    <div className="group flex flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                {/* Step 03 - Bottom Left */}
+                                <div className="absolute left-[100px] sm:left-[15%] bottom-[70px] sm:bottom-[unset] sm:top-[70%] transform -translate-x-1/2 -translate-y-1/2">
+                                    {/* Desktop hover */}
+                                    <div className="hidden sm:flex group flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px]
+                                        rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                        transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
                                         <div className="bg-[#F8F8F8] w-[70px] sm:w-[130px] h-[70px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
                                             <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">03</div>
                                             <div className="text-base sm:text-xl font-semibold text-black group-hover:text-blue-600">Store Up</div>
+                                        </div>
+                                    </div>
+                                    {/* Mobile auto animate */}
+                                    <div className="flex sm:hidden mobile-step3 flex-col items-center justify-center w-[120px] h-[120px]
+                                        rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                        <div className="bg-[#e0e0e0] w-[70px] h-[70px] rounded-full flex flex-col justify-center text-center">
+                                            <div className="text-xl font-semibold text-blue-600">02</div>
+                                            <div className="text-sm font-semibold text-blue-600">Share</div>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +278,10 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative">
+            <section
+                className="py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative"
+                id="about"
+            >
                 <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] text-black">WHY OKIRIKIRI?</h3>
                 <div className="max-w-[1050px] m-auto">
                     <p className="text-black font-normal text-base md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] mb-[18px] text-center">In <span className="font-semibold">Igbo</span>, Okirikiri means <span className="font-semibold">“circle”</span> — a symbol of continuity, balance, and shared abundance.</p>
@@ -258,12 +299,15 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <section className="px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] py-[30px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px]">
+            <section
+                className="px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] py-[30px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px]"
+                id="how-it-works"
+            >
                 <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] text-black">How It Works</h3>
                 <div className="flex items-center flex-col xl:flex-row">
                     <div className="w-full xl:w-1/2 mb-[30px] xl:mb-0">
                         <HomeCircleAnimation />
-                   
+
                     </div>
                     <div className="flex-1 px-[15px] sm:px-0">
                         <div>
@@ -277,6 +321,7 @@ export default function Home() {
                                 <p className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-black">2. Reinvest part of your collected donations to move up to the next level</p>
                             </div>
                             <p className="font-normal leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px]  text-sm md:text-base lg:text-lg text-black">You decide. No obligation to continue beyond any level.</p>
+                            <p className="font-bold leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px]  text-sm md:text-base lg:text-lg text-black">Note: You can only participate with one wallet and one donation at a time. You must complete each level to move to the next. </p>
                         </div>
                     </div>
                 </div>
@@ -762,60 +807,80 @@ export default function Home() {
                 <h3 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium text-black leading-[100%] tracking-[1px] uppercase text-center mb-[30px]">HOW TO START</h3>
                 <div className="flex flex-col lg:flex-row items-center">
                     <div className="w-full lg:w-1/2 pt-[50px] lg:pt-0 pb-[60px] lg:pb-0">
-                        {/* animation code */}
-                        {/* <div className="w-full h-[570px] overflow-hidden">
-                            <img
-                                src="/images/4-circle-image.png"
-                                alt="Okirikiri Logo"
-                                className="w-full h-full object-contain object-center"
-                            />
-                        </div> */}
                         <div className="relative w-[320px] sm:w-[520px] h-[480px] mx-auto">
-                            {/* <!-- Outer Ring --> */}
+                            {/* Outer Ring */}
                             <div className="absolute top-[30px] left-[50%] translate-x-[-50%] w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full border-[30px] border-[#F8F8F8]"></div>
 
-                            {/* <!-- Center Logo --> */}
+                            {/* Center Logo */}
                             <div className="absolute top-1/2 left-1/2 transform -translate-x-[40%] sm:-translate-x-1/2 -translate-y-[160%] sm:-translate-y-1/2">
-                                <img
-                                    src="/images/multiple-dots-image.svg"
-                                    alt="center logo"
-                                    className="w-[50px] sm:w-[100px] h-[50px] sm:h-[100px]"
-                                />
+                                <img src="/images/multiple-dots-image.svg" alt="center logo" className="w-[50px] sm:w-[100px] h-[50px] sm:h-[100px]" />
                             </div>
 
-                            {/* <!-- Step 01 - Top --> */}
+                            {/* Step 01 - Top */}
                             <div className="absolute top-[-4%] sm:top-[-8%] left-1/2 transform -translate-x-1/2">
-                                <div className="group flex flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
-                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
-                                        <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">01</div>
-                                    </div>
+                                {/* Desktop */}
+                                <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                    transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px]
+                                    rounded-full flex justify-center items-center text-xl sm:text-3xl font-semibold text-black
+                                    group-hover:bg-[#e0e0e0] group-hover:text-blue-600">01</div>
+                                </div>
+                                {/* Mobile */}
+                                <div className="sm:hidden mobile-step mobile-step-01 flex flex-col items-center justify-center w-[100px] h-[100px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                    <div className="mobile-inner bg-[#F8F8F8] w-[60px] h-[60px] rounded-full flex justify-center items-center text-xl font-semibold text-black">01</div>
                                 </div>
                             </div>
 
-                            {/* <!-- Step 02 - Right --> */}
+                            {/* Step 02 - Right */}
                             <div className="absolute right-[30px] sm:right-[15%] top-[40%] sm:top-[50%] transform translate-x-1/2 -translate-y-1/2">
-                                <div className="group flex flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
-                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
-                                        <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">02</div>
-                                    </div>
+                                {/* Desktop */}
+                                <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                    transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px]
+                                    rounded-full flex justify-center items-center text-xl sm:text-3xl font-semibold text-black
+                                    group-hover:bg-[#e0e0e0] group-hover:text-blue-600">02</div>
+                                </div>
+                                {/* Mobile */}
+                                <div className="sm:hidden mobile-step mobile-step-02 flex flex-col items-center justify-center w-[100px] h-[100px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                    <div className="mobile-inner bg-[#F8F8F8] w-[60px] h-[60px] rounded-full flex justify-center items-center text-xl font-semibold text-black">02</div>
                                 </div>
                             </div>
 
-                            {/* <!-- Step 03 - Left --> */}
-                            <div className="absolute left-[30px] sm:left-[15%] top-[40%] sm:top-[50%] transform -translate-x-1/2 -translate-y-1/2">
-                                <div className="group flex flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
-                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
-                                        <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">04</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* <!-- Step 03 - Bottom --> */}
+                            {/* Step 03 - Bottom */}
                             <div className="absolute bottom-[20%] sm:bottom-[-8%] left-1/2 transform -translate-x-1/2">
-                                <div className="group flex flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px] rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
-                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px] rounded-full flex flex-col justify-center text-center transition-all duration-300 ease-in-out group-hover:bg-[#e0e0e0]">
-                                        <div className="text-xl sm:text-3xl font-semibold text-black group-hover:text-blue-600">03</div>
-                                    </div>
+                                {/* Desktop */}
+                                <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                    transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px]
+                                    rounded-full flex justify-center items-center text-xl sm:text-3xl font-semibold text-black
+                                    group-hover:bg-[#e0e0e0] group-hover:text-blue-600">03</div>
+                                </div>
+                                {/* Mobile */}
+                                <div className="sm:hidden mobile-step mobile-step-03 flex flex-col items-center justify-center w-[100px] h-[100px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                    <div className="mobile-inner bg-[#F8F8F8] w-[60px] h-[60px] rounded-full flex justify-center items-center text-xl font-semibold text-black">03</div>
+                                </div>
+                            </div>
+
+                            {/* Step 04 - Left */}
+                            <div className="absolute left-[30px] sm:left-[15%] top-[40%] sm:top-[50%] transform -translate-x-1/2 -translate-y-1/2">
+                                {/* Desktop */}
+                                <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
+                                    transition-all duration-300 ease-in-out hover:ring-4 hover:ring-[#D1D5DB] hover:scale-105">
+                                    <div className="bg-[#F8F8F8] w-[60px] sm:w-[130px] h-[60px] sm:h-[130px]
+                                    rounded-full flex justify-center items-center text-xl sm:text-3xl font-semibold text-black
+                                    group-hover:bg-[#e0e0e0] group-hover:text-blue-600">04</div>
+                                </div>
+                                {/* Mobile */}
+                                <div className="sm:hidden mobile-step mobile-step-04 flex flex-col items-center justify-center w-[100px] h-[100px]
+                                    rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white">
+                                    <div className="mobile-inner bg-[#F8F8F8] w-[60px] h-[60px] rounded-full flex justify-center items-center text-xl font-semibold text-black">04</div>
                                 </div>
                             </div>
                         </div>
@@ -824,8 +889,11 @@ export default function Home() {
                         <div className="relative max-w-xl w-full">
                             <div className="relative mb-2">
                                 <div className="flex items-center">
-                                    <h3 className="pt-[20px] pb-[30px] font-semibold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-[1px] leading-[100%] text-[#818181] active-text">
-                                        1. <span>INSTALL METAMASK</span>
+                                    <h3
+                                        onClick={() => setActive("IM")}
+                                        className={cn("pt-[20px] pb-[30px] font-semibold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-[1px] leading-[100%] text-[#818181]", active === "IM" ? "active-text" : "")}
+                                    >
+                                        1. <Link href="https://metamask.io/" target="_blank">INSTALL METAMASK</Link>
                                     </h3>
                                     <div className="w-[48px] h-auto overflow-hidden ml-[12px]">
                                         <img
@@ -836,32 +904,49 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <div className="h-[2px] bg-[#F3F0F0] relative overflow-hidden">
-                                    <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>
+                                    {active === "IM" && <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>}
                                 </div>
                             </div>
                             <div className="mb-2">
-                                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#818181] font-semibold pt-[20px] pb-[30px] tracking-[1px] leading-[100%]">
+                                <h3
+                                    onClick={() => setActive("BSN")}
+                                    className={cn("text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#818181] font-semibold pt-[20px] pb-[30px] tracking-[1px] leading-[100%] cursor-pointer", active === "BSN" ? "active-text" : "")}>
                                     2. <span>SWITCH TO THE BNB SMART CHAIN</span>
                                 </h3>
-                                <div className="h-[2px] bg-[#F3F0F0]"></div>
+                                <div className="h-[2px] bg-[#F3F0F0] relative overflow-hidden">
+                                    {active === "BSN" && <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>}
+                                </div>
                             </div>
                             <div className="mb-2">
-                                <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#818181] font-semibold pt-[20px] pb-[30px]">
+                                <h3
+                                    onClick={() => setActive("CRD")}
+                                    className={cn("text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#818181] font-semibold pt-[20px] pb-[30px] cursor-pointer", active === "CRD" ? "active-text" : "")}
+                                >
                                     3. <span>BUY BNB WITH YOUR CREDIT CARD & SWAP FOR USDT BEP-20</span>
+                                </h3>
+                                <div className="h-[2px] bg-[#F3F0F0] relative overflow-hidden">
+                                    {active === "CRD" && <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>}
                                 </div>
-                                <div className="h-[2px] bg-[#F3F0F0]"></div>
                             </div>
                             <div className="mb-2">
-                                <div className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#818181] font-semibold pt-[20px] pb-[30px]">
+                                <h3
+                                    onClick={() => setActive("CM")}
+                                    className={cn("text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#818181] font-semibold pt-[20px] pb-[30px] cursor-pointer", active === "CM" ? "active-text" : "")}
+                                >
                                     4. <span>CONNECT METAMASK TO OKIRIKIRI AND CLICK DONATE NOW</span>
+                                </h3>
+                                <div className="h-[2px] bg-[#F3F0F0] relative overflow-hidden">
+                                    {active === "CM" && <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>}
                                 </div>
-                                <div className="h-[2px] bg-[#F3F0F0]"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative">
+            <section
+                className="py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative"
+                id="faq"
+            >
                 <h3 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-[100%] tracking-[1px] uppecase mb-[40px] text-center">FAQ</h3>
                 <div className="faq-accordion-main-div">
                     <Accordion
@@ -873,71 +958,90 @@ export default function Home() {
                         <AccordionItem value="item-1" className="accordion-item-div">
                             <AccordionTrigger className="accordion-trigger-div">What fees are there in OKIRIKIRI and what are they used for?</AccordionTrigger>
                             <AccordionContent className="accordion-content-div">
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Try using the internal browser inside MetaMask.
+                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
+                                    This fee covers the operational costs necessary to keep the protocol running and expanding.
+                                    The ideal allocation of this fee is as follows:
                                 </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Clear your browser cache and restart
-                                </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Still stuck? Contact [support here]
+                                <div className="my-[12px]">
+                                    <ul className="okiri-landing-list-wrapper">
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            🛠 50% for administrative and development expenses
+                                        </li>
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            📣 25% for marketing and global outreach
+                                        </li>
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            ❤️ 25% for charitable support and social impact projects
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] leading-[20px] sm:leading-[24px] md:leading-[28px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
+                                    Additionally, OKIRIKIRI guarantees that for every <span className="font-bold">Master Receiver 4 position</span> opened, at least <span className="font-bold">10 level 1 positions</span> will be assigned in favor of<span className="font-bold"> non-profit organizations or initiatives supporting people in need.</span>
+                                    In this way, the circular economy of OKIRIKIRI not only benefits individuals, but actively fuels collective good.
                                 </p>
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2" className="accordion-item-div">
                             <AccordionTrigger className="accordion-trigger-div">Can I receive donations in different cryptocurrencies?</AccordionTrigger>
                             <AccordionContent className="accordion-content-div">
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Try using the internal browser inside MetaMask.
+                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
+                                    Yes! You can withdraw in:
                                 </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Clear your browser cache and restart
-                                </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Still stuck? Contact [support here]
-                                </p>
+                                <div className="my-[12px]">
+                                    <ul className="okiri-landing-list-wrapper">
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            <span className="font-black">USDT BEP-20</span> (stablecoin), or 
+                                        </li>
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            <span className="font-black">MARCO Token </span>(variable token with staking opportunities) 
+                                        </li>
+                                    </ul>
+                                </div>
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-3" className="accordion-item-div">
                             <AccordionTrigger className="accordion-trigger-div">How does the donation cycle work?</AccordionTrigger>
                             <AccordionContent className="accordion-content-div">
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Try using the internal browser inside MetaMask.
+                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
+                                You will receive 90% of the donation from the next 9 users who join after you at each level. When you complete a level, you choose to:
                                 </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Clear your browser cache and restart
-                                </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Still stuck? Contact [support here]
-                                </p>
+                                <div className="my-[12px]">
+                                    <ul className="okiri-landing-list-wrapper">
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            Move forward to the next level (no fee) 
+                                        </li>
+                                        <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                            Or withdraw the collected donations (10% fee applies) 
+                                        </li>
+                                    </ul>
+                                </div>
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-4" className="accordion-item-div">
                             <AccordionTrigger className="accordion-trigger-div">What charities does OKIRIKIRI support?</AccordionTrigger>
                             <AccordionContent className="accordion-content-div">
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Try using the internal browser inside MetaMask.
+                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
+                                    Any legitimate charitable initiative submitted through the <span className="font-bold">Charity </span>section. Every approved project will be shared through our newsletter and public reports.
                                 </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Clear your browser cache and restart
-                                </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Still stuck? Contact [support here]
+                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
+                                    Also, for every <span className="font-bold">Master Receiver 4 </span>created, OKIRIKIRI funds <span className="font-bold">10 Master Receiver 1 spots </span>for verified non-profit causes.
                                 </p>
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-5" className="accordion-item-div">
                             <AccordionTrigger className="accordion-trigger-div">My Web3 wallet isn't connecting. What can I do?</AccordionTrigger>
                             <AccordionContent className="accordion-content-div">
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Try using the internal browser inside MetaMask.
-                                </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Clear your browser cache and restart
-                                </p>
-                                <p className="font-normal text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[36px] tracking-[1px] text-[#5F5F5F] mb-[4px]">
-                                    Still stuck? Contact [support here]
-                                </p>
+                                <ul className="okiri-landing-list-wrapper">
+                                    <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                        Try using the internal browser inside MetaMask 
+                                    </li>
+                                    <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                        Clear your browser cache and restart 
+                                    </li>
+                                    <li className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-[#5F5F5F] mb-[2px]">
+                                        Still stuck? Contact [support here] 
+                                    </li>
+                                </ul>
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
@@ -950,7 +1054,10 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <section className="pt-[70px] pb-[50px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+            <section
+                className="pt-[70px] pb-[50px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]"
+                id="community"
+            >
                 <div className="bg-black p-[12px] rounded-[20px] mb-[70px] flex flex-col sm:flex-row items-stretch relative">
                     <div className="w-full sm:w-[300px] h-[auto] bg-white rounded-[10px] py-[40px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
                         <div className="w-[170px] h-auto">
@@ -1022,7 +1129,10 @@ export default function Home() {
                         />
                     </div>
                 </div>
-                <div className="flex items-stretch flex-col md:flex-row rounded-[30px] overflow-hidden h-full mb-[70px]">
+                <div
+                    className="flex items-stretch flex-col md:flex-row rounded-[30px] overflow-hidden h-full mb-[70px]"
+                    id="charity"
+                >
                     <div className="w-full md:w-1/2 bg-[#F8F8F9] p-[20px] sm:p-[30px] md:p-[40px] lg:p-[50px] xl:p-[60px] flex flex-col justify-center">
                         <div className="w-full h-[175px] overflow-hidden mb-[24px]">
                             <img

@@ -1,87 +1,36 @@
-# 🌐 Okirikiri
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Okirikiri is a decentralized platform designed to facilitate circular donations and foster community empowerment through blockchain technology.
+## Getting Started
 
-## 🛠️ Tech Stack
+First, run the development server:
 
-- Next.js
-- Tailwind CSS v3.3
-- Redux
-- Ethers
-- Thirdweb
-
-
-## 🚀 Getting Started
-
-Follow these steps to set up and run the project locally.
-
-### 1. Setup Environment Variables
-Create a .env file in the root directory using the provided .env.sample as a reference
-
-Update the variables with your local or production configuration.
-
-⚠️ Do not commit .env to version control – it contains sensitive data.
-
-### 2. Install Dependencies
-Install all required npm packages:
-
-npm install
-### 3. Run the Development Server
-Start the development server with:
+```bash
 npm run dev
-Once the server is running, open your browser and visit:
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-http://localhost:3000
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-### 📦 Production Build
-To create an optimized build and start the production server:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-npm run build
-npm start
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
 
-### 🧪 Linting & Formatting
-Run the following to check and format your code:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-npm run lint     # Check for linting issues
-npm run format   # Format code using Prettier
+## Deploy on Vercel
 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-//google shit content
-function contectUsFunction(e) {
-  const sheet = SpreadsheetApp.getActiveSheet();
-
-
-  if (e.postData.contents) {
-    const data = JSON.parse(e.postData.contents);
-
-
-    const timestamp = new Date().toLocaleString("en-CA", { month: "short", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })
-
-
-    sheet.appendRow([data.name, data.email, data.message, timestamp]);
-
-    Logger.log(data);
-
-
-    return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
-  } else {
-    return ContentService.createTextOutput("No Data Recived").setMimeType(ContentService.MimeType.TEXT);
-
-  }
-}
-
-
-
-//level 4 complete hase ema fee nai lage
-
-
-//get amount out ma fee ane slipage tolrace - karvana
-
-
-
-//completed and currentlevel same hoy tyare exit ane next level button show karva
-
-withdrow pan balance > 0 hoy toj batavvu
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
