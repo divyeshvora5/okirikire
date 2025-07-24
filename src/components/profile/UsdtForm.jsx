@@ -107,10 +107,12 @@ const UsdtForm = ({ setOpen }) => {
                 <div className="okiri-modal-body">
                     <div className="bg-[#F2F2F2] rounded-[14px] m-auto">
                         <div className="py-[30px] balance-border-div mb-[30px]">
+                            {userBalances[globalPath] <= 0  && <p className="text-center py-5">⚠️ Withdrawal will be available once all 9 donation slots are filled.</p> }
+                            
                             <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center">
-                                Available Balance:-
+                                Available Balance :
                                 <span className="font-semibold">
-                                    {isUserBalancesLoading ? "fetching..." : `${userBalances[globalPath]} USDT`}
+                                    {isUserBalancesLoading ? "fetching..." : ` ${userBalances[globalPath]} USDT`}
                                 </span>
                             </h4>
                         </div>
@@ -196,7 +198,7 @@ const UsdtForm = ({ setOpen }) => {
                     <Button
                         type="submit"
                         className="min-w-[200px] min-h-[52px] bg-black text-white font-semibold text-xl leading-[100%] rounded-[100px] cursor-pointer border-0"
-                        disabled={contractLoading}
+                        disabled={contractLoading || userBalances[globalPath] <= 0}
                     >
                         {contractLoading ? <Loader color='white' /> : 'Withdraw'}
                     </Button>

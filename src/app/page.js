@@ -1071,7 +1071,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="flex flex-wrap items-center">
-                            <Link href="/" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
+                            <Link href="https://t.me/okirikiri" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
                                 <div className="clearfix">
                                     <i className="block w-[24px] h-[24px] overflow-hidden mr-[10px]">
                                         <img
@@ -1083,7 +1083,7 @@ export default function Home() {
                                 </div>
                                 telegram
                             </Link>
-                            <Link href="/" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
+                            <Link href="https://www.instagram.com/okirikiriofc" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
                                 <div className="clearfix">
                                     <i className="block w-[24px] h-[24px] overflow-hidden mr-[10px]">
                                         <img
@@ -1095,7 +1095,7 @@ export default function Home() {
                                 </div>
                                 Instagram
                             </Link>
-                            <Link href="/" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
+                            <Link href="https://www.tiktok.com/@okirikiriofc" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
                                 <div className="clearfix">
                                     <i className="block w-[24px] h-[24px] overflow-hidden mr-[10px]">
                                         <img
@@ -1107,7 +1107,7 @@ export default function Home() {
                                 </div>
                                 Tiktok
                             </Link>
-                            <Link href="/" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
+                            <Link href="/https://x.com/Okirikiriofc" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
                                 <div className="clearfix">
                                     <i className="block w-[24px] h-[24px] overflow-hidden mr-[10px]">
                                         <img

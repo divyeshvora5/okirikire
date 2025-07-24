@@ -23,6 +23,7 @@ import { globalState, setGlobalPath } from "@/redux/reducer/globalSlice"
 import ExitModel from "@/components/profile/ExitModel";
 import NextLeveModel from "@/components/profile/NextLeveModel";
 import CircleAnimation from "@/components/home/CircleAnimation";
+import { cn } from "@/lib/utils";
 
 export default function Profile() {
 
@@ -30,6 +31,7 @@ export default function Profile() {
     const { currentUserLevel, completedLevel, globalPath, contractLoading } = useSelector(globalState);
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
+    const [showBtn, setShowBtn] = useState(false)
 
 
 
@@ -45,11 +47,15 @@ export default function Profile() {
     }, [contractLoading, globalPath, dispatch]);
 
 
-
     const isShowButtons = () =>
-        (currentUserLevel[globalPath] !== null && completedLevel[globalPath] !== null)
+        (currentUserLevel[globalPath] !== null && completedLevel[globalPath] !== null) && completedLevel[globalPath] > 0
             ? currentUserLevel[globalPath] === completedLevel[globalPath]
             : false
+
+     useEffect(() => {
+        console.log("call")
+        setShowBtn(isShowButtons())
+     },[currentUserLevel, completedLevel, globalPath, account])
 
 
     return (
@@ -73,7 +79,10 @@ export default function Profile() {
                         <Button
                             onClick={handlePathChange.bind(null, MINI_PATH)}
                             disabled={contractLoading}
-                            className="w-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white tracking-[1px] rounded-[100px] font-normal cursor-pointer flex items-center justify-center text-center py-4 min-h-[50px] sm:min-h-[60px] md:min-h-[70px] lg:min-h-[80px]"
+                            className={
+                                cn("w-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl  tracking-[1px] rounded-[100px] font-normal cursor-pointer flex items-center justify-center text-center py-4 min-h-[50px] sm:min-h-[60px] md:min-h-[70px] lg:min-h-[80px]",
+                                    globalPath === MINI_PATH ? "text-black bg-gray-200 hover:bg-gray-300 hover:text-white" : "text-white bg-black"
+                                )}
                         >
                             Mini Path
                         </Button>
@@ -82,7 +91,9 @@ export default function Profile() {
                         <Button
                             onClick={handlePathChange.bind(null, STANDARD_PATH)}
                             disabled={contractLoading}
-                            className="w-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white tracking-[1px] rounded-[100px] font-normal cursor-pointer flex items-center justify-center text-center py-4 min-h-[50px] sm:min-h-[60px] md:min-h-[70px] lg:min-h-[80px]"
+                            className={cn("w-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white tracking-[1px] rounded-[100px] font-normal cursor-pointer flex items-center justify-center text-center py-4 min-h-[50px] sm:min-h-[60px] md:min-h-[70px] lg:min-h-[80px]",
+                                globalPath === STANDARD_PATH ? "text-black bg-gray-200 hover:bg-gray-300 hover:text-white" : "text-white bg-black"
+                            )}
                         >
                             Standard Path
                         </Button>
@@ -94,23 +105,21 @@ export default function Profile() {
                 <div className="flex items-center flex-col xl:flex-row mb-[70px]">
                     <div className="w-full xl:w-1/2 mb-[30px] xl:mb-0">
                         <div className="w-full h-[650px] overflow-hidden">
-                           <CircleAnimation />
+                            <CircleAnimation />
                         </div>
                     </div>
                     <div className="flex-1 px-[15px] sm:px-0  w-full sm:w-unset">
                         <div className="okiri-accordion-main-div">
                             <LevelsDetailes />
                             <div className="flex items-center jusitfy-between w-full mt-[40px] flex-col sm:flex-row">
-                                <NextLeveModel />
-                                {/* {isShowButtons() && <NextLeveModel />} */}
+                                {showBtn && <NextLeveModel />}
                                 <AlertDialog open={open} onOpenChange={setOpen} className="okiri-modal-wrapper">
                                     <AlertDialogTrigger asChild>
                                         <Button className="bg-black text-white font-semibold leading-[100%] text-xl rounded-[100px] min-h-[44px] min-w-[200px] mb-[20px] sm:mb-0 mr-0 sm:mr-[24px] cursor-pointer">Withdraw</Button>
                                     </AlertDialogTrigger>
                                     <WithdrawFundModel setOpen={setOpen} />
                                 </AlertDialog>
-                                {/* {isShowButtons() && <ExitModel />} */}
-                                <ExitModel />
+                                {showBtn && <ExitModel />}
                             </div>
                         </div>
                     </div>
