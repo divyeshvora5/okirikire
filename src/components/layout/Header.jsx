@@ -123,6 +123,10 @@ const Header = () => {
                                 primaryButtonBg: "#000",
                             },
                         })}
+                        connectModal={{
+                            showThirdwebBranding: false
+                        }}
+                        
                     />
                 ) : (
                     <button
