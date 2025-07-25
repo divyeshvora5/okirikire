@@ -1107,7 +1107,7 @@ export default function Home() {
                                 </div>
                                 Tiktok
                             </Link>
-                            <Link href="/https://x.com/Okirikiriofc" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
+                            <Link href="https://x.com/Okirikiriofc" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
                                 <div className="clearfix">
                                     <i className="block w-[24px] h-[24px] overflow-hidden mr-[10px]">
                                         <img
