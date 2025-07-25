@@ -241,12 +241,13 @@ export const getAmountWithFeeDedected = (amount = 0, fee = PLATFORM_FEE) => {
 
 
 export const getLevelData = ({ level, path, data, account }) => {
-    if (!data?.eventData?.length) return {
-        donationRecived: 0,
-        donetionCount: 0, //inner cercle
-        totalDoner: 0,
-        yourDonnerNo: 0
-    };
+    // if (!data?.eventData?.length) return {
+    //     donationRecived: 0,
+    //     donetionCount: 0, //inner cercle
+    //     totalDoner: 0,
+    //     yourDonnerNo: 0
+    // };
+
     const d = data.eventData.filter(ele => (ele?.level === level && ele?.path === path))
     if (d.length > 1) {
         const sortedData = d.sort((a, b) => b.blockNumber - a.blockNumber);

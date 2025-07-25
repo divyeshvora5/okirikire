@@ -469,6 +469,7 @@ export const getLevelDataAction = createAsyncThunk(
                 getCurrentUserLevel({ wallet, path: globalPath, chain })
             ])
 
+
             if (leveldata1?.success) {
                 completeData["0"] = {
                     donationRecived: leveldata1?.data?.resultArr[4],
@@ -522,6 +523,7 @@ export const getLevelDataAction = createAsyncThunk(
                     blockNumber
                 }
             })
+
 
             return {
                 currentUserLevel: currentLevel?.success ? currentLevel?.data : {},

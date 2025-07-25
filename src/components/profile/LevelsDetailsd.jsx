@@ -41,13 +41,13 @@ const LevelInfo = ({
             account
         });
 
+
         if (result) {
-            dispatch(setLevelDonationCount(result?.donetionCount))
+            dispatch(setLevelDonationCount(result?.donetionCount || 0))
         }
 
     }, [selectedLevelNo, levelData, account])
 
-    console.log('levelData', levelData)
 
     return (
         <>
@@ -56,19 +56,19 @@ const LevelInfo = ({
                 <AccordionTrigger className="accordion-title-div">{levelName}</AccordionTrigger>
                 <AccordionContent className="flex flex-col pb-[15px]">
                     <div className="mb-[20px] relative">
-                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Donations Received:<span className="font-medium">${data?.donationRecived}</span></h3>
+                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Donations Received:<span className="font-medium">${data?.donationRecived || 0}</span></h3>
                         <div className="h-[2px] mt-[20px] bg-[#F3F0F0] relative overflow-hidden">
                             <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>
                         </div>
                     </div>
                     <div className="mb-[20px] relative">
-                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">You are Donor # :<span className="font-medium">{data?.yourDonnerNo}</span></h3>
+                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">You are Donor # :<span className="font-medium">{data?.yourDonnerNo || 0}</span></h3>
                         <div className="h-[2px] mt-[20px] bg-[#F3F0F0] relative overflow-hidden">
                             <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>
                         </div>
                     </div>
                     <div className="mb-[20px] relative">
-                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Total Okirikiri Donors:<span className="font-medium">{data?.totalDoner}</span></h3>
+                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Total Okirikiri Donors:<span className="font-medium">{data?.totalDoner || 0}</span></h3>
                         <div className="h-[2px] mt-[20px] bg-[#F3F0F0] relative overflow-hidden">
                             <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>
                         </div>
