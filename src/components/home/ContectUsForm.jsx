@@ -115,7 +115,7 @@ const ContectUsForm = () => {
                 <div className="flex justify-end">
                     <Button
                         disabled={loading}
-                        className="min-w-[205px] bg-white text-black font-semibold rounded-[100px] text-sm sm:text-base capitalize min-h-[56px] send-msg-btn-wrapper"
+                        className="min-w-full sm:min-w-[205px] bg-white text-black font-semibold rounded-[100px] text-sm sm:text-base capitalize min-h-[56px] send-msg-btn-wrapper"
                         type="submit"
                     >
                         {loading ? <Loader /> : "Send message"}

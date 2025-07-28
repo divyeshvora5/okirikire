@@ -67,7 +67,7 @@ export default function Home() {
             <section className="pt-[50px] md:pt-[60px] lg:pt-[70px] xl:pt-[80px] pb-[50px] sm:pb-[60px] md:pb-[70px] lg:pb-[80px] xl:pb-[90px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
                 <div className="flex justify-center items-center flex-col">
                     <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[30px]">Join OKIRIKIRI: The Circular Protocol That Can Change the World</h2>
-                    <div className="w-[320px] h-[auto] overflow-hidden mb-[30px]">
+                    <div className="w-[200px] sm:w-[260px] md:w-[320px] h-[auto] overflow-hidden mb-[30px]">
                         <img
                             src="/images/okirikiri-banner-image.png"
                             alt="Okirikiri Logo"
@@ -131,8 +131,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="pb-[80px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[70px] text-black">IT’S EASY – JUST 3 SIMPLE STEPS TO UNLOCK OKIRIKIRI</h3>
+            <section className="pb-[40px] sm:pb-[50px] md:pb-[60px] lg:pb-[70px] xl:pb-[80px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] sm:mb-[40px] md:mb-[50px] lg:mb-[60px] xl:mb-[70px] text-black">IT’S EASY – JUST 3 SIMPLE STEPS TO UNLOCK OKIRIKIRI</h3>
                 <div className="flex flex-col lg:flex-row justify-between items-start">
                     <div className="w-full lg:w-1/2 mb-[30px] lg:mb-0">
                         <div className="okiri-accordion-main-div">
@@ -325,7 +325,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="how-it-works-main-box-div p-[12px] rounded-[20px] mt-[20px] mb-[55px] flex flex-col sm:flex-row items-center relative">
+                <div className="how-it-works-main-box-div p-[12px] rounded-[20px] mt-[20px] mb-[35px] lg:mb-[45px] xl:mb-[55px] flex flex-col sm:flex-row items-center relative">
                     <div className="w-full sm:w-[300px] h-[125px] bg-white rounded-[10px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
                         <div className="w-[264px] h-[90px] oveflow-hidden">
                             <img
@@ -436,7 +436,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[50px] text-black uppercase">PATH DETAILS – Overview</h3>
+                <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] md:mb-[40px] lg:mb-[50px] text-black uppercase">PATH DETAILS – Overview</h3>
                 <div className="max-w-[1095px] m-auto px-[15px] sm:px-0">
                     <div className="path-detail-table-wrapper">
                         <h3 className="font-bold text-base lg:text-lg xl:text-[22px] leading-[100%] text-[#212B36] pt-[28px] pb-[23px] px-[20px]">MINI PATH – 25 USDT</h3>
@@ -499,66 +499,70 @@ export default function Home() {
                     </div>
                     <div className="mt-[20px]">
                         <div className="flex items-center mb-[12px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm leading-[100%] text-black">You can stop and withdraw at the end of <span className="font-bold">any level.</span></p>
                         </div>
                         <div className="flex items-center mb-[12px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm leading-[100%] text-black">You can <span className="font-bold">start over anytime</span> with a new donation from the same wallet only if the previous cycle is completed or exited</p>
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] pt-[40px] pb-[70px]">
-                <h3 className="font-bold text-base lg:text-lg xl:text-[22px] leading-[100%] text-[#212B36] pt-[28px] pb-[23px] text-center">MINI PATH – 25 USDT</h3>
+            <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] pt-[40px] pb-[40px] md:pb-[50px] lg:pb-[60px] xl:pb-[70px]">
+                <h3 className="font-bold text-base lg:text-lg xl:text-[22px] leading-[100%] text-[#212B36] pt-[12px] sm:pt-[16px] md:pt-[20px] lg:pt-[24px] xl:pt-[28px] pb-[15px] sm:pb-[17px] md:pb-[19px] lg:pb-[21px] xl:pb-[23px] text-center">MINI PATH – 25 USDT</h3>
                 <div className="flex flex-col md:flex-row items-stretch justify-center flex-wrap m-0 md:m-[-12px]">
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
-                            <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 1 – Master Receiver 1</h3>
-                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] text-center text-black mb-[30px]">You start by donating 25 USDT.</p>
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
+                            <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 1 – Master Receiver 1</h3>
+                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] text-center text-black mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">You start by donating 25 USDT.</p>
                             <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
                                 25 USDT = 202.50 USDT.</p>
-                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[25px]">You reinvest 100 USDT to move to Level 2.</p>
+                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 100 USDT to move to Level 2.</p>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 102.50 USDT</p>
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 2 – Master Receiver 2</h3>
+                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 2 – Master Receiver 2</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 100 USDT = 810 USDT.</p>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[25px]">You reinvest 500 USDT to move to Level 3.</p>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 500 USDT to move to Level 3.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 310 USDT</p>
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 3 – Master Receiver 3</h3>
+                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 3 – Master Receiver 3</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
                                     500 USDT = 4,050 USDT.</p>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[25px]">You reinvest 2,500 USDT to move to Level 4.</p>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 2,500 USDT to move to Level 4.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 1,550 USDT</p>
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 4 – Master Receiver 4</h3>
+                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 4 – Master Receiver 4</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 2,500 USDT = 18,225 USDT.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 18,225 USDT</p>
@@ -566,13 +570,15 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="flex items-center mt-[20px] px-[15px] sm:px-0">
-                    <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                        <img
-                            src="/images/black-arrow-icon.svg"
-                            alt="Okirikiri Logo"
-                            className="w-full h-full object-contain object-center"
-                        />
-                    </i>
+                    <div className="clearfix">
+                        <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                            <img
+                                src="/images/black-arrow-icon.svg"
+                                alt="Okirikiri Logo"
+                                className="w-full h-full object-contain object-center"
+                            />
+                        </i>
+                    </div>
                     <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="font-bold">TOTAL NET AVAILABLE </span>(if completing all levels): <span className="font-bold">20,187.50 USDT </span>(102.50 + 310 + 1,550 + 18,225)</p>
                 </div>
             </section>
@@ -660,15 +666,13 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="my-[35px] px-[15px] sm:px-0">
-                    <p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] mb-[40px] text-center flex justify-center items-center standard-path-text text-[#CD1A1A]">STANDARD PATH – Total Donations Received: <span className="font-black relative ml-[6px]"> 201,875 USDT
-                        <div className="w-[150px] h-[auto] overflow-hidden absolute bottom-[-20px] right-0 m-auto okiri-line-image-wrapper okiri-standard-line-image">
+                <div className="my-[35px] px-[15px] sm:px-0 flex justify-center items-center">
+                    <p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] mb-[40px] text-center standard-path-text text-[#CD1A1A] flex items-center flex-wrap sm:flex-nowrap">STANDARD PATH – Total Donations Received: <span className="font-black relative ml-[6px] flex items-center"> 201,875 USDT
+                        <i className="w-[150px] sm:w-[180px] h-[auto] overflow-hidden absolute bottom-[-20px] left-0 right-0 m-auto okiri-line-image-wrapper okiri-standard-line-image">
                             <svg width="281" height="21" viewBox="0 0 281 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 19C57.0548 8.34266 186.236 -9.22896 280 11.9817" stroke="#CD1A1A" strokeWidth="3" />
                             </svg>
-                        </div>
-                    </span>
-
+                        </i>
                         <div className="clearfix">
                             <i className="w-[25px] h-auto overflow-hidden block ml-[6px]">
                                 <svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -676,42 +680,43 @@ export default function Home() {
                                 </svg>
                             </i>
                         </div>
+                    </span>
                     </p>
                 </div>
             </section>
             <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] pb-[70px]">
                 <div className="flex flex-col md:flex-row items-stretch justify-center flex-wrap m-0 md:m-[-12px]">
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 1 – Master Receiver 1</h3>
-                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] text-center text-black mb-[30px]">You start by donating 250 USDT.</p>
+                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] text-center text-black mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">You start by donating 250 USDT.</p>
                             <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 250 USDT = 2,025 USDT.</p>
-                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[25px]">You reinvest 1,000 USDT to move to Level 2.</p>
+                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 1,000 USDT to move to Level 2.</p>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 1,025 USDT</p>
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
                                 <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 2 – Master Receiver 2</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 1,000 USDT = 8,100 USDT.</p>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[25px]">You reinvest 5,000 USDT to move to Level 3</p>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 5,000 USDT to move to Level 3</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 3,100 USDT</p>
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
                                 <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 3 – Master Receiver 3</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 5,000 USDT = 40,500 USDT.</p>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[25px]">You reinvest 25,000 USDT to move to Level 4.</p>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 25,000 USDT to move to Level 4.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 15,500 USDT</p>
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
-                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-full md:min-h-[415px] flex flex-col justify-between items-center h-full">
+                        <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
                                 <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 4 – Master Receiver 4</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
@@ -722,13 +727,15 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="flex items-center mt-[20px] px-[15px] sm:px-0">
-                    <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                        <img
-                            src="/images/black-arrow-icon.svg"
-                            alt="Okirikiri Logo"
-                            className="w-full h-full object-contain object-center"
-                        />
-                    </i>
+                    <div className="clearfix">
+                        <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                            <img
+                                src="/images/black-arrow-icon.svg"
+                                alt="Okirikiri Logo"
+                                className="w-full h-full object-contain object-center"
+                            />
+                        </i>
+                    </div>
                     <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="font-bold">TOTAL NET AVAILABLE </span>(if completing all levels): <span className="font-bold">201,875 USDT </span>(1,025 + 3,100 + 15,500 + 182,250)</p>
                 </div>
             </section>
@@ -737,53 +744,63 @@ export default function Home() {
                     <div className="flex-1">
                         <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] mb-[30px] text-black">PARTICIPATION RULES (Clear and Simple)</h3>
                         <div className="flex items-center mt-[30px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black ">Only one active donation per wallet at a time</p>
                         </div>
                         <div className="flex items-center mt-[30px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px]] leading-[100%] text-black ">You must complete a level to unlock access to the next</p>
                         </div>
                         <div className="flex items-center mt-[30px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black ">After each level, you choose: reinvest or withdraw</p>
                         </div>
                         <div className="flex items-center mt-[30px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="fomt-semibold">USDT BEP-20 only (Binance Smart Chain) </span></p>
                         </div>
                         <div className="flex items-center mt-[30px]">
-                            <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
-                                <img
-                                    src="/images/black-arrow-icon.svg"
-                                    alt="Okirikiri Logo"
-                                    className="w-full h-full object-contain object-center"
-                                />
-                            </i>
+                            <div className="clearfix">
+                                <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
+                                    <img
+                                        src="/images/black-arrow-icon.svg"
+                                        alt="Okirikiri Logo"
+                                        className="w-full h-full object-contain object-center"
+                                    />
+                                </i>
+                            </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black ">You can restart the process once a cycle is completed or exited</p>
                         </div>
                     </div>
@@ -806,7 +823,7 @@ export default function Home() {
             <section className="pt-[30px] pb-[70px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
                 <h3 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium text-black leading-[100%] tracking-[1px] uppercase text-center mb-[30px]">HOW TO START</h3>
                 <div className="flex flex-col lg:flex-row items-center">
-                    <div className="w-full lg:w-1/2 pt-[50px] lg:pt-0 pb-[60px] lg:pb-0">
+                    <div className="w-full lg:w-1/2 pt-[50px] lg:pt-0 pb-0 sm:pb-[30px] md:pb-[40px] lg:pb-[50px] xl:pb-[60px] lg:pb-0">
                         <div className="relative w-[320px] sm:w-[520px] h-[480px] mx-auto">
                             {/* Outer Ring */}
                             <div className="absolute top-[30px] left-[50%] translate-x-[-50%] w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full border-[30px] border-[#F8F8F8]"></div>
@@ -944,7 +961,7 @@ export default function Home() {
                 </div>
             </section>
             <section
-                className="py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative"
+                className="py-[30px] md:py-[40px] lg:py-[50px] xl:py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative"
                 id="faq"
             >
                 <h3 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-[100%] tracking-[1px] uppecase mb-[40px] text-center">FAQ</h3>
@@ -1058,7 +1075,7 @@ export default function Home() {
                 className="pt-[70px] pb-[50px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]"
                 id="community"
             >
-                <div className="bg-black p-[12px] rounded-[20px] mb-[70px] flex flex-col sm:flex-row items-stretch relative">
+                <div className="bg-black p-[12px] rounded-[20px] mb-[30px] sm:mb-[40px] md:mb-[50px] lg:mb-[60px] xl:mb-[70px] flex flex-col sm:flex-row items-stretch relative">
                     <div className="w-full sm:w-[300px] h-[auto] bg-white rounded-[10px] py-[40px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
                         <div className="w-[170px] h-auto">
                             <h3 className="font-medium text-[18px] sm:text-[22px] md:text-[26px] lg:text-[30px] xl:text-[34px] leading-[100%] text-center text-black">Join Our Community</h3>
@@ -1130,11 +1147,11 @@ export default function Home() {
                     </div>
                 </div>
                 <div
-                    className="flex items-stretch flex-col md:flex-row rounded-[30px] overflow-hidden h-full mb-[70px]"
+                    className="flex items-stretch flex-col md:flex-row rounded-[30px] overflow-hidden h-full mb-[30px] sm:mb-[40px] md:mb-[50px] lg:mb-[60px] xl:mb-[70px]"
                     id="charity"
                 >
                     <div className="w-full md:w-1/2 bg-[#F8F8F9] p-[20px] sm:p-[30px] md:p-[40px] lg:p-[50px] xl:p-[60px] flex flex-col justify-center">
-                        <div className="w-full h-[175px] overflow-hidden mb-[24px]">
+                        <div className="w-full h-[120px] sm:h-[175px] overflow-hidden mb-[24px]">
                             <img
                                 src="/images/contact-logo.png"
                                 alt="Okirikiri Logo"

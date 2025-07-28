@@ -1,5 +1,5 @@
 'use client'
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "../ui/alert-dialog"
 import { Button } from "../ui/button"
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +16,14 @@ const NextLeveModel = () => {
     const { contractLoading, globalPath } = useSelector(globalState);
 
     const [open, setOpen] = useState(false);
+
+    const modelRef = useRef(null);
+
+    const handleClickOutside = (e) => {
+        if (modelRef.current && modelRef.current.contains(e.target)) {
+            setOpen(false);
+        }
+    };
 
 
     const handleAdvanceToNextLevel = useCallback(async () => {
@@ -38,7 +46,7 @@ const NextLeveModel = () => {
             <AlertDialogTrigger asChild>
                 <Button className="bg-black text-white font-semibold leading-[100%] text-xl rounded-[100px] min-h-[44px] min-w-[200px] mb-[20px] sm:mb-0 mr-0 sm:mr-[24px] cursor-pointer">Next Level</Button>
             </AlertDialogTrigger>
-            <AlertDialogContent className="okiri-small-modal-content-div">
+            <AlertDialogContent ref={modelRef} onClick={handleClickOutside} className="okiri-small-modal-content-div">
                 <AlertDialogHeader className="okiri-modal-header-div">
                     <h3 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] xl:text-[38px] leading-[100%] tracking-[1px] font-medium text-center text-black ">
                         Next Level

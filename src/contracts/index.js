@@ -342,7 +342,6 @@ export const getPathDetails = async ({ path, chain, level = "0" }) => {
         // donationIndex + 1 = you are doner total 8 event geted after filter based on path and level
         // level also level + 1 (start from 0)
         if (result?.length) {
-            console.log('resultContract' + level, result)
             return returnObject(true, "Path details fetched.", {
                 path,
                 resultArr: [

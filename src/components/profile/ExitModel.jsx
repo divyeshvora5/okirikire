@@ -8,7 +8,7 @@ import { globalState } from "@/redux/reducer/globalSlice"
 import Loader from "../Loader"
 import { exitAction } from "@/redux/actions/globalAction"
 import { useActiveWeb3React } from "@/hooks/useActiveWeb3React"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { Input } from "../ui/input"
 import { SLIPPAGE_CONSTANT } from "@/utils/constants"
 import { getMacroAmountOutWithSlipage, getMarcoPrice } from "@/contracts"
@@ -93,9 +93,10 @@ const MarcoDetails = () => {
     const [loading, setLoading] = useState(false);
 
 
+
     const calculateAmount = async (balance) => {
         try {
-            if(balance === 0) return;
+            if (balance === 0) return;
             setLoading(true)
             const result = await getMacroAmountOutWithSlipage({
                 withdrawAmount: balance,
@@ -242,6 +243,16 @@ const ExitModel = () => {
 
     const [open, setOpen] = useState(false);
 
+
+    const modelRef = useRef(null);
+
+    const handleClickOutside = (e) => {
+        if (modelRef.current && modelRef.current.contains(e.target)) {
+            setOpen(false);
+        }
+    };
+
+
     const handleExit = useCallback(async () => {
         if (contractLoading) return;
         const result = await dispatch(
@@ -263,7 +274,7 @@ const ExitModel = () => {
             <AlertDialogTrigger asChild>
                 <Button className="bg-[#CD1A1A] text-white font-semibold leading-[100%] text-xl rounded-[100px] min-h-[44px] min-w-[200px] cursor-pointer">Exit</Button>
             </AlertDialogTrigger>
-            <AlertDialogContent className="okiri-modal-content-div">
+            <AlertDialogContent ref={modelRef} onClick={handleClickOutside} className="okiri-modal-content-div">
                 <div>
                     <AlertDialogHeader className="okiri-modal-header-div">
                         <AlertDialogTitle>

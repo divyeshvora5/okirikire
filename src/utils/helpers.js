@@ -247,7 +247,6 @@ export const getLevelData = ({ level, path, data, account }) => {
     //     totalDoner: 0,
     //     yourDonnerNo: 0
     // };
-
     const d = data.eventData.filter(ele => (ele?.level === level && ele?.path === path))
     if (d.length > 1) {
         const sortedData = d.sort((a, b) => b.blockNumber - a.blockNumber);

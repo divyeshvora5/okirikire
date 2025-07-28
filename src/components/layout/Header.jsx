@@ -70,7 +70,7 @@ const Header = () => {
                     <Link href="/#faq" onClick={() => handleOpen("faq")} className="py-2 block font-normal text-base tracking-[1px] text-black">Faq</Link>
                 </div>
             )}
-            {(isMobileMenuOpen && pathName !=="/profile") && open && (
+            {(isMobileMenuOpen && pathName !== "/profile") && open && (
                 <div className="absolute top-full left-0 w-full h-[100vh] bg-[#FAFAFF] flex flex-col items-center shadow-md z-50">
                     <Link href="#about" onClick={() => handleOpen("about")} className="py-2 block font-normal text-base tracking-[1px] text-black">About</Link>
                     <Link href="#how-it-works" onClick={() => handleOpen("how-it-works")} className="py-2 block font-normal text-base tracking-[1px] text-black">How It Works</Link>
@@ -83,7 +83,7 @@ const Header = () => {
             <div className="flex items-center flex-row-reverse">
                 <button
                     className="lg:hidden text-black ml-[20px] cursor-pointer"
-                    onClick={() =>{ 
+                    onClick={() => {
                         setIsMobileMenuOpen(!isMobileMenuOpen)
                         setOpen(true)
                     }}
@@ -124,9 +124,9 @@ const Header = () => {
                             },
                         })}
                         connectModal={{
-                            showThirdwebBranding: false
+                            showThirdwebBranding: false,
+                            
                         }}
-                        
                     />
                 ) : (
                     <button
