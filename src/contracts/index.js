@@ -36,6 +36,8 @@ const prepareSlippageParams = async ({
     isExit = false,
     chain,
 }) => {
+
+    console.log('inMarco111111', inMarco)
     if (!inMarco) return isExit ? [path, false, 0] : [null, path, false, 0];
 
     const routerContract = getContract({
@@ -48,6 +50,8 @@ const prepareSlippageParams = async ({
     if (!routerContract) {
         throw new Error("Router contract not found");
     }
+
+    console.log('withdrawAmount', withdrawAmount)
 
     const result = await readContract({
         contract: routerContract,
@@ -64,6 +68,8 @@ const prepareSlippageParams = async ({
 
     const marcoAmount = result[result.length - 1];
     const slippageAmount = getSlippageAmount(marcoAmount);
+
+    console.log('isExit', isExit)
 
     return isExit
         ? [path, true, slippageAmount]
@@ -176,24 +182,33 @@ export const withdrawFromPath = async ({
     withdrawAmount = 0,
 }) => {
     try {
+        console.log('withdrawFromPathinMarco', inMarco)
         const parsedAmount = toWei(
             amount?.toString() || "0",
             USDT_TOKEN_DECIMALS,
         );
 
-        let [_, resolvedPath, useMarco, slippage] = await prepareSlippageParams(
-            {
-                withdrawAmount,
-                inMarco,
-                path,
-                isExit: false,
-                chain,
-            },
-        ).catch((error) => {
-            return [null, path, false, 0];
-        });
+        let PARAMS = []
+        try {
+            let [_, resolvedPath, useMarco, slippage] = await prepareSlippageParams(
+                {
+                    withdrawAmount,
+                    inMarco,
+                    path,
+                    isExit: false,
+                    chain,
+                },)
+            // ).catch((error) => {
+            //     console.log('error', error)
+            //     return [null, path, false, 0];
+            // });
+            PARAMS = [parsedAmount, resolvedPath, useMarco, slippage];
 
-        const PARAMS = [parsedAmount, resolvedPath, useMarco, slippage];
+        } catch (err) {
+            return returnObject(false, "Error during calculate slippage");
+        }
+
+
 
         const contract = getOkirikiriV2Contract(chain);
         if (!contract)
@@ -448,13 +463,16 @@ export const getfeeBasisPoints = async ({ wallet, chain }) => {
 
         const contract = getOkirikiriV2Contract(chain);
 
+
         if (!contract) return returnObject(false, "Contract not found");
 
         const result = await readContract({
             contract: contract,
-            method: resolveMethod("feeBasisPoints"),
+            method: resolveMethod("withdrawalFeeBasisPoints"),
             params: [],
         });
+
+        console.log('getfeeBasisPoints', result)
 
         return returnObject(true, "fee fetched", {
             fee: Number(result),

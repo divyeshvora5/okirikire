@@ -35,6 +35,7 @@ export function useActiveWeb3React() {
         });
     }, [client, chainId]);
 
+
     useEffect(() => {
         if (!client || !chainId || !wallet) return;
 

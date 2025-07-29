@@ -9,15 +9,17 @@ import { AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHe
 import TokenSelectForm from "./TokenSelectForm"
 import { Button } from "../ui/button"
 import { useDispatch, useSelector } from "react-redux"
-import { globalState } from "@/redux/reducer/globalSlice"
-import { useCallback, useEffect, useState } from "react"
+import { globalState, setGlobalPath } from "@/redux/reducer/globalSlice"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { getMacroAmountOutWithSlipage, getMarcoPrice } from "@/contracts"
 import { useActiveWeb3React } from "@/hooks/useActiveWeb3React"
-import { SLIPPAGE_CONSTANT } from "@/utils/constants"
+import { MINI_PATH, SLIPPAGE_CONSTANT, STANDARD_PATH } from "@/utils/constants"
 import { withdrawAction } from "@/redux/actions/globalAction"
 import Loader from "../Loader"
 import { toast } from "react-toastify"
 import MarcoPrice from "./MarcoPrice"
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
+import { Label } from "../ui/label"
 
 const marcoSchema = z.object({
     amount: z.string()
@@ -49,6 +51,16 @@ const MarcoForm = ({ setOpen }) => {
             amount: '',
         }
     })
+
+    const handlePathChange = useCallback((newPath) => {
+        if (contractLoading || globalPath === newPath) return;
+        dispatch(setGlobalPath(newPath));
+    }, [contractLoading, globalPath, dispatch]);
+
+
+    const totalBalance = useMemo(() => {
+        return userBalances[0] + userBalances[1]
+    }, [userBalances[0] + userBalances[1]])
 
 
     const { watch } = marcoForm;
@@ -156,12 +168,43 @@ const MarcoForm = ({ setOpen }) => {
                 <div className="okiri-modal-body">
                     <div className="bg-[#F2F2F2] rounded-[14px] m-auto">
                         <div className="py-[30px] balance-border-div mb-[30px]">
-                            {userBalances[globalPath] <= 0 && <p className="text-center py-5">⚠️ Withdrawal will be available once all 9 donation slots are filled.</p>}
                             <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center">
-                                Available Balance:- <span className="font-semibold">
-                                    {isUserBalancesLoading ? "fetching..." : `${userBalances[globalPath]} USDT`}
+                                Total Balance :
+                                <span className="font-semibold">
+                                    {isUserBalancesLoading ? "fetching..." : ` ${isFinite(totalBalance) ? totalBalance : 0} USDT`}
                                 </span>
                             </h4>
+                        </div>
+                        <div className="py-[30px] balance-border-div mb-[30px]">
+
+                            <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center">
+                                {globalPath === 0 ? "Mini Path" : "Standard"} Balance :
+                                <span className="font-semibold">
+                                    {isUserBalancesLoading ? "fetching..." : ` ${userBalances[globalPath]} USDT`}
+                                </span>
+                            </h4>
+                        </div>
+                        <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center mb-[30px]">
+                            Select path for withdraw
+                        </h4>
+                        <div className="px-[35px] py-[20px] sm:px-[60px] balance-border-div md:px-[80px] lg:px-[100px] xl:px-[120px] mb-[45px]">
+                            <RadioGroup
+                                onValueChange={(e) => handlePathChange(e)}
+                                defaultValue={globalPath}
+                                className="flex justify-between items-center"
+                            >
+                                <div className="flex items-center gap-3">
+                                    <RadioGroupItem value={MINI_PATH} id="r1" className="radio-btn-wrapper" />
+                                    <Label htmlFor="r1" className="text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] font-semibold leading-[100%] tracking-[1px] text-black uppercase">Mini</Label>
+
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <RadioGroupItem value={STANDARD_PATH} id="r2" className="radio-btn-wrapper" />
+                                    <Label htmlFor="r2" className="text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] font-semibold leading-[100%] tracking-[1px] text-black uppercase">Standard</Label>
+
+                                </div>
+
+                            </RadioGroup>
                         </div>
                         <div className="pb-[40px]">
                             <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center mb-[40px]">Select any one option for withdraw</h4>

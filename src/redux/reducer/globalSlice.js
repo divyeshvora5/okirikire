@@ -206,8 +206,10 @@ const globalSlice = createSlice({
             })
             .addCase(getUserBalanceAction.fulfilled, (state, { payload }) => {
                 state.isUserBalancesLoading = false;
-                const { path, balance } = payload;
-                state.userBalances[path] = balance;
+                
+                state.userBalances["0"] = payload?.miniBalance?.balance;
+                state.userBalances["1"] = payload?.standardBalance?.balance;
+            
             })
             .addCase(getUserBalanceAction.rejected, (state, { payload }) => {
                 state.isUserBalancesLoading = false;

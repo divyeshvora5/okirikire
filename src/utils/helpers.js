@@ -29,7 +29,12 @@ export const CountParser = (value, fixTo = 2, length = 1) => {
     }
 };
 
-export const getWithdrawableBalance = (amount = 0, completedLevel = 0, fee = PLATFORM_FEE) => {
+export const getWithdrawableBalance = (amount = 0, completedLevel = 0, fee) => {
+    console.log({
+        amount,
+        completedLevel,
+        fee
+    })
     const weiAmount = new BigNumber(toWei(amount));
 
     if (weiAmount.isNaN() || weiAmount.lte(0)) {
@@ -240,13 +245,15 @@ export const getAmountWithFeeDedected = (amount = 0, fee = PLATFORM_FEE) => {
 
 
 
-export const getLevelData = ({ level, path, data, account }) => {
+export const getLevelData = ({ level, path, data, account, fee }) => {
     // if (!data?.eventData?.length) return {
     //     donationRecived: 0,
     //     donetionCount: 0, //inner cercle
     //     totalDoner: 0,
     //     yourDonnerNo: 0
     // };
+
+    console.log('data?.completeData[level]', data?.completeData[level])
     const d = data.eventData.filter(ele => (ele?.level === level && ele?.path === path))
     if (d.length > 1) {
         const sortedData = d.sort((a, b) => b.blockNumber - a.blockNumber);
@@ -257,7 +264,10 @@ export const getLevelData = ({ level, path, data, account }) => {
             yourDonnerNo: sortedData?.length
                 ? sortedData[0]?.donationIndex + 1
                 : 0,
-            ...data?.completeData[level]
+            ...data?.completeData[level],
+            donationRecived: isFinite(data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100)))
+                ? data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100))
+                : 0
         }
 
     }
@@ -267,8 +277,25 @@ export const getLevelData = ({ level, path, data, account }) => {
         yourDonnerNo: d?.length
             ? d[0]?.donationIndex + 1
             : 0,
-        ...data?.completeData[level]
+        ...data?.completeData[level],
+        donationRecived: isFinite(data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100)))
+            ? data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100))
+            : 0
     }
 
+
+}
+
+
+
+export const geMasterReciverData = ({ level, path, data }) => {
+
+    const masterLevelData = data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
+    const totalAmount =  data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))?.reduce((sum, donation) => sum + donation.amount, 0);
+
+    return {
+        totalAmount,
+        masterLevelData
+    }
 
 }

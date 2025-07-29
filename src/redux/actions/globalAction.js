@@ -169,7 +169,7 @@ export const withdrawAction = createAsyncThunk(
             const feeData = await getfeeBasisPoints({ wallet, chain });
 
             const withdrawAmount = inMarco
-                ? getWithdrawableBalance(userBalance, userCompletedLevel, feeData.data?.fee || PLATFORM_FEE)
+                ? getWithdrawableBalance(userBalance, userCompletedLevel, (feeData.data?.fee / 100) || PLATFORM_FEE)
                 : 0;
 
             const result = await withdrawFromPath({
@@ -237,8 +237,10 @@ export const exitAction = createAsyncThunk(
             Toast.dismiss(sign_toast_id);
             toast_id = Toast.loading("Processing exit...");
 
+            const feeData = await getfeeBasisPoints({ wallet, chain });
+
             const withdrawAmount = inMarco
-                ? getWithdrawableBalance(userBalance, userCompletedLevel)
+                ? getWithdrawableBalance(userBalance, userCompletedLevel, (feeData.data?.fee / 100) || PLATFORM_FEE)
                 : 0;
 
             const result = await exitFromPath({
@@ -384,8 +386,18 @@ export const getUserBalanceAction = createAsyncThunk(
     "global/getUserBalanceAction",
     async ({ wallet, path, chain }, { rejectWithValue }) => {
         const result = await getUserBalance({ wallet, path, chain });
+
+        const [result1, result2] = await Promise.all([
+            getUserBalance({ wallet, path: 0, chain }),
+            getUserBalance({ wallet, path: 1, chain })
+        ])
         console.log('result', result)
-        if (result.success) return result.data;
+        if (result.success) {
+            return {
+                miniBalance: result1?.data,
+                standardBalance: result2?.data
+            }
+        }
         else
             return rejectWithValue(
                 result.message || "Failed to fetch user balance",
@@ -458,16 +470,21 @@ export const getLevelDataAction = createAsyncThunk(
             const { globalPath } =
                 state.global;
 
-            const eventFilter = contract.filters.Donation(account); // Filtering by connected wallet address
+            const eventFilter = contract.filters.Donation(account);
+            const eventFilterMasterReciver = contract.filters.Donation(null, null, null, null, null, account);
 
-            const [events, leveldata1, leveldata2, leveldata3, leveldata4, currentLevel] = await Promise.all([
+
+            const [events, eventMasterReciver, leveldata1, leveldata2, leveldata3, leveldata4, currentLevel] = await Promise.all([
                 contract.queryFilter(eventFilter, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest"),
+                contract.queryFilter(eventFilterMasterReciver, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest"),
                 getPathDetails({ path: globalPath, chain, level: "0" }),
                 getPathDetails({ path: globalPath, chain, level: "1" }),
                 getPathDetails({ path: globalPath, chain, level: "2" }),
                 getPathDetails({ path: globalPath, chain, level: "3" }),
                 getCurrentUserLevel({ wallet, path: globalPath, chain })
             ])
+
+            console.log('eventMasterReciver', eventMasterReciver)
 
             if (leveldata1?.success) {
                 completeData["0"] = {
@@ -523,9 +540,25 @@ export const getLevelDataAction = createAsyncThunk(
                 }
             })
 
+            const masterReciverEventsData = eventMasterReciver.map((event) => {
+                const args = event.args
+                const blockNumber = event.blockNumber
+
+                return {
+                    doner: args[0]?.toLowerCase(),
+                    path: Number(args[1]),
+                    level: Number(args[2]),
+                    donationIndex: Number(args[3]),
+                    amount: +fromWei(Number(args[4])),
+                    masterReciver: args[5]?.toLowerCase(),
+                    blockNumber
+                }
+            })
+
             return {
                 currentUserLevel: currentLevel?.success ? currentLevel?.data : {},
                 eventData: data,
+                masterReciverEventsData,
                 completeData
             }
         } catch (err) {

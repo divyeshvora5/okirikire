@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { globalState, LEVELDATA_LOADING_STATE, levelWiseDataAction, setLevelDonationCount, setSelectedLevel } from '@/redux/reducer/globalSlice'
 import { useEffect, useState } from 'react'
 import { useActiveWeb3React } from '@/hooks/useActiveWeb3React'
-import { getLevelData } from '@/utils/helpers'
+import { geMasterReciverData, getLevelData } from '@/utils/helpers'
 
 
 const LevelInfo = ({
@@ -13,11 +13,14 @@ const LevelInfo = ({
 }) => {
 
     const { account } = useActiveWeb3React()
-    const { levelData, globalPath, selectedLevelNo } = useSelector(globalState);
+    const { levelData, globalPath, selectedLevelNo, fee } = useSelector(globalState);
+    const [masterReciverData, setMasterReciverData] = useState({})
+
     const dispatch = useDispatch()
 
     const [data, setData] = useState({})
 
+    console.log('levelData', levelData)
 
     useEffect(() => {
         if (!levelData?.completeData || !account) return;
@@ -25,10 +28,18 @@ const LevelInfo = ({
             level: levelNo,
             path: globalPath,
             data: levelData,
-            account
+            account,
+            fee
+        }))
+        setMasterReciverData(geMasterReciverData({
+            level: levelNo,
+            path: globalPath,
+            data: levelData
         }))
 
-    }, [levelData, levelNo, globalPath, account]);
+    }, [levelData, levelNo, globalPath, account, fee]);
+
+    console.log('masterReciverData', masterReciverData)
 
 
 
@@ -38,7 +49,8 @@ const LevelInfo = ({
             level: Number(selectedLevelNo),
             path: globalPath,
             data: levelData,
-            account
+            account,
+            fee
         });
 
 
@@ -46,7 +58,7 @@ const LevelInfo = ({
             dispatch(setLevelDonationCount(result?.donetionCount || 0))
         }
 
-    }, [selectedLevelNo, levelData, account])
+    }, [selectedLevelNo, levelData, account, fee])
 
 
     return (
@@ -56,7 +68,7 @@ const LevelInfo = ({
                 <AccordionTrigger className="accordion-title-div">{levelName}</AccordionTrigger>
                 <AccordionContent className="flex flex-col pb-[15px]">
                     <div className="mb-[20px] relative">
-                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Donations Received:<span className="font-medium">${data?.donationRecived || 0}</span></h3>
+                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Donations Received:<span className="font-medium">${masterReciverData?.totalAmount || 0}</span></h3>
                         <div className="h-[2px] mt-[20px] bg-[#F3F0F0] relative overflow-hidden">
                             <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>
                         </div>
