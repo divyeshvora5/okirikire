@@ -38,7 +38,7 @@ const Header = () => {
             <div className="flex items-center">
                 <Link href="/" className="w-[135px] h-[auto] overflow-hidden">
                     <img
-                        src="/images/logo.png"
+                        src="/images/OKIRIKIRI LOGO.svg"
                         alt="Okirikiri Logo"
                         className="w-full h-full object-contain object-center"
                     />
