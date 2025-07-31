@@ -1,8 +1,9 @@
 "use client";
 
+import { useActiveWeb3React } from "@/hooks/useActiveWeb3React";
 import { cn } from "@/lib/utils";
 import { globalState } from "@/redux/reducer/globalSlice";
-import { geMasterReciverData } from "@/utils/helpers";
+import { geMasterReciverData, getDonationNumber } from "@/utils/helpers";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -40,7 +41,7 @@ const isLevelActive = (level, selectedLevel, levelData) => {
 //   return "bg-black";
 // }
 
-const isInnerCircleFilled = (index, selectedLevel, levelData) => {
+const isInnerCircleFilled = (index, selectedLevel, innerCircle) => {
 
   console.log('selectedLevel', selectedLevel)
   console.log('index', index)
@@ -49,7 +50,9 @@ const isInnerCircleFilled = (index, selectedLevel, levelData) => {
     return "bg-black";
   }
 
-  if (index <= levelData?.masterLevelData?.length) {
+  console.log('innerCircle', innerCircle)
+
+  if (index === innerCircle) {
     return LEVEL[selectedLevel];
   }
 
@@ -85,9 +88,11 @@ const CircleAnimation = () => {
 
 
   const { selectedLevelNo, levelDonationCount, levelData, globalPath } = useSelector(globalState);
+  const { library, account } = useActiveWeb3React()
 
   const [step, setStep] = useState(0);
   const [masterReciverData, setMasterReciverData] = useState({})
+  const [innerCircle, stInnerCircle] = useState()
 
   useEffect(() => {
     if (step > 0 && step <= 13) {
@@ -105,6 +110,25 @@ const CircleAnimation = () => {
       data: levelData
     }))
   }, [selectedLevelNo, levelData?.masterReciverEventsData, globalPath])
+
+
+  useEffect(() => {
+    stInnerCircle()
+    if (!selectedLevelNo || !account) return;
+
+    (async () => {
+      const result = await getDonationNumber({
+        level: selectedLevelNo,
+        path: globalPath,
+        data: levelData,
+        provider: library,
+        account
+      })
+      stInnerCircle(result)
+      console.log('result*******', result)
+    })()
+
+  }, [selectedLevelNo, levelData, globalPath, account])
 
   console.log('masterReciverData', masterReciverData)
 
@@ -174,7 +198,7 @@ const CircleAnimation = () => {
         {[...Array(9)].map((_, index) => (
           <div
             key={index}
-            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(index + 1, selectedLevelNo, masterReciverData)} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
+            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(index + 1, selectedLevelNo, innerCircle)} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
           >
             {index + 1}
           </div>

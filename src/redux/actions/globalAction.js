@@ -492,7 +492,9 @@ export const getLevelDataAction = createAsyncThunk(
                     totalDoner: (leveldata1?.data?.resultArr[3] === 0 && leveldata1?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
                         ? 0
                         : leveldata1?.data?.resultArr[3] + 1,
-                    donetionCount: leveldata1?.data?.resultArr[1]
+                    donetionCount: leveldata1?.data?.resultArr[1],
+                    head: leveldata1?.data?.resultArr[2],
+                    levelDataMasterReciver: leveldata1?.data?.resultArr[0]
                 }
             }
 
@@ -502,7 +504,10 @@ export const getLevelDataAction = createAsyncThunk(
                     totalDoner: (leveldata2?.data?.resultArr[3] === 0 && leveldata2?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
                         ? 0
                         : leveldata2?.data?.resultArr[3] + 1,
-                    donetionCount: leveldata2?.data?.resultArr[1]
+                    donetionCount: leveldata2?.data?.resultArr[1],
+                    head: leveldata2?.data?.resultArr[2],
+                    levelDataMasterReciver: leveldata2?.data?.resultArr[0]
+
                 }
             }
 
@@ -512,7 +517,10 @@ export const getLevelDataAction = createAsyncThunk(
                     totalDoner: (leveldata3?.data?.resultArr[3] === 0 && leveldata3?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
                         ? 0
                         : leveldata3?.data?.resultArr[3] + 1,
-                    donetionCount: leveldata3?.data?.resultArr[1]
+                    donetionCount: leveldata3?.data?.resultArr[1],
+                    head: leveldata3?.data?.resultArr[2],
+                    levelDataMasterReciver: leveldata3?.data?.resultArr[0]
+
                 }
             }
 
@@ -522,7 +530,10 @@ export const getLevelDataAction = createAsyncThunk(
                     totalDoner: (leveldata4?.data?.resultArr[3] === 0 && leveldata4?.data?.resultArr[0]?.toLowerCase() === ZERO_ADDRESS)
                         ? 0
                         : leveldata4?.data?.resultArr[3] + 1,
-                    donetionCount: leveldata4?.data?.resultArr[1]
+                    donetionCount: leveldata4?.data?.resultArr[1],
+                    head: leveldata4?.data?.resultArr[2],
+                    levelDataMasterReciver: leveldata4?.data?.resultArr[0]
+
                 }
             }
 

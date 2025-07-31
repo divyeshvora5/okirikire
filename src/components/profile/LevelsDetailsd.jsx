@@ -16,6 +16,7 @@ const LevelInfo = ({
     const { levelData, globalPath, selectedLevelNo, fee } = useSelector(globalState);
     const [masterReciverData, setMasterReciverData] = useState({})
 
+
     const dispatch = useDispatch()
 
     const [data, setData] = useState({})
@@ -80,7 +81,7 @@ const LevelInfo = ({
                         </div>
                     </div>
                     <div className="mb-[20px] relative">
-                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Total Okirikiri Donors:<span className="font-medium">{data?.totalDoner || 0}</span></h3>
+                        <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Total Okirikiri Donors:<span className="font-medium">{data?.remainingDonner || 0}</span></h3>
                         <div className="h-[2px] mt-[20px] bg-[#F3F0F0] relative overflow-hidden">
                             <div className="absolute top-0 left-0 h-full bg-black animate-grow-left-to-right-loop"></div>
                         </div>

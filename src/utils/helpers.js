@@ -1,10 +1,14 @@
 import BigNumber from "bignumber.js";
 import {
     CHAIN_NAME,
+    CONTRACT_ADDRESS,
+    OKIRIKIRE_DEPOLOY_BLOCKNUMBER,
     OKIRIKIRI_CHAIN_ID,
     PLATFORM_FEE,
     SLIPPAGE_CONSTANT,
 } from "./constants";
+import { Contract } from "ethers";
+import OkirikiriV2 from "@/abi/OkirikiriV2.json";
 
 BigNumber.config({ EXPONENTIAL_AT: 1e9 });
 
@@ -254,7 +258,7 @@ export const getLevelData = ({ level, path, data, account, fee }) => {
     // };
 
     console.log('data?.completeData[level]', data?.completeData[level])
-    const d = data.eventData.filter(ele => (ele?.level === level && ele?.path === path))
+    const d = data.eventData.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
     if (d.length > 1) {
         const sortedData = d.sort((a, b) => b.blockNumber - a.blockNumber);
 
@@ -267,7 +271,12 @@ export const getLevelData = ({ level, path, data, account, fee }) => {
             ...data?.completeData[level],
             donationRecived: isFinite(data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100)))
                 ? data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100))
+                : 0,
+            remainingDonner: (data?.completeData[level]?.head < sortedData[0]?.donationIndex)
+                ? (((sortedData[0]?.donationIndex - 1) - data?.completeData[level]?.head) * 9) + (9 - data?.completeData[level]?.donetionCount)
                 : 0
+
+            // donetionCount
         }
 
     }
@@ -280,6 +289,9 @@ export const getLevelData = ({ level, path, data, account, fee }) => {
         ...data?.completeData[level],
         donationRecived: isFinite(data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100)))
             ? data?.completeData[level]?.donationRecived - (data?.completeData[level]?.donationRecived * (fee / 100))
+            : 0,
+        remainingDonner: (data?.completeData[level]?.head < d[0]?.donationIndex)
+            ? (((d[0]?.donationIndex - 1) - data?.completeData[level]?.head) * 9) + (9 - data?.completeData[level]?.donetionCount)
             : 0
     }
 
@@ -291,11 +303,67 @@ export const getLevelData = ({ level, path, data, account, fee }) => {
 export const geMasterReciverData = ({ level, path, data }) => {
 
     const masterLevelData = data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
-    const totalAmount =  data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))?.reduce((sum, donation) => sum + donation.amount, 0);
+    const totalAmount = data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))?.reduce((sum, donation) => sum + donation.amount, 0);
 
     return {
         totalAmount,
         masterLevelData
+    }
+
+}
+
+
+export const getDonationNumber = async ({ level, path, data, provider, account }) => {
+    try {
+
+        const contract = new Contract(CONTRACT_ADDRESS.okirikiriv2, OkirikiriV2, provider)
+
+        const eventData = data.eventData.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
+        console.log('eventData*******', eventData)
+        if (eventData?.length > 0) {
+            const sortedMasterData = eventData.sort((a, b) => b.donationIndex - a.donationIndex)
+
+
+            if (sortedMasterData[0]?.masterReciver === data?.completeData[level]?.levelDataMasterReciver?.toLowerCase()) {
+
+
+                const eventFilterMasterReciver = contract.filters.Donation(null, null, null, null, null, sortedMasterData[0]?.masterReciver);
+
+                const result = await contract.queryFilter(eventFilterMasterReciver, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest");
+
+                const masterReciverEventsData = result.map((event) => {
+                    const args = event.args
+                    const blockNumber = event.blockNumber
+
+                    return {
+                        doner: args[0]?.toLowerCase(),
+                        path: Number(args[1]),
+                        level: Number(args[2]),
+                        donationIndex: Number(args[3]),
+                        amount: +fromWei(Number(args[4])),
+                        masterReciver: args[5]?.toLowerCase(),
+                        blockNumber
+                    }
+                }).sort((a, b) => a.donationIndex - b.donationIndex)
+                console.log('masterReciverEventsData*******', masterReciverEventsData)
+
+               const firstMatchingIndex = masterReciverEventsData.findIndex((ele) => ele.doner === account?.toLowerCase());
+
+
+                return firstMatchingIndex + 1
+
+            }
+
+
+        }
+
+
+        return 0
+    } catch (err) {
+        console.log('err', err)
+
+
+        return 0
     }
 
 }
