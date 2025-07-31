@@ -113,7 +113,7 @@ const CircleAnimation = () => {
 
 
   useEffect(() => {
-    stInnerCircle()
+    // stInnerCircle()
     if (!selectedLevelNo || !account) return;
 
     (async () => {
