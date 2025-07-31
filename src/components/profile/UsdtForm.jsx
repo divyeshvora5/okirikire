@@ -40,7 +40,7 @@ const UsdtForm = ({ setOpen }) => {
 
     const totalBalance = useMemo(() => {
         return userBalances[0] + userBalances[1]
-    },[userBalances[0] + userBalances[1]])
+    }, [userBalances[0] + userBalances[1]])
 
     useEffect(() => {
 
@@ -128,19 +128,12 @@ const UsdtForm = ({ setOpen }) => {
                                 </span>
                             </h4>
                         </div>
-                        <div className="py-[30px] balance-border-div mb-[30px]">
 
-                            <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center">
-                                {globalPath === 0 ? "Mini Path" : "Standard"} Balance :
-                                <span className="font-semibold">
-                                    {isUserBalancesLoading ? "fetching..." : ` ${userBalances[globalPath]} USDT`}
-                                </span>
-                            </h4>
-                        </div>
                         <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center mb-[30px]">
                             Select path for withdraw
                         </h4>
-                        <div className="px-[35px] py-[20px] sm:px-[60px] balance-border-div md:px-[80px] lg:px-[100px] xl:px-[120px] mb-[45px]">
+
+                        <div className="px-[35px] py-[20px] sm:px-[60px] md:px-[80px] lg:px-[100px] xl:px-[120px] mb-[45px]">
                             <RadioGroup
                                 onValueChange={(e) => handlePathChange(e)}
                                 defaultValue={globalPath}
@@ -158,6 +151,15 @@ const UsdtForm = ({ setOpen }) => {
                                 </div>
 
                             </RadioGroup>
+                        </div>
+                        <div className="py-[30px] mb-[30px] balance-border-div">
+
+                            <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center">
+                                {globalPath === 0 ? "Mini Path" : "Standard"} Balance :
+                                <span className="font-semibold">
+                                    {isUserBalancesLoading ? "fetching..." : ` ${userBalances[globalPath]} USDT`}
+                                </span>
+                            </h4>
                         </div>
                         <div className="pb-[40px]">
                             <h4 className="font-medium text-[16px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[100%] tracking-[1px] text-black text-center mb-[40px]">
