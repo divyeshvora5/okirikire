@@ -15,13 +15,15 @@ const LEVEL = {
   3: "bg-[#F5A623]", // Yellow for level 3
 };
 
-const isLevelActive = (level, selectedLevel, levelData) => {
+const isLevelActive = (level, selectedLevel, levelData, data, account) => {
 
+  console.log('account', account)
+  
   if (selectedLevel == null || selectedLevel == "") {
     return "bg-black";
   }
 
-  if (Number(level) === Number(selectedLevel) && levelData?.masterLevelData?.length > 0) {
+  if (Number(level) === Number(selectedLevel) && (levelData?.masterLevelData?.length > 0 || data?.completeData[selectedLevel]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase())) {
     return LEVEL[level];
   }
 
@@ -130,7 +132,7 @@ const CircleAnimation = () => {
 
   }, [selectedLevelNo, levelData, globalPath, account])
 
-  console.log('masterReciverData', masterReciverData)
+  console.log('levelData', levelData)
 
   const isFilled = (target) => step >= target;
   const startAnimation = () => setStep(1);
@@ -140,7 +142,7 @@ const CircleAnimation = () => {
     <div className="circle-animation-div relative w-[320px] sm:w-[530px] h-[265px] sm:h-[530px] mx-auto">
       {/* Top Circle */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(0, selectedLevelNo, masterReciverData)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(0, selectedLevelNo, masterReciverData, levelData, account)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           1
         </div>
       </div>
@@ -153,7 +155,7 @@ const CircleAnimation = () => {
       </div>
       {/* Right Circle */}
       <div className="absolute top-1/2 right-[30px] sm:right-0 transform -translate-y-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(1, selectedLevelNo, masterReciverData)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(1, selectedLevelNo, masterReciverData, levelData, account)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           2
         </div>
       </div>
@@ -167,7 +169,7 @@ const CircleAnimation = () => {
 
       {/* Bottom Circle */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(2, selectedLevelNo, masterReciverData)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(2, selectedLevelNo, masterReciverData, levelData, account)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           3
         </div>
       </div>
@@ -181,7 +183,7 @@ const CircleAnimation = () => {
 
       {/* Left Circle */}
       <div className="absolute top-1/2 left-[30px] sm:left-0 transform -translate-y-1/2">
-        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(3, selectedLevelNo, masterReciverData)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
+        <div className={`w-[80px] sm:w-[160px] h-[80px] sm:h-[160px] ${isLevelActive(3, selectedLevelNo, masterReciverData, levelData, account)} text-white flex items-center justify-center rounded-full text-sm font-medium transition-colors duration-2000 ease-in-out`}>
           4
         </div>
       </div>

@@ -303,7 +303,10 @@ export const getLevelData = ({ level, path, data, account, fee }) => {
 export const geMasterReciverData = ({ level, path, data }) => {
 
     const masterLevelData = data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
-    const totalAmount = data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))?.reduce((sum, donation) => sum + donation.amount, 0);
+    console.log({ level, path })
+    const d = data?.masterReciverEventsData?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
+
+    const totalAmount = d.reduce((sum, donation) => sum + donation.amount, 0);
 
     return {
         totalAmount,
@@ -347,7 +350,7 @@ export const getDonationNumber = async ({ level, path, data, provider, account }
                 }).sort((a, b) => a.donationIndex - b.donationIndex)
                 console.log('masterReciverEventsData*******', masterReciverEventsData)
 
-               const firstMatchingIndex = masterReciverEventsData.findIndex((ele) => ele.doner === account?.toLowerCase());
+                const firstMatchingIndex = masterReciverEventsData.findIndex((ele) => ele.doner === account?.toLowerCase());
 
 
                 return firstMatchingIndex + 1

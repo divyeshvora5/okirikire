@@ -40,7 +40,7 @@ const LevelInfo = ({
 
     }, [levelData, levelNo, globalPath, account, fee]);
 
-    console.log('masterReciverData', masterReciverData)
+    console.log('globalPath', globalPath)
 
 
 
