@@ -21,7 +21,6 @@ const LevelInfo = ({
 
     const [data, setData] = useState({})
 
-    console.log('levelData', levelData)
 
     useEffect(() => {
         if (!levelData?.completeData || !account) return;
@@ -40,7 +39,6 @@ const LevelInfo = ({
 
     }, [levelData, levelNo, globalPath, account, fee]);
 
-    console.log('globalPath', globalPath)
 
 
 
