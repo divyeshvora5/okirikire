@@ -347,7 +347,7 @@ export const getDonationNumber = async ({ level, path, data, provider, account }
                         masterReciver: args[5]?.toLowerCase(),
                         blockNumber
                     }
-                }).sort((a, b) => a.donationIndex - b.donationIndex)
+                })?.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))?.sort((a, b) => a.donationIndex - b.donationIndex)
                 console.log('masterReciverEventsData*******', masterReciverEventsData)
 
                 const firstMatchingIndex = masterReciverEventsData.findIndex((ele) => ele.doner === account?.toLowerCase());

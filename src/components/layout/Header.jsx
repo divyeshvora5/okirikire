@@ -36,7 +36,7 @@ const Header = () => {
     return (
         <header className="w-full flex justify-between items-center px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] bg-[#FAFAFF] sticky top-0 z-10 okiri-header-wrapper min-h-[62px] lg:min-h-[unset]">
             <div className="flex items-center">
-                <Link href="/" className="w-[135px] h-[auto] overflow-hidden">
+                <Link href="/" onClick={() => setActivePage("")} className="w-[135px] h-[auto] overflow-hidden">
                     <img
                         src="/images/OKIRIKIRI LOGO.svg"
                         alt="Okirikiri Logo"
