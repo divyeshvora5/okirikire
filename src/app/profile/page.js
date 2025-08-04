@@ -32,7 +32,7 @@ export default function Profile() {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [showBtn, setShowBtn] = useState(false)
-    const [sAlert, setShowAlert] = useState(true)
+    const [sAlert, setShowAlert] = useState(false)
 
 
 
