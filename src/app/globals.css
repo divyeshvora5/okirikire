@@ -709,12 +709,18 @@ html {
 .okiri-small-modal-content-div .okiri-modal-body {
   padding: 40px 60px 20px 60px;
 }
-
+.okiri-modal-without-border-div{
+  border: none !important;
+  padding: 0 !important;
+}
 .okiri-modal-content-div {
   padding: 0;
   max-width: 785px;
   max-height: 97vh;
   overflow-y: auto;
+}
+.okiri-modal-content-div.congrats-modal-content-wrapper{
+  max-width: 475px;
 }
 
 .okiri-modal-content-div .okiri-modal-header-div {
@@ -737,7 +743,12 @@ html {
   top: 22px;
   right: 22px;
 }
-
+.okiri-modal-content-div .okiri-modal-header-div .close-modal-btn.congrats-close-modal-wrapper{
+  width: 45px;
+  height: 45px;
+  top: 5px;
+  right: 10px;
+}
 .okiri-modal-content-div .okiri-modal-header-div .close-modal-btn:hover {
   box-shadow: none;
   background: unset;

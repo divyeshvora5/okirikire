@@ -18,7 +18,7 @@ const LEVEL = {
 const isLevelActive = (level, selectedLevel, levelData, data, account) => {
 
   console.log('account', account)
-  
+
   if (selectedLevel == null || selectedLevel == "") {
     return "bg-black";
   }
@@ -45,14 +45,11 @@ const isLevelActive = (level, selectedLevel, levelData, data, account) => {
 
 const isInnerCircleFilled = (index, selectedLevel, innerCircle) => {
 
-  console.log('selectedLevel', selectedLevel)
-  console.log('index', index)
 
   if (selectedLevel === null || selectedLevel == "") {
     return "bg-black";
   }
 
-  console.log('innerCircle', innerCircle)
 
   if (index === innerCircle) {
     return LEVEL[selectedLevel];
@@ -126,7 +123,16 @@ const CircleAnimation = () => {
         provider: library,
         account
       })
-      stInnerCircle(result)
+
+      if (levelData?.completeData[selectedLevelNo]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase()) {
+        console.log("if")
+        stInnerCircle(levelData?.completeData[selectedLevelNo]?.donetionCount)
+      } else {
+        console.log("else")
+        stInnerCircle(result)
+      }
+
+      // donetionCount
       console.log('result*******', result)
     })()
 

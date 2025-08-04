@@ -32,6 +32,7 @@ export default function Profile() {
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [showBtn, setShowBtn] = useState(false)
+    const [sAlert, setShowAlert] = useState(true)
 
 
 
@@ -54,7 +55,19 @@ export default function Profile() {
 
     useEffect(() => {
         setShowBtn(isShowButtons())
+        setShowAlert(isShowButtons())
     }, [currentUserLevel, completedLevel, globalPath, account])
+
+
+
+    const modelRef = useRef(null);
+
+    const handleClickOutside = (e) => {
+        if (modelRef.current && modelRef.current.contains(e.target)) {
+            setOpen(false);
+        }
+    };
+
 
 
     return (
@@ -113,18 +126,39 @@ export default function Profile() {
                             {account &&
                                 <div className="flex items-center jusitfy-between w-full mt-[40px] flex-col sm:flex-row">
                                     {showBtn && <NextLeveModel />}
-                                    <AlertDialog  open={open} onOpenChange={setOpen} className="okiri-modal-wrapper">
+                                    <AlertDialog open={open} onOpenChange={setOpen} className="okiri-modal-wrapper">
                                         <AlertDialogTrigger asChild>
                                             <Button className="bg-black text-white font-semibold leading-[100%] text-xl rounded-[100px] min-h-[44px] min-w-[200px] mb-[20px] sm:mb-0 mr-0 sm:mr-[24px] cursor-pointer">Withdraw</Button>
                                         </AlertDialogTrigger>
-                                        <WithdrawFundModel  setOpen={setOpen} />
+                                        <WithdrawFundModel setOpen={setOpen} />
                                     </AlertDialog>
                                     {showBtn && <ExitModel />}
+
+                                    {/**Notification */}
+                                    <AlertDialog open={sAlert} onOpenChange={setShowAlert} className="okiri-modal-wrapper">
+                                        <AlertDialogContent onClick={handleClickOutside} ref={modelRef} className="okiri-modal-content-div congrats-modal-content-wrapper">
+                                        <AlertDialogHeader className="okiri-modal-header-div okiri-modal-without-border-div">
+                                            <AlertDialogCancel className="close-modal-btn congrats-close-modal-wrapper">
+                                                <img
+                                                    src="/images/close-icon.svg"
+                                                    alt="Okirikiri Logo"
+                                                    className="w-full h-full object-contain object-center"
+                                                />
+                                            </AlertDialogCancel>
+                                        </AlertDialogHeader>
+                                            <div className="px-5 pt-10 pb-5 m-auto">
+                                                <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl mb-[30px] text-center font-bold text-black">🎉 CONGRATULATIONS! You've completed this level!</h3>
+                                                <h4 className="text-sm md:text-base lg:text-lg xl:text-xl mb-[30px] text-center font-semibold text-black">⚠️ ACTION REQUIRED!</h4>
+                                                <h5 className="text-sm md:text-base lg:text-lg xl:text-xl text-center font-semibold text-black">💰 Decide whether to withdraw your funds or move on to the next level as soon as possible!</h5>
+                                            </div>
+                                        </AlertDialogContent>
+                                    </AlertDialog>
                                 </div>
                             }
                         </div>
                     </div>
                 </div>
+
                 <NewsLatter />
             </section>
 

@@ -64,25 +64,25 @@ export default function Home() {
     return (
         <>
             {/* <BannerSection /> */}
-            <section className="pt-[50px] md:pt-[60px] lg:pt-[70px] xl:pt-[80px] pb-[50px] sm:pb-[60px] md:pb-[70px] lg:pb-[80px] xl:pb-[90px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+            <section className="pt-[20px] md:pt-[30px] lg:pt-[40px] xl:pt-[50px] 2xl:pt-[80px] pb-[15px] sm:pb-[20px] md:pb-[30px] lg:pb-[40px] xl:pb-[30px] 2xl:pb-[90px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
                 <div className="flex justify-center items-center flex-col">
-                    <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[30px]">Join OKIRIKIRI: The Circular Protocol That Can Change the World</h2>
-                    <div className="w-[200px] sm:w-[260px] md:w-[320px] h-[auto] overflow-hidden mb-[30px]">
+                    <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[15px] 2xl:mb-[30px]">Join OKIRIKIRI: The Circular Protocol That Can Change the World</h2>
+                    <div className="w-[200px] sm:w-[260px] xl:w-[200px] 2xl:w-[320px] h-[auto] overflow-hidden mb-[30px]">
                         <img
                             src="/images/okirikiri-banner-image.png"
                             alt="Okirikiri Logo"
                             className="w-full h-full object-contain object-center"
                         />
                     </div>
-                    <p className="max-w-[870px] w-full text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] tracking-[1px] text-center text-black">
+                    <p className="max-w-[870px] w-full text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[18px] leading-[20px] sm:leading-[22px] md:leading-[26px] lg:leading-[30px] xl:leading-[34px] tracking-[1px] text-center text-black">
                         OKIRIKIRI is a decentralized protocol based on voluntary donations, promoting a
                         democratic circular economy. It is powered by transparent smart contracts on the
                         blockchain—automatic, fair, and open to everyone.
                     </p>
                 </div>
             </section>
-            <section className="py-[50px] md:py-[60px] lg:py-[70px] xl:py-[80px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[50px]">Choose Your Path and Reserve Your Spot in the Okirikiri Process</h2>
+            <section className="pt-[15px] md:pt-[20px] lg:pt-[25px] xl:pt-0 2xl:pt-[80px] pb-[45px] sm:pb-[50px] md:pb-[60px] lg:pb-[70px] xl:pb-[80px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+                <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[30px] 2xl:mb-[50px]">Choose Your Path and Reserve Your Spot in the Okirikiri Process</h2>
                 <div className="flex flex-col md:flex-row items-stretch m-0 md:m-[-12px]">
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[6px] md:p-[8px] lg:p-[10px] xl:p-[12px]">
                         <div className="bg-[#F4F4F4] rounded-[21px] px-[40px] pt-[50px] pb-[40px] text-center h-full okiri-spot-selection-box flex flex-col justify-between">

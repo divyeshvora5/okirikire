@@ -322,7 +322,6 @@ export const getDonationNumber = async ({ level, path, data, provider, account }
         const contract = new Contract(CONTRACT_ADDRESS.okirikiriv2, OkirikiriV2, provider)
 
         const eventData = data.eventData.filter(ele => (Number(ele?.level) === Number(level) && ele?.path === path))
-        console.log('eventData*******', eventData)
         if (eventData?.length > 0) {
             const sortedMasterData = eventData.sort((a, b) => b.donationIndex - a.donationIndex)
 
