@@ -64,10 +64,10 @@ export default function Home() {
     return (
         <>
             {/* <BannerSection /> */}
-            <section className="pt-[20px] md:pt-[30px] lg:pt-[40px] xl:pt-[50px] 2xl:pt-[80px] pb-[15px] sm:pb-[20px] md:pb-[30px] lg:pb-[40px] xl:pb-[30px] 2xl:pb-[90px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+            <section className="pt-[35px] md:pt-[30px] lg:pt-[40px] xl:pt-[50px] 2xl:pt-[80px] pb-[35px] sm:pb-[20px] md:pb-[30px] lg:pb-[40px] xl:pb-[30px] 2xl:pb-[90px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
                 <div className="flex justify-center items-center flex-col">
-                    <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[15px] 2xl:mb-[30px]">Join OKIRIKIRI: The Circular Protocol That Can Change the World</h2>
-                    <div className="w-[200px] sm:w-[260px] xl:w-[200px] 2xl:w-[320px] h-[auto] overflow-hidden mb-[30px]">
+                    <h2 className="text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[15px] 2xl:mb-[30px]">Join OKIRIKIRI: The Circular Protocol That Can Change the World</h2>
+                    <div className="w-[160px] sm:w-[260px] xl:w-[200px] 2xl:w-[320px] h-[auto] overflow-hidden mb-[15px] sm:mb-[30px]">
                         <img
                             src="/images/okirikiri-banner-image.png"
                             alt="Okirikiri Logo"
@@ -82,12 +82,12 @@ export default function Home() {
                 </div>
             </section>
             <section className="pt-[15px] md:pt-[20px] lg:pt-[25px] xl:pt-0 2xl:pt-[80px] pb-[45px] sm:pb-[50px] md:pb-[60px] lg:pb-[70px] xl:pb-[80px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[30px] 2xl:mb-[50px]">Choose Your Path and Reserve Your Spot in the Okirikiri Process</h2>
+                <h2 className="text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[30px] 2xl:mb-[50px]">Choose Your Path and Reserve Your Spot in the Okirikiri Process</h2>
                 <div className="flex flex-col md:flex-row items-stretch m-0 md:m-[-12px]">
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[6px] md:p-[8px] lg:p-[10px] xl:p-[12px]">
-                        <div className="bg-[#F4F4F4] rounded-[21px] px-[40px] pt-[50px] pb-[40px] text-center h-full okiri-spot-selection-box flex flex-col justify-between">
+                        <div className="bg-[#F4F4F4] rounded-[21px] px-[25px] sm:px-[30] md:px-[35px] lg:px-[40px] pt-[25px] sm:pt-[30px] md:pt-[40px] lg:pt-[50px] pb-[25px] md:pb-[30px] lg:pb-[40px] text-center h-full okiri-spot-selection-box flex flex-col justify-between">
                             <div>
-                                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[18px] text-black">MINI PATH – 25 USDT</h3>
+                                <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[18px] text-black">MINI PATH – 25 USDT</h3>
                                 <p className="font-medium text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] mb-[60px] text-center">Start small, grow big</p>
                             </div>
                             <Button
@@ -100,9 +100,9 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[6px] md:p-[8px] lg:p-[10px] xl:p-[12px]">
-                        <div className="bg-[#F4F4F4] rounded-[21px] px-[40px] pt-[50px] pb-[40px] h-full text-center okiri-spot-selection-box flex flex-col justify-between">
+                        <div className="bg-[#F4F4F4] rounded-[21px] px-[25px] sm:px-[30] md:px-[35px] lg:px-[40px] pt-[25px] sm:pt-[30px] md:pt-[40px] lg:pt-[50px] pb-[25px] md:pb-[30px] lg:pb-[40px] h-full text-center okiri-spot-selection-box flex flex-col justify-between">
                             <div>
-                                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[18px] text-black">STANDARD PATH – 250 USDT</h3>
+                                <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[18px] text-black">STANDARD PATH – 250 USDT</h3>
                                 <div className="relative">
                                     <p className="font-semibold text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] mb-[60px] text-center flex justify-center items-center standard-path-text text-[#CD1A1A]">The full journey, up to 201,875 USDT
                                         <div className="clearfix">
@@ -132,7 +132,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="pb-[40px] sm:pb-[50px] md:pb-[60px] lg:pb-[70px] xl:pb-[80px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] sm:mb-[40px] md:mb-[50px] lg:mb-[60px] xl:mb-[70px] text-black">IT’S EASY – JUST 3 SIMPLE STEPS TO UNLOCK OKIRIKIRI</h3>
+                <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] sm:mb-[40px] md:mb-[50px] lg:mb-[60px] xl:mb-[70px] text-black">IT’S EASY – JUST 3 SIMPLE STEPS TO UNLOCK OKIRIKIRI</h3>
                 <div className="flex flex-col lg:flex-row justify-between items-start">
                     <div className="w-full lg:w-1/2 mb-[30px] lg:mb-0">
                         <div className="okiri-accordion-main-div">
@@ -175,7 +175,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1 ml-auto lg:ml-[30px] flex lg:block mr-auto lg:mr-0">
                         <div className="pt-[50px]">
-                            <div className="relative w-full sm:w-[520px] h-[480px] mx-auto">
+                            <div className="relative w-full sm:w-[520px] h-[400px] sm:h-[480px] mx-auto">
                                 {/* Outer Ring */}
                                 <div className="absolute top-[30px] left-[50%] translate-x-[-50%] w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full border-[30px] border-[#F8F8F8]"></div>
 
@@ -210,7 +210,7 @@ export default function Home() {
                                 </div>
 
                                 {/* Step 02 - Bottom Right */}
-                                <div className="absolute right-[100px] sm:right-[15%] bottom-[70px] sm:bottom-[unset] sm:top-[70%] transform translate-x-1/2 -translate-y-1/2">
+                                <div className="absolute right-[100px] sm:right-[15%] bottom-0 sm:bottom-[70px] sm:bottom-[unset] sm:top-[70%] transform translate-x-1/2 -translate-y-1/2">
                                     {/* Desktop hover */}
                                     <div className="hidden sm:flex group flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px]
                                         rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
@@ -231,7 +231,7 @@ export default function Home() {
                                 </div>
 
                                 {/* Step 03 - Bottom Left */}
-                                <div className="absolute left-[100px] sm:left-[15%] bottom-[70px] sm:bottom-[unset] sm:top-[70%] transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="absolute left-[100px] sm:left-[15%] bottom-0 sm:bottom-[70px] sm:bottom-[unset] sm:top-[70%] transform -translate-x-1/2 -translate-y-1/2">
                                     {/* Desktop hover */}
                                     <div className="hidden sm:flex group flex-col items-center justify-center w-[120px] sm:w-[180px] h-[120px] sm:h-[180px]
                                         rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
@@ -255,8 +255,8 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="bg-black p-[12px] rounded-[20px] mt-0 sm:mt-[20px] md:mt-[40px] lg:mt-[60px] xl:mt-[80px] flex flex-col sm:flex-row items-center relative">
-                    <div className="w-full sm:w-[300px] h-[135px] bg-white rounded-[10px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
-                        <div className="w-[264px] h-[90px] oveflow-hidden">
+                    <div className="w-full sm:w-[300px] h-[100px] sm:h-[135px] bg-white rounded-[10px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
+                        <div className="w-[200px] sm:w-[264px] h-[90px] oveflow-hidden">
                             <img
                                 src="/images/okirikiri-footer-logo.png"
                                 alt="Okirikiri Logo"
@@ -282,7 +282,7 @@ export default function Home() {
                 className="py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative"
                 id="about"
             >
-                <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] text-black">WHY OKIRIKIRI?</h3>
+                <h3 className="font-medium text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] text-black">WHY OKIRIKIRI?</h3>
                 <div className="max-w-[1050px] m-auto">
                     <p className="text-black font-normal text-base md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] mb-[18px] text-center">In <span className="font-semibold">Igbo</span>, Okirikiri means <span className="font-semibold">“circle”</span> — a symbol of continuity, balance, and shared abundance.</p>
                     <p className="text-black font-normal text-base md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] mb-[18px] text-center">Okirikiri is more than a platform. It’s a <span className="font-semibold">decentralized donation protocol</span> designed to break the logic of financial
@@ -303,7 +303,7 @@ export default function Home() {
                 className="px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] py-[30px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px]"
                 id="how-it-works"
             >
-                <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] text-black">How It Works</h3>
+                <h3 className="font-medium text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] text-black">How It Works</h3>
                 <div className="flex items-center flex-col xl:flex-row">
                     <div className="w-full xl:w-1/2 mb-[30px] xl:mb-0">
                         <HomeCircleAnimation />
@@ -316,7 +316,7 @@ export default function Home() {
                                 of the donations made by the next 9 users who enter the
                                 system after you.</p>
                             <p className="font-semibold text-sm md:text-base lg:text-lg leading-[20px] sm:leading-[24px] md:leading-[28px] lg:leading-[32px] xl:leading-[36px] text-black mb-[8px]">At the end of each of the 4 levels, you will have complete freedom to:</p>
-                            <div className="">
+                            <div className="mb-[12px]">
                                 <p className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-black mb-[2px]">1. Withdraw the donations collected (subject to a 10% fee), or</p>
                                 <p className="font-bold text-sm sm:text-base leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[28px] xl:leading-[32px] text-black">2. Reinvest part of your collected donations to move up to the next level</p>
                             </div>
@@ -326,8 +326,8 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="how-it-works-main-box-div p-[12px] rounded-[20px] mt-[20px] mb-[35px] lg:mb-[45px] xl:mb-[55px] flex flex-col sm:flex-row items-center relative">
-                    <div className="w-full sm:w-[300px] h-[125px] bg-white rounded-[10px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
-                        <div className="w-[264px] h-[90px] oveflow-hidden">
+                    <div className="w-full sm:w-[300px] h-[100px] sm:h-[125px] bg-white rounded-[10px] mb-[24px] sm:mb-0 mr-0 sm:mr-[24px] flex justify-center items-center">
+                        <div className="w-[200px] sm:w-[264px] h-[90px] oveflow-hidden">
                             <img
                                 src="/images/okirikiri-footer-logo.png"
                                 alt="Okirikiri Logo"
@@ -339,7 +339,7 @@ export default function Home() {
                         <h4 className="text-[18px] md:text-[22px] lg:text-[26px] xl:text-[30px] font-bold leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] tracking-[1px] text-black mb-[12px]">
                             201,875 USDT
                         </h4>
-                        <p className="font-semibold text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[30px] sm:leading-[34px] md:leading-[38px] lg:leading-[42px] xl:leading-[46px] text-black">
+                        <p className="font-semibold text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[18px] sm:leading-[24px] md:leading-[30px] lg:leading-[38px] xl:leading-[46px] text-black pr-15 sm:pr-0">
                             Donation Automatically Collected at the end of the OKIRIKIRI Process
                         </p>
                     </div>
@@ -352,9 +352,9 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row items-stretch m-0 md:m-[-12px]">
-                    <div className="max-w-full md:max-w-1/3 basis-full md:basis-1/3 p-[12px]">
+                    <div className="max-w-full md:max-w-1/3 basis-full md:basis-1/3 p-[12px] donate-now-box-wrapper">
                         <div className="bg-[#F4F4F4] rounded-[20px] px-[12px] md:px-[14px] lg:px-[16px] xl:px-[18px] py-[22px] md:py-[26px] lg:py-[30px] xl:py-[34px] okiri-donate-box-wrapper h-full flex flex-col justify-between">
-                            <div className="mb-[35px]">
+                            <div className="mb-[20px] sm:mb-[35px]">
                                 <p className="mb-[18px] font-medium text-sm md:text-base lg:text-lg leading-[18px] sm:leading-[20px] md:leading-[22px] lg:leading-[24px] xl:leading-[26px] text-black">
                                     At the end of each of the 4 levels you will have the freedom to exit the process and you can always reserve your slot to return to being Master Receiver 1.
                                 </p>
@@ -362,7 +362,7 @@ export default function Home() {
                                     Each wallet can reserve only one spot in the Okirikiri system.
                                 </p>
                             </div>
-                            <Link href="/" className="font-bold text-base leading-[100%] text-black uppercase flex items-center donate-btn-wrapper">
+                            <Link href="/" className="font-bold text-sm sm:text-base leading-[100%] text-black uppercase flex items-center donate-btn-wrapper">
                                 DONATE NOW
                                 <i className="block w-[16px] h-[16px] overflow-hidden ml-[6px]">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -379,9 +379,9 @@ export default function Home() {
                             </Link>
                         </div>
                     </div>
-                    <div className="max-w-full md:max-w-1/3 basis-full md:basis-1/3 p-[12px]">
+                    <div className="max-w-full md:max-w-1/3 basis-full md:basis-1/3 p-[12px] donate-now-box-wrapper">
                         <div className="bg-[#F4F4F4] rounded-[20px] px-[12px] md:px-[14px] lg:px-[16px] xl:px-[18px] py-[22px] md:py-[26px] lg:py-[30px] xl:py-[34px] okiri-donate-box-wrapper h-full flex flex-col justify-between">
-                            <div className="mb-[35px]">
+                            <div className="mb-[20px] sm:mb-[35px]">
                                 <p className="mb-[18px] font-medium text-sm md:text-base lg:text-lg leading-[18px] sm:leading-[20px] md:leading-[22px] lg:leading-[24px] xl:leading-[26px] text-black">
                                     No one can join the process by reserving a place in different levels in the OKIRIKIRI protocol.
                                 </p>
@@ -389,7 +389,7 @@ export default function Home() {
                                     To reserve a spot in a higher level, the previous level must be completed.
                                 </p>
                             </div>
-                            <Link href="/" className="font-bold text-base leading-[100%] text-black uppercase flex items-center donate-btn-wrapper">
+                            <Link href="/" className="font-bold text-sm sm:text-base leading-[100%] text-black uppercase flex items-center donate-btn-wrapper">
                                 DONATE NOW
                                 <i className="block w-[16px] h-[16px] overflow-hidden ml-[6px]">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -406,17 +406,17 @@ export default function Home() {
                             </Link>
                         </div>
                     </div>
-                    <div className="max-w-full md:max-w-1/3 basis-full md:basis-1/3 p-[12px]">
+                    <div className="max-w-full md:max-w-1/3 basis-full md:basis-1/3 p-[12px] donate-now-box-wrapper">
                         <div className="bg-[#F4F4F4] rounded-[20px] px-[12px] md:px-[14px] lg:px-[16px] xl:px-[18px] py-[22px] md:py-[26px] lg:py-[30px] xl:py-[34px] okiri-donate-box-wrapper h-full flex flex-col justify-between">
-                            <div className="mb-[35px]">
+                            <div className="mb-[20px] sm:mb-[35px]">
                                 <p className="mb-[18px] font-medium text-sm md:text-base lg:text-lg leading-[18px] sm:leading-[20px] md:leading-[22px] lg:leading-[24px] xl:leading-[26px] text-black">
                                     OKIRIKIRI works only with crypto. The accepted currency to join the process is USDT BEP-20.
                                 </p>
-                                <p className="mb-[35px] font-medium text-sm md:text-base lg:text-lg leading-[18px] sm:leading-[20px] md:leading-[22px] lg:leading-[24px] xl:leading-[26px] text-black">
+                                <p className="font-medium text-sm md:text-base lg:text-lg leading-[18px] sm:leading-[20px] md:leading-[22px] lg:leading-[24px] xl:leading-[26px] text-black">
                                     Go to the FAQ to find out how to get USTD BEP-20
                                 </p>
                             </div>
-                            <Link href="/" className="font-bold text-base leading-[100%] text-black uppercase flex items-center donate-btn-wrapper">
+                            <Link href="/" className="font-bold text-sm sm:text-base leading-[100%] text-black uppercase flex items-center donate-btn-wrapper">
                                 DONATE NOW
                                 <i className="block w-[16px] h-[16px] overflow-hidden ml-[6px]">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -436,7 +436,7 @@ export default function Home() {
                 </div>
             </section>
             <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] md:mb-[40px] lg:mb-[50px] text-black uppercase">PATH DETAILS – Overview</h3>
+                <h3 className="font-medium text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[30px] md:mb-[40px] lg:mb-[50px] text-black uppercase">PATH DETAILS – Overview</h3>
                 <div className="max-w-[1095px] m-auto px-[15px] sm:px-0">
                     <div className="path-detail-table-wrapper">
                         <h3 className="font-bold text-base lg:text-lg xl:text-[22px] leading-[100%] text-[#212B36] pt-[28px] pb-[23px] px-[20px]">MINI PATH – 25 USDT</h3>
@@ -530,7 +530,7 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row items-stretch justify-center flex-wrap m-0 md:m-[-12px]">
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
-                            <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 1 – Master Receiver 1</h3>
+                            <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 1 – Master Receiver 1</h3>
                             <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] text-center text-black mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">You start by donating 25 USDT.</p>
                             <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
                                 25 USDT = 202.50 USDT.</p>
@@ -541,7 +541,7 @@ export default function Home() {
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 2 – Master Receiver 2</h3>
+                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 2 – Master Receiver 2</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 100 USDT = 810 USDT.</p>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 500 USDT to move to Level 3.</p>
                             </div>
@@ -551,7 +551,7 @@ export default function Home() {
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 3 – Master Receiver 3</h3>
+                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 3 – Master Receiver 3</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
                                     500 USDT = 4,050 USDT.</p>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 2,500 USDT to move to Level 4.</p>
@@ -562,7 +562,7 @@ export default function Home() {
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 4 – Master Receiver 4</h3>
+                                <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 4 – Master Receiver 4</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 2,500 USDT = 18,225 USDT.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 18,225 USDT</p>
@@ -667,7 +667,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="my-[35px] px-[15px] sm:px-0 flex justify-center items-center">
-                    <p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] mb-[40px] text-center standard-path-text text-[#CD1A1A] flex items-center flex-wrap sm:flex-nowrap">STANDARD PATH – Total Donations Received: <span className="font-black relative ml-[6px] flex items-center"> 201,875 USDT
+                    <p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] mb-[40px] text-center standard-path-text text-[#CD1A1A] flex items-center flex-wrap sm:flex-nowrap standard-mobile-text-wrapper">STANDARD PATH – Total Donations Received: <span className="font-black relative ml-[6px] flex items-center"> 201,875 USDT
                         <i className="w-[150px] sm:w-[180px] h-[auto] overflow-hidden absolute bottom-[-20px] left-0 right-0 m-auto okiri-line-image-wrapper okiri-standard-line-image">
                             <svg width="281" height="21" viewBox="0 0 281 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 19C57.0548 8.34266 186.236 -9.22896 280 11.9817" stroke="#CD1A1A" strokeWidth="3" />
@@ -684,13 +684,13 @@ export default function Home() {
                     </p>
                 </div>
             </section>
-            <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] pb-[70px]">
+            <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] pb-[40px] md:pb-[50px] lg:pb-[60px] xl:pb-[70px]">
                 <div className="flex flex-col md:flex-row items-stretch justify-center flex-wrap m-0 md:m-[-12px]">
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
-                            <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 1 – Master Receiver 1</h3>
+                            <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 1 – Master Receiver 1</h3>
                             <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] text-center text-black mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">You start by donating 250 USDT.</p>
-                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 250 USDT = 2,025 USDT.</p>
+                            <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[20px] md:leading-[26px] lg:leading-[32px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 250 USDT = 2,025 USDT.</p>
                             <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 1,000 USDT to move to Level 2.</p>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 1,025 USDT</p>
                         </div>
@@ -698,8 +698,8 @@ export default function Home() {
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 2 – Master Receiver 2</h3>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 1,000 USDT = 8,100 USDT.</p>
+                                <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 2 – Master Receiver 2</h3>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[20px] md:leading-[26px] lg:leading-[32px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 1,000 USDT = 8,100 USDT.</p>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 5,000 USDT to move to Level 3</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 3,100 USDT</p>
@@ -708,8 +708,8 @@ export default function Home() {
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 3 – Master Receiver 3</h3>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 5,000 USDT = 40,500 USDT.</p>
+                                <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 3 – Master Receiver 3</h3>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[20px] md:leading-[26px] lg:leading-[32px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 5,000 USDT = 40,500 USDT.</p>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] text-center text-black mb-[17px] sm:mb-[19px] md:mb-[21px] lg:mb-[23px] xl:mb-[25px]">You reinvest 25,000 USDT to move to Level 4.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 15,500 USDT</p>
@@ -718,7 +718,7 @@ export default function Home() {
                     <div className="max-w-full md:max-w-1/2 basis-full md:basis-1/2 p-[12px] w-full">
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
-                                <h3 className="font-bold text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 4 – Master Receiver 4</h3>
+                                <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 4 – Master Receiver 4</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
                                     25,000 USDT = 182,250 USDT..</p>
                             </div>
@@ -742,8 +742,8 @@ export default function Home() {
             <section className="py-[40px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative">
                 <div className="flex flex-col md:flex-row items-center">
                     <div className="flex-1">
-                        <h3 className="font-medium text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] mb-[30px] text-black">PARTICIPATION RULES (Clear and Simple)</h3>
-                        <div className="flex items-center mt-[30px]">
+                        <h3 className="font-medium text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] mb-[30px] text-black">PARTICIPATION RULES (Clear and Simple)</h3>
+                        <div className="flex items-center mt-[15px] md:mt-[30px]">
                             <div className="clearfix">
                                 <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
                                     <img
@@ -755,7 +755,7 @@ export default function Home() {
                             </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black ">Only one active donation per wallet at a time</p>
                         </div>
-                        <div className="flex items-center mt-[30px]">
+                        <div className="flex items-center mt-[15px] md:mt-[30px]">
                             <div className="clearfix">
                                 <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
                                     <img
@@ -767,7 +767,7 @@ export default function Home() {
                             </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px]] leading-[100%] text-black ">You must complete a level to unlock access to the next</p>
                         </div>
-                        <div className="flex items-center mt-[30px]">
+                        <div className="flex items-center mt-[15px] md:mt-[30px]">
                             <div className="clearfix">
                                 <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
                                     <img
@@ -779,7 +779,7 @@ export default function Home() {
                             </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black ">After each level, you choose: reinvest or withdraw</p>
                         </div>
-                        <div className="flex items-center mt-[30px]">
+                        <div className="flex items-center mt-[15px] md:mt-[30px]">
                             <div className="clearfix">
                                 <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
                                     <img
@@ -791,7 +791,7 @@ export default function Home() {
                             </div>
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="fomt-semibold">USDT BEP-20 only (Binance Smart Chain) </span></p>
                         </div>
-                        <div className="flex items-center mt-[30px]">
+                        <div className="flex items-center mt-[15px] md:mt-[30px]">
                             <div className="clearfix">
                                 <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
                                     <img
@@ -804,7 +804,7 @@ export default function Home() {
                             <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black ">You can restart the process once a cycle is completed or exited</p>
                         </div>
                     </div>
-                    <div className="mt-[30px] md:mt-0 w-full sm:w-[415px] h-[410px] oveflow-hidden">
+                    <div className="mt-[30px] md:mt-0 w-full sm:w-[415px] h-[300px] sm:h-[410px] oveflow-hidden">
                         <img
                             src="/images/participation-right-image.svg"
                             alt="Okirikiri Logo"
@@ -820,16 +820,16 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <section className="pt-[30px] pb-[70px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h3 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium text-black leading-[100%] tracking-[1px] uppercase text-center mb-[30px]">HOW TO START</h3>
+            <section className="pt-[30px] pb-[40px] md:pb-[50px] lg:pb-[60px] xl:pb-[70px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+                <h3 className="text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium text-black leading-[100%] tracking-[1px] uppercase text-center mb-[30px]">HOW TO START</h3>
                 <div className="flex flex-col lg:flex-row items-center">
-                    <div className="w-full lg:w-1/2 pt-[50px] lg:pt-0 pb-0 sm:pb-[30px] md:pb-[40px] lg:pb-[50px] xl:pb-[60px] lg:pb-0">
-                        <div className="relative w-[320px] sm:w-[520px] h-[480px] mx-auto">
+                    <div className="w-full lg:w-1/2 pt-[20px] sm:pt-[50px] lg:pt-0 pb-0 sm:pb-[30px] md:pb-[40px] lg:pb-[50px] xl:pb-[60px] lg:pb-0">
+                        <div className="relative w-[320px] sm:w-[520px] h-[400px] sm:h-[480px] mx-auto">
                             {/* Outer Ring */}
                             <div className="absolute top-[30px] left-[50%] translate-x-[-50%] w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full border-[30px] border-[#F8F8F8]"></div>
 
                             {/* Center Logo */}
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-[40%] sm:-translate-x-1/2 -translate-y-[160%] sm:-translate-y-1/2">
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-[40%] sm:-translate-x-1/2 -translate-y-[80%] sm:-translate-y-1/2">
                                 <img src="/images/multiple-dots-image.svg" alt="center logo" className="w-[50px] sm:w-[100px] h-[50px] sm:h-[100px]" />
                             </div>
 
@@ -851,7 +851,7 @@ export default function Home() {
                             </div>
 
                             {/* Step 02 - Right */}
-                            <div className="absolute right-[30px] sm:right-[15%] top-[40%] sm:top-[50%] transform translate-x-1/2 -translate-y-1/2">
+                            <div className="absolute right-[30px] sm:right-[15%] top-[50%] transform translate-x-1/2 -translate-y-1/2">
                                 {/* Desktop */}
                                 <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
                                     rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
@@ -868,7 +868,7 @@ export default function Home() {
                             </div>
 
                             {/* Step 03 - Bottom */}
-                            <div className="absolute bottom-[20%] sm:bottom-[-8%] left-1/2 transform -translate-x-1/2">
+                            <div className="absolute bottom-[5%] sm:bottom-[-8%] left-1/2 transform -translate-x-1/2">
                                 {/* Desktop */}
                                 <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
                                     rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
@@ -885,7 +885,7 @@ export default function Home() {
                             </div>
 
                             {/* Step 04 - Left */}
-                            <div className="absolute left-[30px] sm:left-[15%] top-[40%] sm:top-[50%] transform -translate-x-1/2 -translate-y-1/2">
+                            <div className="absolute left-[30px] sm:left-[15%] top-[50%] transform -translate-x-1/2 -translate-y-1/2">
                                 {/* Desktop */}
                                 <div className="hidden sm:flex group flex-col items-center justify-center w-[100px] sm:w-[180px] h-[100px] sm:h-[180px]
                                     rounded-full border-[18px] border-[#F4F4F4] text-center shadow-sm bg-white
@@ -964,7 +964,7 @@ export default function Home() {
                 className="py-[30px] md:py-[40px] lg:py-[50px] xl:py-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative"
                 id="faq"
             >
-                <h3 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-[100%] tracking-[1px] uppecase mb-[40px] text-center">FAQ</h3>
+                <h3 className="text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-[100%] tracking-[1px] uppecase mb-[40px] text-center">FAQ</h3>
                 <div className="faq-accordion-main-div">
                     <Accordion
                         type="single"
@@ -1072,7 +1072,7 @@ export default function Home() {
                 </div>
             </section>
             <section
-                className="pt-[70px] pb-[50px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]"
+                className="pt-[30px] sm:pt-[40px] md:pt-[50px] lg:pt-[60px] xl:pt-[70px] pb-[50px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]"
                 id="community"
             >
                 <div className="bg-black p-[12px] rounded-[20px] mb-[30px] sm:mb-[40px] md:mb-[50px] lg:mb-[60px] xl:mb-[70px] flex flex-col sm:flex-row items-stretch relative">
@@ -1088,7 +1088,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="flex flex-wrap items-center">
-                            <Link href="https://t.me/okirikiri" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
+                            <Link href="https://t.me/okirikiriofc" target="_blank" className="bg-white rounded-[8px] flex justify-center items-center p-[12px] font-medium leading-[100%] text-black capitalize min-w-full sm:min-w-[210px] mr-0 sm:mr-[16px] mb-[6px] text-sm lg:text-base xl:text-lg">
                                 <div className="clearfix">
                                     <i className="block w-[24px] h-[24px] overflow-hidden mr-[10px]">
                                         <img

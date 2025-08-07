@@ -43,11 +43,15 @@ const isLevelActive = (level, selectedLevel, levelData, data, account) => {
 //   return "bg-black";
 // }
 
-const isInnerCircleFilled = (index, selectedLevel, innerCircle) => {
-
+const isInnerCircleFilled = (index, selectedLevel, innerCircle, currentMasterLevel) => {
 
   if (selectedLevel === null || selectedLevel == "") {
     return "bg-black";
+  }
+
+
+  if (currentMasterLevel !== null && currentMasterLevel >= Number(selectedLevel) + 1) {
+    return LEVEL[selectedLevel];
   }
 
 
@@ -71,12 +75,18 @@ const isInnerCircleFilled = (index, selectedLevel, innerCircle) => {
 //   return "opacity-0"
 // }
 
-const arrowshow = (level, selectedLevel, levelData) => {
-  if (selectedLevel === null || selectedLevel === "") {
+const arrowshow = (level, completedLevel, levelData,) => {
     return "opacity-0"
-  }
 
-  if ((Number(selectedLevel) > Number(level)) && levelData?.masterLevelData?.length > 0) {
+  // if (selectedLevel === null || selectedLevel === "") {
+  //   return "opacity-0"
+  // }
+
+  // if ((Number(selectedLevel) > Number(level)) && levelData?.masterLevelData?.length > 0) {
+  //   return "opacity-100"
+  // }
+
+  if (completedLevel >= level) {
     return "opacity-100"
   }
 
@@ -86,12 +96,13 @@ const arrowshow = (level, selectedLevel, levelData) => {
 const CircleAnimation = () => {
 
 
-  const { selectedLevelNo, levelDonationCount, levelData, globalPath } = useSelector(globalState);
+  const { selectedLevelNo, levelDonationCount, levelData, globalPath, completedLevel } = useSelector(globalState);
   const { library, account } = useActiveWeb3React()
 
   const [step, setStep] = useState(0);
   const [masterReciverData, setMasterReciverData] = useState({})
   const [innerCircle, stInnerCircle] = useState()
+
 
   useEffect(() => {
     if (step > 0 && step <= 13) {
@@ -99,7 +110,6 @@ const CircleAnimation = () => {
       return () => clearTimeout(timer);
     }
   }, [step]);
-
 
   useEffect(() => {
     if (selectedLevelNo == null) return;
@@ -152,7 +162,7 @@ const CircleAnimation = () => {
           1
         </div>
       </div>
-      <div className={cn("absolute top-[12%] left-[20%] sm:left-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden", arrowshow(0, selectedLevelNo, masterReciverData))}>
+      <div className={cn("absolute top-[12%] left-[20%] sm:left-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden", arrowshow(0, completedLevel[globalPath], masterReciverData))}>
         <img
           src="/images/edge-arrow.svg"
           alt="Okirikiri Logo"
@@ -165,7 +175,7 @@ const CircleAnimation = () => {
           2
         </div>
       </div>
-      <div className={cn("absolute top-[12%] right-[20%] sm:right-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[90deg]", arrowshow(1, selectedLevelNo, masterReciverData))}>
+      <div className={cn("absolute top-[12%] right-[20%] sm:right-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[90deg]", arrowshow(1, completedLevel[globalPath], masterReciverData))}>
         <img
           src="/images/edge-arrow.svg"
           alt="Okirikiri Logo"
@@ -179,7 +189,7 @@ const CircleAnimation = () => {
           3
         </div>
       </div>
-      <div className={cn("absolute bottom-[12%] right-[20%] sm:right-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[180deg]", arrowshow(2, selectedLevelNo, masterReciverData))}>
+      <div className={cn("absolute bottom-[12%] right-[20%] sm:right-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[180deg]", arrowshow(2, completedLevel[globalPath], masterReciverData))}>
         <img
           src="/images/edge-arrow.svg"
           alt="Okirikiri Logo"
@@ -193,7 +203,7 @@ const CircleAnimation = () => {
           4
         </div>
       </div>
-      <div className={cn("absolute bottom-[12%] left-[20%] sm:left-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[270deg]", arrowshow(3, selectedLevelNo, masterReciverData))}>
+      <div className={cn("absolute bottom-[12%] left-[20%] sm:left-[8%] w-[45px] sm:w-[90px] h-auto overflow-hidden transform rotate-[270deg]", arrowshow(3, completedLevel[globalPath], masterReciverData))}>
         <img
           src="/images/edge-arrow.svg"
           alt="Okirikiri Logo"
@@ -206,7 +216,7 @@ const CircleAnimation = () => {
         {[...Array(9)].map((_, index) => (
           <div
             key={index}
-            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(index + 1, selectedLevelNo, innerCircle)} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
+            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(index + 1, selectedLevelNo, innerCircle, completedLevel[globalPath])} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
           >
             {index + 1}
           </div>

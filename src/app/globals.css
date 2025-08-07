@@ -337,6 +337,15 @@ html {
   padding: 40px 0;
 }
 
+.okiri-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-title-div.profile-accordian-spacing {
+  justify-content: unset;
+  align-items: center;
+}
+
+.okiri-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-title-div.profile-accordian-spacing span {
+  margin-left: 12px;
+}
+
 @media screen and (max-width: 1200px) {
   .okiri-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-title-div {
     font-size: 28px;
@@ -557,6 +566,7 @@ html {
   .faq-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-trigger-div {
     font-size: 20px;
     line-height: 30px;
+    padding: 22px;
   }
 }
 
@@ -564,6 +574,7 @@ html {
   .faq-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-trigger-div {
     font-size: 18px;
     line-height: 26px;
+    padding: 20px;
   }
 }
 
@@ -571,6 +582,15 @@ html {
   .faq-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-trigger-div {
     font-size: 16px;
     line-height: 22px;
+    padding: 18px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .faq-accordion-main-div .accordion-inner-div .accordion-item-div .accordion-trigger-div {
+    padding: 16px;
+  }
+  .standard-mobile-text-wrapper{
+    justify-content: center;
   }
 }
 
@@ -819,6 +839,10 @@ html {
   .okiri-small-modal-content-div .okiri-modal-header-div .close-modal-btn {
     width: 40px;
     height: 40px;
+  }
+  .donate-now-box-wrapper{
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

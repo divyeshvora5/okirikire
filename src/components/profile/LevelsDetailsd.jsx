@@ -10,6 +10,7 @@ import { geMasterReciverData, getLevelData } from '@/utils/helpers'
 const LevelInfo = ({
     levelName = "Level - 01",
     levelNo,
+    currentMaster
 }) => {
 
     const { account } = useActiveWeb3React()
@@ -66,7 +67,7 @@ const LevelInfo = ({
         <>
             {/* {levelNo <= currentUserLevelNo && */}
             <AccordionItem value={levelNo?.toString()} className="accordion-item-div">
-                <AccordionTrigger className="accordion-title-div">{levelName}</AccordionTrigger>
+                <AccordionTrigger className="accordion-title-div profile-accordian-spacing">{levelName}{" "} <span className='block mt-1 text-base'>{currentMaster === levelNo ? "You are hear" : ""}</span></AccordionTrigger>
                 <AccordionContent className="flex flex-col pb-[15px]">
                     <div className="mb-[20px] relative">
                         <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[100%] tracking-[1px] font-normal text-black">Donations Received:<span className="font-medium">${masterReciverData?.totalAmount || 0}</span></h3>
@@ -95,12 +96,37 @@ const LevelInfo = ({
 
 const LevelsDetailes = () => {
 
-    const { levelDataFetchState } = useSelector(globalState);
+    const { levelDataFetchState, levelData } = useSelector(globalState);
+    const { account } = useActiveWeb3React()
+
+    const [currentMaster, setCurrentMaster] = useState()
+
     const dispatch = useDispatch();
 
     const setLevelNo = (level) => {
         dispatch(setSelectedLevel(level))
     }
+
+    const detactMasterReciver = () => {
+        if (levelData?.completeData["3"]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase()) {
+            return 3
+        }
+        if (levelData?.completeData["2"]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase()) {
+            return 2
+        }
+        if (levelData?.completeData["1"]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase()) {
+            return 1
+        }
+        if (levelData?.completeData["0"]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase()) {
+            return 0
+        }
+    }
+
+    useEffect(() => {
+        if (!account || !levelData?.completeData) return;
+        console.log("Hear", levelData?.completeData)
+        setCurrentMaster(detactMasterReciver())
+    }, [levelData, account])
 
     return (
         <Accordion
@@ -114,6 +140,7 @@ const LevelsDetailes = () => {
 
                 {Array.from({ length: 4 }, (item, index) => (
                     <LevelInfo
+                        currentMaster={currentMaster}
                         key={index}
                         levelName={`Level - 0${index + 1}`}
                         levelNo={index}

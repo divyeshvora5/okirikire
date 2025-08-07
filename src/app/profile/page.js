@@ -72,7 +72,7 @@ export default function Profile() {
 
     return (
         <>
-            <section className="pt-[50px] md:pt-[60px] lg:pt-[70px] xl:pt-[80px] pb-[80px] sm:pb-[90px] md:pb-[100px] lg:pb-[110px] xl:pb-[120px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
+            <section className="pt-[50px] md:pt-[60px] lg:pt-[70px] xl:pt-[80px] pb-[50px] sm:pb-[80px] md:pb-[100px] lg:pb-[110px] xl:pb-[120px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
                 <div className="flex justify-center items-center flex-col">
                     <h2 className="text-[24px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[100%] uppercase text-center font-medium tracking-[1px] mb-[30px]">Welcome to your profile</h2>
                     <div className="w-[200px] sm:w-[260px] md:w-[320px] h-[auto] overflow-hidden mb-[10px]">
@@ -86,7 +86,7 @@ export default function Profile() {
                         You have selected the {globalPath === MINI_PATH ? "Mini Path (Donation 25 USDT)" : "Standard Path (Donation 250 USDT)"}
                     </p>
                 </div>
-                <div className="flex items-center m-[-12px] w-full mt-[30px]">
+                <div className="flex items-center m-0 sm:m-[-12px] w-full mt-[30px]">
                     <div className="max-w-1/2 basis-1/2 p-[12px]">
                         <Button
                             onClick={handlePathChange.bind(null, MINI_PATH)}
@@ -113,7 +113,7 @@ export default function Profile() {
                 </div>
             </section>
             <section className="pb-[60px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
-                <h3 className="font-bold text-2xl leading-[100%] tracking-[1px] uppercase text-center mb-[50px]">Your Current Level Details</h3>
+                <h3 className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl leading-[100%] tracking-[1px] uppercase text-center mb-[30px] lg:mb-[40px] xl:mb-[50px]">Your Current Level Details</h3>
                 <div className="flex items-center flex-col xl:flex-row mb-[70px]">
                     <div className="w-full xl:w-1/2 mb-[30px] xl:mb-0">
                         <div className="w-full h-[280px] sm:h-[570px] xl:h-[650px] overflow-hidden">

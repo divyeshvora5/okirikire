@@ -62,7 +62,7 @@ const NewsLatter = () => {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(submit)} className="flex flex-col lg:flex-row items-center bg-[#F8F8F8] rounded-[30px] p-[24px]">
                 <div className="w-full lg:w-1/2 mb-[20px] lg:mb-0">
-                    <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] font-bold leading-[30px] sm:leading-[35px] md:leading-[40px] lg:leading-[45px] xl:leading-[50px] tracking-[0.32px] uppercase mb-[4px]">Subscribe to the Okiriki Newsletter</h3>
+                    <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] font-bold leading-[24px] sm:leading-[35px] md:leading-[40px] lg:leading-[45px] xl:leading-[50px] tracking-[0.32px] uppercase mb-[4px]">Subscribe to the Okiriki Newsletter</h3>
                     <p className="font-normal text-sm sm:text-base leading-[20px] sm:leading-[22px] md:leading-[24px] lg:leading-[26px] xl:leading-[28px] text-[#818181]">Subscribe and level up your inbox with curated content.</p>
                 </div>
                 <div className="flex-1 justify-end flex flex-col">
