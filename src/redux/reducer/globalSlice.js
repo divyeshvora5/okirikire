@@ -9,6 +9,7 @@ import {
     getLevelDataAction,
     getPathDetailsAction,
     getUserBalanceAction,
+    getUserHistoryAction,
     withdrawAction,
 } from "../actions/globalAction";
 import { DEFAULT_PATH, MINI_PATH, STANDARD_PATH } from "@/utils/constants";
@@ -80,6 +81,13 @@ const initialState = {
     //getleveldata
     levelData: {},
     levelDataFetchState: LEVELDATA_LOADING_STATE.INITIAL,
+
+    userHistory: {
+        history: [],
+        totalDonation: 0,
+        totalWithDraw: 0,
+        totalFeePaid: 0
+    },
 
     fee: null,
 
@@ -206,10 +214,10 @@ const globalSlice = createSlice({
             })
             .addCase(getUserBalanceAction.fulfilled, (state, { payload }) => {
                 state.isUserBalancesLoading = false;
-                
+
                 state.userBalances["0"] = payload?.miniBalance?.balance;
                 state.userBalances["1"] = payload?.standardBalance?.balance;
-            
+
             })
             .addCase(getUserBalanceAction.rejected, (state, { payload }) => {
                 state.isUserBalancesLoading = false;
@@ -295,6 +303,29 @@ const globalSlice = createSlice({
                     state.contractLoading = false;
                 },
             )
+
+            .addCase(
+                getUserHistoryAction.pending,
+                (state) => {
+                    state.contractLoading = true;
+                }
+            )
+            .addCase(
+                getUserHistoryAction.fulfilled,
+                (state, { payload }) => {
+                    state.contractLoading = false;
+                    state.userHistory = payload;
+                },
+            )
+            .addCase(
+                getUserHistoryAction.rejected,
+                (state, { payload }) => {
+                    state.contractLoading = false;
+                },
+            )
+
+
+        // getUserHistoryAction
 
     },
 });

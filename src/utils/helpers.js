@@ -369,3 +369,9 @@ export const getDonationNumber = async ({ level, path, data, provider, account }
     }
 
 }
+
+
+export const formatDate = (unixTimestamp) => {
+    const date = new Date(unixTimestamp * 1000); // Convert Unix timestamp to milliseconds
+    return date.toLocaleString('en-US', { hour12: false }); // Format as "MM/DD/YYYY, HH:mm:ss"
+};

@@ -48,6 +48,7 @@ const Header = () => {
                 <Link href="/#about" onClick={() => setActivePage("about")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "about" ? "active-menu" : "")}>About</Link>
                 <Link href="/#how-it-works" onClick={() => setActivePage("how-it-works")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "how-it-works" ? "active-menu" : "")}>How It Works</Link>
                 <Link href="/profile" onClick={() => setActivePage("profile")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "profile" ? "active-menu" : "")}>Profile</Link>
+                <Link href="/history" onClick={() => setActivePage("history")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "history" ? "active-menu" : "")}>History</Link>
                 <Link href="/#community" onClick={() => setActivePage("community")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "community" ? "active-menu" : "")}>Community</Link>
                 <Link href="/#charity" onClick={() => setActivePage("charity")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "charity" ? "active-menu" : "")}>Charity</Link>
                 <Link href="/#faq" onClick={() => setActivePage("faq")} className={cn("block font-normal text-base tracking-[1px] text-black py-5 relative okiri-menu-wrapper", activePage === "faq" ? "active-menu" : "")}>Faq</Link>
@@ -56,6 +57,7 @@ const Header = () => {
                 <Link href="#about" onClick={() => setActivePage("about")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "about" ? "active-menu" : "")}>About</Link>
                 <Link href="#how-it-works" onClick={() => setActivePage("how-it-works")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "how-it-works" ? "active-menu" : "")}>How It Works</Link>
                 <Link href="/profile" onClick={() => setActivePage("profile")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "profile" ? "active-menu" : "")}>Profile</Link>
+                <Link href="/history" onClick={() => setActivePage("history")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "history" ? "active-menu" : "")}>History</Link>
                 <Link href="#community" onClick={() => setActivePage("community")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "community" ? "active-menu" : "")}>Community</Link>
                 <Link href="#charity" onClick={() => setActivePage("charity")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "charity" ? "active-menu" : "")}>Charity</Link>
                 <Link href="#faq" onClick={() => setActivePage("faq")} className={cn("block font-normal text-base tracking-[1px] text-black py-5 relative okiri-menu-wrapper", activePage === "faq" ? "active-menu" : "")}>Faq</Link>
@@ -65,6 +67,7 @@ const Header = () => {
                     <Link href="/#about" onClick={() => handleOpen("about")} className="py-2 block font-normal text-base tracking-[1px] text-black">About</Link>
                     <Link href="/#how-it-works" onClick={() => handleOpen("how-it-works")} className="py-2 block font-normal text-base tracking-[1px] text-black">How It Works</Link>
                     <Link href="/profile" onClick={() => handleOpen("profile")} className="py-2 block font-normal text-base tracking-[1px] text-black">Profile</Link>
+                    <Link href="/history" onClick={() => handleOpen("history")} className="py-2 block font-normal text-base tracking-[1px] text-black">History</Link>
                     <Link href="/#community" onClick={() => handleOpen("community")} className="py-2 block font-normal text-base tracking-[1px] text-black">Community</Link>
                     <Link href="/#charity" onClick={() => handleOpen("charity")} className="py-2 block font-normal text-base tracking-[1px] text-black">Charity</Link>
                     <Link href="/#faq" onClick={() => handleOpen("faq")} className="py-2 block font-normal text-base tracking-[1px] text-black">Faq</Link>
@@ -75,6 +78,7 @@ const Header = () => {
                     <Link href="#about" onClick={() => handleOpen("about")} className="py-2 block font-normal text-base tracking-[1px] text-black">About</Link>
                     <Link href="#how-it-works" onClick={() => handleOpen("how-it-works")} className="py-2 block font-normal text-base tracking-[1px] text-black">How It Works</Link>
                     <Link href="/profile" onClick={() => handleOpen("profile")} className="py-2 block font-normal text-base tracking-[1px] text-black">Profile</Link>
+                    <Link href="/history" onClick={() => handleOpen("history")} className="py-2 block font-normal text-base tracking-[1px] text-black">History</Link>
                     <Link href="#community" onClick={() => handleOpen("community")} className="py-2 block font-normal text-base tracking-[1px] text-black">Community</Link>
                     <Link href="#charity" onClick={() => handleOpen("charity")} className="py-2 block font-normal text-base tracking-[1px] text-black">Charity</Link>
                     <Link href="#faq" onClick={() => handleOpen("faq")} className="py-2 block font-normal text-base tracking-[1px] text-black">Faq</Link>
@@ -125,7 +129,7 @@ const Header = () => {
                         })}
                         connectModal={{
                             showThirdwebBranding: false,
-                            
+
                         }}
                     />
                 ) : (

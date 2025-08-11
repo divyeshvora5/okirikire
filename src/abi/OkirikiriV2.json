@@ -108,6 +108,12 @@
           "internalType": "address",
           "name": "masterReceiver",
           "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
         }
       ],
       "name": "Donation",
@@ -208,6 +214,12 @@
           "internalType": "bool",
           "name": "inMarco",
           "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
         }
       ],
       "name": "UserExit",
@@ -250,6 +262,12 @@
           "indexed": false,
           "internalType": "uint256",
           "name": "netAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
           "type": "uint256"
         }
       ],

@@ -471,7 +471,7 @@ export const getLevelDataAction = createAsyncThunk(
                 state.global;
 
             const eventFilter = contract.filters.Donation(account);
-            const eventFilterMasterReciver = contract.filters.Donation(null, null, null, null, null, account);
+            const eventFilterMasterReciver = contract.filters.Donation(null, null, null, null, null, account, null);
 
 
             const [events, eventMasterReciver, leveldata1, leveldata2, leveldata3, leveldata4, currentLevel] = await Promise.all([
@@ -571,6 +571,132 @@ export const getLevelDataAction = createAsyncThunk(
                 eventData: data,
                 masterReciverEventsData,
                 completeData
+            }
+        } catch (err) {
+            console.log('err', err)
+            return rejectWithValue(err.message);
+        }
+    },
+)
+
+
+export const getUserHistoryAction = createAsyncThunk(
+    "global/getUserHistoryAction",
+    async ({ library, account, chain, wallet }, { rejectWithValue, getState }) => {
+        try {
+            console.log("call")
+            if (!library || !account || !chain || !wallet) {
+                return rejectWithValue("Invalid params details")
+            };
+
+            const contract = new Contract(CONTRACT_ADDRESS.okirikiriv2, OkirikiriV2, library)
+            if (!contract) {
+                return rejectWithValue("Contract initialization faield!")
+            }
+
+            const state = getState();
+            const { globalPath } =
+                state.global;
+
+
+            // event Withdrawal(
+            //         address indexed user,
+            //         Path path,
+            //         uint256 amount,
+            //         uint256 fee,
+            //         bool inMarco,
+            //         uint256 netAmount
+            //     );
+
+            //             event UserExit(
+            //     address indexed user,
+            //     Path path,
+            //     uint256 withdrawnAmount,
+            //     bool inMarco,
+            //     uint256 timestamp
+            // );
+
+            const donationFilter = contract.filters.Donation(null, null, null, null, null, account, null);
+            const withDrawalFilter = contract.filters.Withdrawal(account);
+            const exitFilter = contract.filters.UserExit(account)
+
+
+            const [donationEvents, WithdrawlEvents, exitEventData] = await Promise.all([
+                contract.queryFilter(donationFilter, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest"),
+                contract.queryFilter(withDrawalFilter, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest"),
+                contract.queryFilter(exitFilter, OKIRIKIRE_DEPOLOY_BLOCKNUMBER, "latest"),
+            ])
+
+            const donationData = donationEvents.map((event) => {
+                const args = event.args
+                const blockNumber = event.blockNumber
+                return {
+
+                    type: "Donation",
+                    doner: args[0],
+                    amount: +fromWei(Number(args[4])),
+                    path: Number(args[1]),
+                    level: Number(args[2]),
+                    date: Number(args[6]),
+                    transactionHash: event.transactionHash,
+                    blockNumber
+
+                }
+            })
+
+
+            const withdrawData = WithdrawlEvents.map((event) => {
+                const args = event.args
+                const blockNumber = event.blockNumber
+                return {
+
+                    type: "Withdrawal",
+                    amount: +fromWei(Number(args[5])),
+                    fee: +fromWei(Number(args[3])),
+                    date: Number(args[6]),
+                    transactionHash: event.transactionHash,
+                    blockNumber
+
+                }
+            })
+
+
+            const exitData = exitEventData.map((event) => {
+                const args = event.args
+                const blockNumber = event.blockNumber
+                return {
+
+                    type: "Exit",
+                    date: Number(args[4]),
+                    Path: Number(args[2]),
+                    transactionHash: event.transactionHash,
+                    blockNumber
+
+                }
+            })
+
+            const combinedData = [...donationData, ...withdrawData, ...exitData];
+            const events = combinedData.sort((a, b) => b.date - a.date);
+
+            console.log('events', events)
+
+            const donationTotal = events
+                .filter(event => event.type === "Donation")
+                .reduce((sum, event) => sum + event.amount, 0);
+
+            const withdrawalTotal = events
+                .filter(event => event.type === "Withdrawal")
+                .reduce((sum, event) => sum + event.amount, 0);
+
+            const withdrawalFeesTotal = events
+                .filter(event => event.type === "Withdrawal")
+                .reduce((sum, event) => sum + event.fee, 0);
+
+            return {
+                history: events,
+                totalDonation: donationTotal,
+                totalWithDraw: withdrawalTotal,
+                totalFeePaid: withdrawalFeesTotal
             }
         } catch (err) {
             console.log('err', err)

@@ -1230,3 +1230,89 @@ html {
     animation-delay: 6s;
   }
 }
+
+.level-span-wrapper{
+  border: 1px solid #F3F0F0;
+}
+
+.transaction-box-div{
+  border: 1px solid #E6E6E6;
+  box-shadow: 2px 4px 20px -15px #00000026;
+  background: #F8F8F9;
+  border-radius: 8px;
+}
+.download-pdf-btn:hover{
+  background: #000000;
+  color: #FFFFFF;
+}
+.download-pdf-btn i svg path{
+  stroke: #000000;
+}
+.download-pdf-btn:hover i svg path{
+  stroke: #FFFFFF;
+}
+
+.transaction-history-div{
+  background: #f8f8f8cc;
+  border: 1px solid #E6E6E6;
+  border-radius: 10px;
+}
+
+.search-input-wrapper{
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+  min-height: 54px;
+  padding: 15px 15px 15px 45px;
+}
+.search-input-wrapper::placeholder{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #818181;
+}
+.transaction-select-div button{
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  padding: 17px 25px;
+  min-height: 54px;
+}
+.transaction-select-div button span{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #000000;
+}
+.transaction-table-div{
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 991px) {
+  .transaction-select-div button span{
+    font-size: 17px;
+  }
+  .search-input-wrapper::placeholder{
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .transaction-select-div button span{
+    font-size: 16px;
+  }
+  .search-input-wrapper::placeholder{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .transaction-select-div button span{
+    font-size: 15px;
+  }
+  .search-input-wrapper::placeholder{
+    font-size: 15px;
+  }
+}

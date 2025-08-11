@@ -12,7 +12,8 @@ export const CONTRACT_ADDRESS = {
     Marco: "0xDc923f000F8D20f4D9DF2700cFfd656c98D7E274",
     USDT: "0x59bC155805eA06fd96425A25ffDBE601D6622034",
     SwapRouter: "0xc1e6e5FF6548B8efbf8535182Eb2464212f677ff",
-    okirikiriv2: "0x39a491A1e9c7A268f86232885F13466096329FAB",
+    // okirikiriv2: "0x2DE130F16004bdFBFb5536fAD2839a298ecC851F",
+    okirikiriv2: "0xBfee1F185a0E7678bc8cFC865DC055Db3Aa7c519",
     Weth: "0x15A23DdC4D5360c97ab52F6047283ac14bce2290",
     SwapFactory: "0x979B98C6a303050BA238556Cb65C3C4d7C7FeD57",
 };
@@ -91,4 +92,9 @@ export const SLIPPAGE_CONSTANT = 1; // 1% slippage for swaps
 export const API_ROUTE = {
     GOOGLE_SHEET: "/api/sheet",
     NEWSLETTER: "/api/newsletter"
+}
+
+export const BLOCK_EXPLORER = {
+    97: "https://testnet.bscscan.com/tx/",
+    56: "https://bscscan.com/tx/"
 }

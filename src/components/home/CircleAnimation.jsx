@@ -43,12 +43,15 @@ const isLevelActive = (level, selectedLevel, levelData, data, account) => {
 //   return "bg-black";
 // }
 
-const isInnerCircleFilled = (index, selectedLevel, innerCircle, currentMasterLevel) => {
+const isInnerCircleFilled = (index, selectedLevel, innerCircle, currentMasterLevel, levelData, account) => {
 
   if (selectedLevel === null || selectedLevel == "") {
     return "bg-black";
   }
 
+  if (levelData?.masterLevelData?.length > 0 || levelData?.completeData[selectedLevel]?.levelDataMasterReciver?.toLowerCase() === account?.toLowerCase() && index <= innerCircle) {
+    return LEVEL[selectedLevel];
+  }
 
   if (currentMasterLevel !== null && currentMasterLevel >= Number(selectedLevel) + 1) {
     return LEVEL[selectedLevel];
@@ -76,7 +79,7 @@ const isInnerCircleFilled = (index, selectedLevel, innerCircle, currentMasterLev
 // }
 
 const arrowshow = (level, completedLevel, levelData,) => {
-    return "opacity-0"
+  return "opacity-0"
 
   // if (selectedLevel === null || selectedLevel === "") {
   //   return "opacity-0"
@@ -216,7 +219,7 @@ const CircleAnimation = () => {
         {[...Array(9)].map((_, index) => (
           <div
             key={index}
-            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(index + 1, selectedLevelNo, innerCircle, completedLevel[globalPath])} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
+            className={`w-[35px] sm:w-[70px] h-[35px] sm:h-[70px] ${isInnerCircleFilled(index + 1, selectedLevelNo, innerCircle, completedLevel[globalPath], levelData, account)} text-white flex items-center justify-center rounded-full text-xs font-medium transition-colors duration-500 ease-in-out`}
           >
             {index + 1}
           </div>
