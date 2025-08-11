@@ -55,6 +55,7 @@ const History = () => {
 
 
     const [searchQuery, setSearchQuery] = useState('');
+    const [filter, setFilter] = useState("All");
 
 
     useEffect(() => {
@@ -75,18 +76,16 @@ const History = () => {
         return date.toLocaleString('en-US', { hour12: false }); // Format as "MM/DD/YYYY, HH:mm:ss"
     };
 
-    // Donation
-    //Withdrawal
-    //Exit
-
     const filteredData = userHistory?.history?.filter((transaction) => {
+        const typeMatch = filter !== "All" ? transaction.type === filter : true;
         const transactionHashMatch = transaction.transactionHash.toLowerCase().includes(searchQuery.toLowerCase());
         const amountMatch = transaction.amount.toString().includes(searchQuery);
         const dateMatch = formatDate(transaction.date).toLowerCase().includes(searchQuery.toLowerCase());
-        const donerMatch = transaction.doner ? transaction.doner.toLowerCase().includes(searchQuery.toLowerCase()) : false; // Check if doner exists
+        const donerMatch = transaction.doner ? transaction.doner.toLowerCase().includes(searchQuery.toLowerCase()) : false;
 
-        return transactionHashMatch || amountMatch || dateMatch || donerMatch; // Returns true if any condition matches
+        return typeMatch && (transactionHashMatch || amountMatch || dateMatch || donerMatch);
     });
+
 
 
     const downloadPDF = (data) => {
@@ -97,17 +96,17 @@ const History = () => {
         doc.text("Transaction Report", 14, 20); // Title at position (14, 20)
 
         // Define column headers
-        const columns = ["Transaction Hash", 
+        const columns = ["Transaction Hash",
             "Type",
-             "Doner",
-              "Amount"
-              , "Fee", 
-              "Date", 
+            "Doner",
+            "Amount"
+            , "Fee",
+            "Date",
             //   "Path", 
             //   "Level", 
             //   "Block Number"
-            ];
-        const columnWidths = [50, 30, 40, 30, 30, 40, 
+        ];
+        const columnWidths = [50, 30, 40, 30, 30, 40,
             // 30, 30, 30
         ]; // Define column widths
 
@@ -158,18 +157,18 @@ const History = () => {
         const wb = XLSX.utils.book_new();
 
         // Define columns for the Excel sheet, including blockNumber
-         // Define column headers
-        const columns = ["Transaction Hash", 
+        // Define column headers
+        const columns = ["Transaction Hash",
             "Type",
-             "Doner",
-              "Amount"
-              , "Fee", 
-              "Date", 
+            "Doner",
+            "Amount"
+            , "Fee",
+            "Date",
             //   "Path", 
             //   "Level", 
             //   "Block Number"
-            ];
-    
+        ];
+
 
         // Prepare the rows
         const rows = data.map((transaction) => [
@@ -296,18 +295,17 @@ const History = () => {
                         </div>
                     </div>
                     <div className="min-w-full sm:min-w-[285px] transaction-select-div">
-                        <Select>
+                        <Select onValueChange={(e) => setFilter(e)}>
                             <SelectTrigger className="">
                                 <SelectValue placeholder="All Transactions" />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectGroup>
                                     <SelectLabel>Fruits</SelectLabel>
-                                    <SelectItem value="apple">Apple</SelectItem>
-                                    <SelectItem value="banana">Banana</SelectItem>
-                                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                                    <SelectItem value="grapes">Grapes</SelectItem>
-                                    <SelectItem value="pineapple">Pineapple</SelectItem>
+                                    <SelectItem value="All">All</SelectItem>
+                                    <SelectItem value="Donation">Donation</SelectItem>
+                                    <SelectItem value="Withdrawal">Withdrawal</SelectItem>
+                                    <SelectItem value="Exit">Exit</SelectItem>
                                 </SelectGroup>
                             </SelectContent>
                         </Select>
