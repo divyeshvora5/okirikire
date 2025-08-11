@@ -97,8 +97,19 @@ const History = () => {
         doc.text("Transaction Report", 14, 20); // Title at position (14, 20)
 
         // Define column headers
-        const columns = ["Transaction Hash", "Type", "Doner", "Amount", "Fee", "Date", "Path", "Level", "Block Number"];
-        const columnWidths = [50, 30, 40, 30, 30, 40, 30, 30, 30]; // Define column widths
+        const columns = ["Transaction Hash", 
+            "Type",
+             "Doner",
+              "Amount"
+              , "Fee", 
+              "Date", 
+            //   "Path", 
+            //   "Level", 
+            //   "Block Number"
+            ];
+        const columnWidths = [50, 30, 40, 30, 30, 40, 
+            // 30, 30, 30
+        ]; // Define column widths
 
         // Set font size for the table header
         doc.setFontSize(12);
@@ -126,9 +137,9 @@ const History = () => {
                 transaction.amount,
                 transaction.fee || "N/A",   // Only included in Withdrawal type
                 formatDate(transaction.date),
-                transaction.path || "N/A",   // Path field is included in Donation and Exit
-                transaction.level || "N/A",  // Level field is included in Donation
-                transaction.blockNumber
+                // transaction.path || "N/A",   // Path field is included in Donation and Exit
+                // transaction.level || "N/A",  // Level field is included in Donation
+                // transaction.blockNumber
             ];
 
             // Loop through the row data and add each piece of data to the PDF
@@ -147,7 +158,18 @@ const History = () => {
         const wb = XLSX.utils.book_new();
 
         // Define columns for the Excel sheet, including blockNumber
-        const columns = ["Transaction Hash", "Type", "Doner", "Amount", "Fee", "Date", "Path", "Level", "Block Number"];
+         // Define column headers
+        const columns = ["Transaction Hash", 
+            "Type",
+             "Doner",
+              "Amount"
+              , "Fee", 
+              "Date", 
+            //   "Path", 
+            //   "Level", 
+            //   "Block Number"
+            ];
+    
 
         // Prepare the rows
         const rows = data.map((transaction) => [
@@ -157,9 +179,9 @@ const History = () => {
             transaction.amount,
             transaction.fee || "N/A",    // Only included in Withdrawal type
             formatDate(transaction.date),
-            transaction.path || "N/A",    // Path field is included in Donation and Exit
-            transaction.level || "N/A",   // Level field is included in Donation
-            transaction.blockNumber
+            // transaction.path || "N/A",    // Path field is included in Donation and Exit
+            // transaction.level || "N/A",   // Level field is included in Donation
+            // transaction.blockNumber
         ]);
 
         // Create a worksheet
@@ -174,9 +196,9 @@ const History = () => {
                 { wpx: 100 }, // Column width for Amount
                 { wpx: 100 }, // Column width for Fee
                 { wpx: 150 }, // Column width for Date
-                { wpx: 100 }, // Column width for Path
-                { wpx: 100 }, // Column width for Level
-                { wpx: 100 }, // Column width for Block Number
+                // { wpx: 100 }, // Column width for Path
+                // { wpx: 100 }, // Column width for Level
+                // { wpx: 100 }, // Column width for Block Number
             ],
             '!rows': [
                 { hpx: 40 }, // Adjust row height for better readability
