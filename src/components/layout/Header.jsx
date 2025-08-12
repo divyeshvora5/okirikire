@@ -44,7 +44,7 @@ const Header = () => {
                     />
                 </Link>
             </div>
-            {pathName === "/profile" && <nav className="hidden lg:flex">
+            {(pathName === "/profile" || pathName === "/history") && <nav className="hidden lg:flex">
                 <Link href="/#about" onClick={() => setActivePage("about")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "about" ? "active-menu" : "")}>About</Link>
                 <Link href="/#how-it-works" onClick={() => setActivePage("how-it-works")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "how-it-works" ? "active-menu" : "")}>How It Works</Link>
                 <Link href="/profile" onClick={() => setActivePage("profile")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "profile" ? "active-menu" : "")}>Profile</Link>
@@ -53,7 +53,7 @@ const Header = () => {
                 <Link href="/#charity" onClick={() => setActivePage("charity")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "charity" ? "active-menu" : "")}>Charity</Link>
                 <Link href="/#faq" onClick={() => setActivePage("faq")} className={cn("block font-normal text-base tracking-[1px] text-black py-5 relative okiri-menu-wrapper", activePage === "faq" ? "active-menu" : "")}>Faq</Link>
             </nav>}
-            {pathName !== "/profile" && <nav className="hidden lg:flex">
+            {(pathName !== "/profile" && pathName !== "/history") && <nav className="hidden lg:flex">
                 <Link href="#about" onClick={() => setActivePage("about")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "about" ? "active-menu" : "")}>About</Link>
                 <Link href="#how-it-works" onClick={() => setActivePage("how-it-works")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "how-it-works" ? "active-menu" : "")}>How It Works</Link>
                 <Link href="/profile" onClick={() => setActivePage("profile")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "profile" ? "active-menu" : "")}>Profile</Link>
@@ -62,7 +62,7 @@ const Header = () => {
                 <Link href="#charity" onClick={() => setActivePage("charity")} className={cn("block font-normal text-base tracking-[1px] text-black mr-[25px] py-5 relative okiri-menu-wrapper", activePage === "charity" ? "active-menu" : "")}>Charity</Link>
                 <Link href="#faq" onClick={() => setActivePage("faq")} className={cn("block font-normal text-base tracking-[1px] text-black py-5 relative okiri-menu-wrapper", activePage === "faq" ? "active-menu" : "")}>Faq</Link>
             </nav>}
-            {(isMobileMenuOpen && pathName === "/profile") && open && (
+            {(isMobileMenuOpen && (pathName === "/profile" || pathName === "/history")) && open && (
                 <div className="absolute top-full left-0 w-full h-[100vh] bg-[#FAFAFF] flex flex-col items-center shadow-md z-50">
                     <Link href="/#about" onClick={() => handleOpen("about")} className="py-2 block font-normal text-base tracking-[1px] text-black">About</Link>
                     <Link href="/#how-it-works" onClick={() => handleOpen("how-it-works")} className="py-2 block font-normal text-base tracking-[1px] text-black">How It Works</Link>
@@ -73,7 +73,7 @@ const Header = () => {
                     <Link href="/#faq" onClick={() => handleOpen("faq")} className="py-2 block font-normal text-base tracking-[1px] text-black">Faq</Link>
                 </div>
             )}
-            {(isMobileMenuOpen && pathName !== "/profile") && open && (
+            {(isMobileMenuOpen && (pathName !== "/profile" && pathName !== "/history")) && open && (
                 <div className="absolute top-full left-0 w-full h-[100vh] bg-[#FAFAFF] flex flex-col items-center shadow-md z-50">
                     <Link href="#about" onClick={() => handleOpen("about")} className="py-2 block font-normal text-base tracking-[1px] text-black">About</Link>
                     <Link href="#how-it-works" onClick={() => handleOpen("how-it-works")} className="py-2 block font-normal text-base tracking-[1px] text-black">How It Works</Link>
