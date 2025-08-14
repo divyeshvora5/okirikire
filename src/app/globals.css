@@ -1315,4 +1315,27 @@ html {
   .search-input-wrapper::placeholder{
     font-size: 15px;
   }
+  .header-dropdown-menu-wrapper{
+    min-width: 130px !important;
+  }
+}
+
+.header-dropdown-menu-wrapper{
+  min-width: 160px;
+  min-height: 36px;
+  opacity: 1;
+  border-radius: 20px;
+  background: #000000;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  color: #FDFDFD;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+.header-dropdown-menu-wrapper:focus{
+  outline: none;
+  box-shadow: none;
 }

@@ -46,10 +46,10 @@ const NextLeveModel = () => {
             <AlertDialogTrigger asChild>
                 <Button className="bg-black text-white font-semibold leading-[100%] text-xl rounded-[100px] min-h-[44px] min-w-[200px] mb-[20px] sm:mb-0 mr-0 sm:mr-[24px] cursor-pointer">Next Level</Button>
             </AlertDialogTrigger>
-            <AlertDialogContent ref={modelRef} onClick={handleClickOutside} className="okiri-small-modal-content-div">
+            <AlertDialogContent ref={modelRef} onClick={handleClickOutside} className="okiri-modal-content-div">
                 <AlertDialogHeader className="okiri-modal-header-div">
-                    <h3 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[34px] xl:text-[38px] leading-[100%] tracking-[1px] font-medium text-center text-black ">
-                        Next Level
+                    <h3 className="text-[22px] sm:text-[26px]  md:text-[30px] lg:text-[34px] xl:text-[38px] leading-[100%] tracking-[1px] font-medium text-center text-black ">
+                        Upgrade to the next level
                     </h3>
                     <AlertDialogCancel className="close-modal-btn">
                         <img
@@ -60,7 +60,7 @@ const NextLeveModel = () => {
                     </AlertDialogCancel>
                 </AlertDialogHeader>
                 <div className="py-[20px]">
-                    <h4 className="font-normal text-base xl:text-lg text-black text-center text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px]">Want to upgrade to next level?</h4>
+                    <h4 className="p-5 font-normal text-base xl:text-lg text-black text-center text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px]">Are you sure you want to upgrade to the next level? This action is irreversible.</h4>
                 </div>
                 <AlertDialogFooter className="okiri-small-footer-wrapper">
                     <Button
@@ -69,13 +69,13 @@ const NextLeveModel = () => {
                         disabled={contractLoading}
                         className="min-w-[200px] min-h-[52px] bg-black text-white font-semibold text-sm md:text-md lg:text-lg xl:text-xl leading-[100%] rounded-[100px] cursor-pointer border-0"
                     >
-                        {contractLoading ? <Loader color='white' /> : 'Next'}
+                        {contractLoading ? <Loader color='white' /> : 'Next Level'}
                     </Button>
                     <Button
                         type="button"
                         disabled={contractLoading}
                         onClick={() => setOpen(false)}
-                        className="bg-[#CD1A1A] text-white font-semibold leading-[100%] text-sm md:text-md lg:text-lg xl:text-xl rounded-[100px] min-h-[44px] min-w-[200px] cursor-pointer min-h-[52px]">Cancle</Button>
+                        className="bg-[#CD1A1A] text-white font-semibold leading-[100%] text-sm md:text-md lg:text-lg xl:text-xl rounded-[100px] min-w-[200px] cursor-pointer min-h-[52px]">Cancel</Button>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>

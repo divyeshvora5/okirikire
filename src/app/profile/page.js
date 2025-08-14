@@ -126,6 +126,7 @@ export default function Profile() {
                             {account &&
                                 <div className="flex items-center jusitfy-between w-full mt-[40px] flex-col sm:flex-row">
                                     {showBtn && <NextLeveModel />}
+                                    <NextLeveModel />
                                     <AlertDialog open={open} onOpenChange={setOpen} className="okiri-modal-wrapper">
                                         <AlertDialogTrigger asChild>
                                             <Button className="bg-black text-white font-semibold leading-[100%] text-xl rounded-[100px] min-h-[44px] min-w-[200px] mb-[20px] sm:mb-0 mr-0 sm:mr-[24px] cursor-pointer">Withdraw</Button>
