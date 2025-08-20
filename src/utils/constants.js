@@ -18,7 +18,7 @@ export const CONTRACT_ADDRESS = {
     SwapFactory: "0x979B98C6a303050BA238556Cb65C3C4d7C7FeD57",
 };
 
-export const OKIRIKIRE_DEPOLOY_BLOCKNUMBER = 57636806;
+export const OKIRIKIRE_DEPOLOY_BLOCKNUMBER = 61522539;
 
 export const NetworkParams = {
     //** Testnet */

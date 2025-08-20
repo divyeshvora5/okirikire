@@ -104,7 +104,7 @@ export default function Home() {
                             <div>
                                 <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center mb-[18px] text-black">STANDARD PATH – 250 USDT</h3>
                                 <div className="relative">
-                                    <p className="font-semibold text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] mb-[60px] text-center flex justify-center items-center standard-path-text text-[#CD1A1A]">The full journey, up to 201,875 USDT
+                                    <p className="font-semibold text-base md:text-lg lg:text-xl xl:text-2xl leading-[25px] sm:leading-[30px] md:leading-[35px] lg:leading-[40px] xl:leading-[45px] mb-[60px] text-center flex justify-center items-center standard-path-text text-[#CD1A1A]">The full journey, up to 222,125 USDT
                                         <div className="clearfix">
                                             <i className="w-[25px] h-auto overflow-hidden block ml-[6px]">
                                                 <svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +266,7 @@ export default function Home() {
                     </div>
                     <p className="font-semibold text-sm md:text-base lg:text-lg xl:text-xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-white max-w-full sm:max-w-[56%]">
                         If you follow the Okirikiri process to the end of the fourth level you will have collected
-                        approximately $201,875 and can always start again whenever you want, reserving your
+                        approximately $222,125 and can always start again whenever you want, reserving your
                         spot to become Master Receiver 1 again.
                     </p>
                     <div className="absolute top-[unset] sm:top-[20px] bottom-0 sm:bottom-unset right-[20px] w-[58px] h-[68px] overflow-hidden">
@@ -337,7 +337,7 @@ export default function Home() {
                     </div>
                     <div>
                         <h4 className="text-[18px] md:text-[22px] lg:text-[26px] xl:text-[30px] font-bold leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] tracking-[1px] text-black mb-[12px]">
-                            201,875 USDT
+                            222,125 USDT
                         </h4>
                         <p className="font-semibold text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[18px] sm:leading-[24px] md:leading-[30px] lg:leading-[38px] xl:leading-[46px] text-black pr-15 sm:pr-0">
                             Donation Automatically Collected at the end of the OKIRIKIRI Process
@@ -476,16 +476,16 @@ export default function Home() {
                                     <TableRow>
                                         <TableCell className="">Level 4(MR4)</TableCell>
                                         <TableCell>-</TableCell>
-                                        <TableCell><span className="font-black">18,225 USDT</span></TableCell>
+                                        <TableCell><span className="font-black">20,250 USDT</span></TableCell>
                                         <TableCell className="">-</TableCell>
-                                        <TableCell className=""><span className="font-black">18,225 USDT</span></TableCell>
+                                        <TableCell className=""><span className="font-black">20,250 USDT</span></TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableCell className=""><span className="font-bold">TOTAL NET</span></TableCell>
                                         <TableCell>-</TableCell>
                                         <TableCell>-</TableCell>
                                         <TableCell className="">-</TableCell>
-                                        <TableCell className=""><span className="font-black">20,187.50 USDT</span></TableCell>
+                                        <TableCell className=""><span className="font-black">22,212.50 USDT</span></TableCell>
                                     </TableRow>
                                 </TableBody>
                                 {/* <TableFooter>
@@ -563,9 +563,9 @@ export default function Home() {
                         <div className="bg-[#F4F4F4] rounded-[21px] p-[20px] sm:p-[25px] md:p-[30px] lg:p-[35px] xl:p-[40px] okiri-mini-path-box-wrapper text-center min-h-[235px] sm:min-h-[415px] flex flex-col justify-between items-center h-full">
                             <div>
                                 <h3 className="font-bold text-base sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[14px] sm:mb-[18px] md:mb-[22px] lg:mb-[26px] xl:mb-[30px]">Level 4 – Master Receiver 4</h3>
-                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 2,500 USDT = 18,225 USDT.</p>
+                                <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of 2,500 USDT = 20,250 USDT.</p>
                             </div>
-                            <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 18,225 USDT</p>
+                            <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 20,250 USDT</p>
                         </div>
                     </div>
                 </div>
@@ -579,7 +579,7 @@ export default function Home() {
                             />
                         </i>
                     </div>
-                    <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="font-bold">TOTAL NET AVAILABLE </span>(if completing all levels): <span className="font-bold">20,187.50 USDT </span>(102.50 + 310 + 1,550 + 18,225)</p>
+                    <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="font-bold">TOTAL NET AVAILABLE </span>(if completing all levels): <span className="font-bold">22,212.50 USDT </span>(102.50 + 310 + 1,550 + 20,250)</p>
                 </div>
             </section>
             <section className="sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px]">
@@ -622,16 +622,16 @@ export default function Home() {
                                     <TableRow>
                                         <TableCell className="">Level 4(MR4)</TableCell>
                                         <TableCell>-</TableCell>
-                                        <TableCell><span className="font-bold">182,250 USDT</span></TableCell>
+                                        <TableCell><span className="font-bold">202,500 USDT</span></TableCell>
                                         <TableCell className="">-</TableCell>
-                                        <TableCell className=""><span className="font-bold">182,250 USDT</span></TableCell>
+                                        <TableCell className=""><span className="font-bold">202,500 USDT</span></TableCell>
                                     </TableRow>
                                     <TableRow>
                                         <TableCell className=""><span className="font-bold">TOTAL NET</span></TableCell>
                                         <TableCell>-</TableCell>
                                         <TableCell>-</TableCell>
                                         <TableCell className="">-</TableCell>
-                                        <TableCell className=""><span className="font-black">201,875 USDT</span></TableCell>
+                                        <TableCell className=""><span className="font-black">222,125 USDT</span></TableCell>
                                     </TableRow>
                                 </TableBody>
                                 {/* <TableFooter>
@@ -652,7 +652,7 @@ export default function Home() {
                                     className="w-full h-full object-contain object-center"
                                 />
                             </i>
-                            <p className="font-medium text-sm leading-[100%] text-black">Total Potential Net Collection: <span className="font-bold">201,875 USDT</span></p>
+                            <p className="font-medium text-sm leading-[100%] text-black">Total Potential Net Collection: <span className="font-bold">222,125 USDT</span></p>
                         </div>
                         <div className="flex items-center mb-[12px]">
                             <i className="w-[16px] h-[16px] overflow-hidden block mr-[10px]">
@@ -667,7 +667,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="my-[35px] px-[15px] sm:px-0 flex justify-center items-center">
-                    <p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] mb-[40px] text-center standard-path-text text-[#CD1A1A] flex items-center flex-wrap sm:flex-nowrap standard-mobile-text-wrapper">STANDARD PATH – Total Donations Received: <span className="font-black relative ml-[6px] flex items-center"> 201,875 USDT
+                    <p className="font-semibold text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] mb-[40px] text-center standard-path-text text-[#CD1A1A] flex items-center flex-wrap sm:flex-nowrap standard-mobile-text-wrapper">STANDARD PATH – Total Donations Received: <span className="font-black relative ml-[6px] flex items-center"> 222,125 USDT
                         <i className="w-[150px] sm:w-[180px] h-[auto] overflow-hidden absolute bottom-[-20px] left-0 right-0 m-auto okiri-line-image-wrapper okiri-standard-line-image">
                             <svg width="281" height="21" viewBox="0 0 281 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 19C57.0548 8.34266 186.236 -9.22896 280 11.9817" stroke="#CD1A1A" strokeWidth="3" />
@@ -720,9 +720,9 @@ export default function Home() {
                             <div>
                                 <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 4 – Master Receiver 4</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
-                                    25,000 USDT = 182,250 USDT..</p>
+                                    25,000 USDT = 202,500 USDT..</p>
                             </div>
-                            <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 182,250 USDT</p>
+                            <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 202,500 USDT</p>
                         </div>
                     </div>
                 </div>
@@ -736,7 +736,7 @@ export default function Home() {
                             />
                         </i>
                     </div>
-                    <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="font-bold">TOTAL NET AVAILABLE </span>(if completing all levels): <span className="font-bold">201,875 USDT </span>(1,025 + 3,100 + 15,500 + 182,250)</p>
+                    <p className="font-medium text-sm sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[100%] text-black "><span className="font-bold">TOTAL NET AVAILABLE </span>(if completing all levels): <span className="font-bold">222,125 USDT </span>(1,025 + 3,100 + 15,500 + 202,500)</p>
                 </div>
             </section>
             <section className="py-[40px] px-[15px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[60px] about-section-wrapper relative">

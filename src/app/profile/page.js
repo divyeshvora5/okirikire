@@ -137,17 +137,19 @@ export default function Profile() {
                                     {/**Notification */}
                                     <AlertDialog open={sAlert} onOpenChange={setShowAlert} className="okiri-modal-wrapper">
                                         <AlertDialogContent onClick={handleClickOutside} ref={modelRef} className="okiri-modal-content-div congrats-modal-content-wrapper">
-                                        <AlertDialogHeader className="okiri-modal-header-div okiri-modal-without-border-div">
-                                            <AlertDialogCancel className="close-modal-btn congrats-close-modal-wrapper">
-                                                <img
-                                                    src="/images/close-icon.svg"
-                                                    alt="Okirikiri Logo"
-                                                    className="w-full h-full object-contain object-center"
-                                                />
-                                            </AlertDialogCancel>
-                                        </AlertDialogHeader>
+                                            <AlertDialogHeader className="okiri-modal-header-div okiri-modal-without-border-div">
+                                                <AlertDialogCancel className="close-modal-btn congrats-close-modal-wrapper">
+                                                    <img
+                                                        src="/images/close-icon.svg"
+                                                        alt="Okirikiri Logo"
+                                                        className="w-full h-full object-contain object-center"
+                                                    />
+                                                </AlertDialogCancel>
+                                            </AlertDialogHeader>
                                             <div className="px-5 pt-10 pb-5 m-auto">
-                                                <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl mb-[30px] text-center font-bold text-black">🎉 CONGRATULATIONS! You've completed this level!</h3>
+                                                <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl mb-[30px] text-center font-bold text-black">🎉 CONGRATULATIONS!</h3>
+                                                <hr/>
+                                                <h4 className="text-sm md:text-base lg:text-lg xl:text-xl mb-[30px] text-center font-semibold text-black p-2">You've completed this level!</h4>
                                                 <h4 className="text-sm md:text-base lg:text-lg xl:text-xl mb-[30px] text-center font-semibold text-black">⚠️ ACTION REQUIRED!</h4>
                                                 <h5 className="text-sm md:text-base lg:text-lg xl:text-xl text-center font-semibold text-black">💰 Decide whether to withdraw your funds or move on to the next level as soon as possible!</h5>
                                             </div>
