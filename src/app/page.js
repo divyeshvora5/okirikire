@@ -720,7 +720,7 @@ export default function Home() {
                             <div>
                                 <h3 className="font-bold text-[22px] sm:text-[26px] md:text-[28px] lg:text-[30px] xl:text-[32px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] uppercase text-black text-center mb-[30px]">Level 4 – Master Receiver 4</h3>
                                 <p className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[22px] sm:leading-[26px] md:leading-[30px] lg:leading-[34px] xl:leading-[38px] text-center text-black mb-[15px]">You receive 90% of 9 donations of
-                                    25,000 USDT = 202,500 USDT..</p>
+                                    25,000 USDT = 202,500 USDT.</p>
                             </div>
                             <p className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[26px] leading-[28px] sm:leading-[32px] md:leading-[36px] lg:leading-[40px] xl:leading-[44px] text-center text-black uppercase">Net available: 202,500 USDT</p>
                         </div>
